@@ -6,9 +6,9 @@
 <!-- ══ SEO / DISCOVERABILITY ══════════════════════════════════════════ -->
 
 <!-- Primary Meta -->
-<title>BEAT Framework — Commercial Technology Decision System for Pharma</title>
-<meta name="description" content="BEAT Framework: A Commercial transformation Decision System for Pharma — Digital transformation, AI readiness, patient services optimization, and agentic workflows. Built in pharma.">
-<meta name="keywords" content="commercial transformation framework, AI in pharma transformation, CRM transformation strategy, patient services optimization, decision system framework, healthcare digital transformation, pharma AI strategy, omnichannel pharma, next best action, MDM pharma, commercial technology sequencing, technology strategy, BEAT">
+<title>BEAT Framework — Commercial Tech Decision System for Pharma</title>
+<meta name="description" content="BEAT Framework: a commercial transformation decision system for pharma — CRM transformation, AI readiness, patient services optimization, and agentic workflows. Built in pharma.">
+<meta name="keywords" content="commercial transformation framework, AI in pharma transformation, CRM transformation strategy, patient services optimization, decision system framework, healthcare digital transformation, pharma AI strategy, omnichannel pharma, next best action, MDM pharma, commercial technology sequencing">
 <meta name="author" content="Saurav Gupta">
 <meta name="robots" content="index, follow">
 <link rel="canonical" href="https://beatframework.ai/">
@@ -2109,6 +2109,947 @@ a.cite-link:hover { color: var(--B); border-color: var(--B); }
 .uc2-hd {
   grid-template-columns: 80px 1fr !important;
 }
+
+/* ══ LAYOUT FIXES ══════════════════════════════════════════════ */
+
+/* Fix 1: UC section top padding — match other sections (was 52px override) */
+#usecases > .wrap {
+  padding-top: 80px !important;
+}
+
+/* Fix 2: References section — reduce bottom padding to close the gap */
+#references .wrap,
+#references > .wrap {
+  padding-bottom: 48px !important;
+}
+
+/* Fix 3: Footer disclaimer — prevent ragged wrap */
+footer .ft-d,
+footer [style*="text-align:right"] {
+  max-width: 360px !important;
+  text-align: right !important;
+  line-height: 1.55 !important;
+}
+
+/* ── Reduce references section bottom padding ── */
+#references {
+  padding-bottom: 32px !important;
+}
+section#references {
+  padding-bottom: 32px !important;
+}
+
+/* ── Footer disclaimer: 1 line on desktop ── */
+footer [style*="max-width:500px"] {
+  max-width: 600px !important;
+  font-size: 10.5px !important;
+  white-space: nowrap !important;
+}
+
+/* ── Result box text — readable on dark background ── */
+.uc2-result-box {
+  background: #0F172A !important;
+  padding: 22px 26px 24px !important;
+  border-radius: 0 0 12px 12px !important;
+}
+.uc2-result-lbl {
+  color: rgba(255,255,255,.45) !important;
+  font-size: 9px !important;
+  letter-spacing: .2em !important;
+  margin-bottom: 14px !important;
+}
+.uc2-metrics {
+  gap: 0 !important;
+  margin-bottom: 16px !important;
+  padding-bottom: 16px !important;
+  border-bottom: 1px solid rgba(255,255,255,.1) !important;
+}
+.uc2-met-cell {
+  padding: 12px 10px !important;
+}
+.uc2-met-n {
+  font-size: 30px !important;
+  font-weight: 800 !important;
+  line-height: 1 !important;
+  margin-bottom: 5px !important;
+}
+.uc2-met-l {
+  font-size: 11px !important;
+  color: rgba(255,255,255,.65) !important;
+  font-weight: 600 !important;
+  letter-spacing: .03em !important;
+  line-height: 1.4 !important;
+}
+.uc2-met-s {
+  font-size: 10px !important;
+  color: rgba(255,255,255,.4) !important;
+}
+.uc2-result-txt {
+  font-size: 14px !important;
+  color: rgba(255,255,255,.82) !important;
+  line-height: 1.72 !important;
+  font-weight: 400 !important;
+}
+.uc2-result-txt a.cite-link {
+  color: rgba(255,255,255,.55) !important;
+  border-bottom-color: rgba(255,255,255,.3) !important;
+}
+.uc2-result-txt a.cite-link:hover {
+  color: rgba(255,255,255,.85) !important;
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   MOBILE OPTIMIZATION LAYER  —  beat-framework-CLEAN-v1 → mobile-v1
+   Breakpoints: 768px (tablet), 480px (phone), 380px (small phone)
+   Principle: additive overrides only — no content removed
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+/* ── 0. Hard overflow fix — no horizontal scroll on any device ── */
+html, body {
+  max-width: 100vw !important;
+  overflow-x: hidden !important;
+}
+* { box-sizing: border-box !important; }
+
+/* ── 0b. Body bottom padding so sticky footer bar doesn't overlap content ── */
+body { padding-bottom: 44px; }
+
+/* ════ TABLET (≤ 900px) ════════════════════════════════════════════════════ */
+@media (max-width: 900px) {
+  .wrap { padding-left: 28px !important; padding-right: 28px !important; }
+
+  /* Hero split → stacked */
+  .hero-inner {
+    grid-template-columns: 1fr !important;
+  }
+  .hero-right { display: none !important; } /* stats visible on left still */
+  .hero-left  { padding: 88px 28px 56px !important; border-right: none !important; }
+  .hero-stats {
+    grid-template-columns: 1fr 1fr !important;
+    max-width: 100% !important;
+    margin-top: 28px !important;
+  }
+
+  /* Decision tool 2-col → stacked */
+  .tool-wrap,
+  #tool .wrap > div[style*="grid-template-columns:1fr 1fr"] {
+    grid-template-columns: 1fr !important;
+    gap: 24px !important;
+  }
+}
+
+/* ════ PHONE (≤ 768px) ═════════════════════════════════════════════════════ */
+@media (max-width: 768px) {
+
+  /* ── Nav ── */
+  #nav { padding: 0 16px !important; height: 52px !important; }
+  .nav-links { display: none !important; }
+  .nav-cta-btn {
+    font-size: 9px !important;
+    padding: 5px 10px !important;
+  }
+
+  /* ── Wrap ── */
+  .wrap { padding-left: 20px !important; padding-right: 20px !important; }
+
+  /* ── Hero ── */
+  #hero { padding: 0 !important; }
+  .hero-left {
+    padding: 72px 20px 48px !important;
+    min-height: unset !important;
+  }
+  .hero-badge { font-size: 9px !important; padding: 5px 12px !important; margin-bottom: 18px !important; }
+  .hero-title { font-size: clamp(36px,10vw,52px) !important; margin-bottom: 14px !important; }
+  .hero-tagline { font-size: 9px !important; white-space: normal !important; }
+  .hero-sub { font-size: 15px !important; margin-bottom: 24px !important; }
+
+  /* Buttons full-width stacked */
+  .hero-ctас {
+    flex-direction: column !important;
+    gap: 10px !important;
+    width: 100% !important;
+  }
+  .btn-primary, .btn-ghost {
+    width: 100% !important;
+    min-height: 48px !important;
+    justify-content: center !important;
+    font-size: 11px !important;
+    padding: 14px 20px !important;
+  }
+  .hero-author { margin-top: 20px !important; }
+
+  /* ── Section headings ── */
+  .disp, .prob-h, .fw-h, .pri-h, .cust-h, .uc-h, .ai-h, .tool-h, .howto-h {
+    font-size: clamp(28px,7vw,40px) !important;
+  }
+  .lede { font-size: 15px !important; }
+
+  /* ── Section spacing ── */
+  #problem, #framework, #prioritize, #customers, #usecases,
+  #aiscale, #howto, #cta, #beyond, #references {
+    padding: 60px 0 !important;
+  }
+  #usecases > .wrap { padding-top: 60px !important; }
+
+  /* ── Problem ── */
+  .prob-grid { grid-template-columns: 1fr !important; gap: 28px !important; }
+
+  /* ── Framework pyramid ── */
+  .pyr-wrap { max-width: 100% !important; }
+  .pyr-bar  { height: 46px !important; font-size: 9px !important; }
+  .tier-grid { grid-template-columns: 1fr !important; }
+
+  /* ── BvA ── */
+  .bva-upgrade-wrap { grid-template-columns: 1fr !important; }
+  .bva-side { padding: 40px 20px !important; }
+  .bva-side-bad { border-right: none !important; border-bottom: 1px solid rgba(255,255,255,.1) !important; }
+
+  /* ── Prioritize ── */
+  .pri-grid { grid-template-columns: 1fr !important; gap: 24px !important; }
+
+  /* ── Customers ── */
+  .persona-grid { grid-template-columns: 1fr !important; }
+
+  /* ── Use Cases context strip ── */
+  #usecases > .wrap > div[style*="repeat(3,1fr)"] {
+    grid-template-columns: 1fr !important;
+    gap: 8px !important;
+  }
+
+  /* ── Use Case cards ── */
+  .uc2-hd {
+    grid-template-columns: 52px 1fr !important;
+    padding: 16px 18px !important;
+  }
+  .uc2-exec { display: none !important; }
+  .uc2-steps {
+    flex-direction: column !important;
+    gap: 10px !important;
+    padding: 0 16px 16px !important;
+  }
+  .uc2-step { min-width: auto !important; max-width: 100% !important; }
+  .uc2-arrow { transform: rotate(90deg) !important; align-self: center !important; }
+  .uc2-bottom { grid-template-columns: 1fr !important; }
+  .uc2-metrics { grid-template-columns: 1fr 1fr 1fr !important; }
+  .uc2-result-box { border-radius: 0 0 12px 12px !important; }
+
+  /* ── AI at Scale ── */
+  .aig-head { display: none !important; }
+  .aig-row  { grid-template-columns: 1fr !important; }
+  .ai-hor   { grid-template-columns: 1fr 1fr !important; }
+
+  /* ── Decision Tool ── */
+  #tool .wrap > div[style*="grid-template-columns:1fr 1fr"] {
+    grid-template-columns: 1fr !important;
+    gap: 20px !important;
+  }
+  /* Make button full width */
+  #tool button[onclick*="calcScore"] {
+    width: 100% !important;
+    min-height: 48px !important;
+  }
+
+  /* ── HowTo ── */
+  .howto-grid { grid-template-columns: 1fr !important; gap: 28px !important; }
+
+  /* ── CTA section ── */
+  #cta { padding: 56px 20px !important; }
+  .cta-btns { flex-direction: column !important; align-items: stretch !important; gap: 10px !important; }
+  .btn-w, .btn-ow {
+    width: 100% !important;
+    min-height: 48px !important;
+    text-align: center !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+  }
+
+  /* ── Beyond Pharma ── */
+  #beyond .wrap { padding-left: 20px !important; padding-right: 20px !important; }
+
+  /* ── References ── */
+  .ref-grid { grid-template-columns: 1fr !important; }
+
+  /* ── Sticky footer bar ── */
+  footer {
+    padding: 0 14px !important;
+    height: 44px !important;
+    overflow: hidden !important;
+  }
+  footer nav { display: none !important; } /* collapse nav on mobile */
+  footer > div:last-child { display: none !important; } /* hide disclaimer */
+  /* Show only brand + one CTA button on mobile */
+  .ft-mobile-cta {
+    display: inline-flex !important;
+  }
+}
+
+/* ════ SMALL PHONE (≤ 480px) ═══════════════════════════════════════════════ */
+@media (max-width: 480px) {
+  .hero-title { font-size: clamp(32px,9vw,46px) !important; }
+  .hero-stats { grid-template-columns: 1fr 1fr !important; }
+  .hs-n       { font-size: 28px !important; }
+  .hs-l       { font-size: 11px !important; }
+  .tier-grid  { grid-template-columns: 1fr !important; }
+  .mat-2x2    { grid-template-columns: 1fr 1fr !important; }
+  .ai-hor     { grid-template-columns: 1fr !important; }
+  .uc2-metrics{ grid-template-columns: 1fr 1fr !important; }
+  .pyr-side   { font-size: 12px !important; min-width: 120px !important; }
+}
+
+/* ── Mobile-only sticky CTA (bottom bar, shows on ≤768) ── */
+#mobile-sticky-cta {
+  display: none;
+}
+@media (max-width: 768px) {
+  #mobile-sticky-cta {
+    display: flex !important;
+    position: fixed;
+    bottom: 44px; /* sit above the slim footer bar */
+    left: 0; right: 0;
+    z-index: 290;
+    background: var(--B);
+    padding: 10px 20px;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    box-shadow: 0 -4px 20px rgba(0,0,0,.3);
+    border-top: 1px solid rgba(255,255,255,.15);
+    transition: transform .3s ease;
+  }
+  #mobile-sticky-cta.hidden {
+    transform: translateY(100%);
+  }
+  #mobile-sticky-cta .msc-label {
+    font-family: var(--mono);
+    font-size: 9px;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,.7);
+    line-height: 1.4;
+  }
+  #mobile-sticky-cta .msc-btn {
+    background: white;
+    color: var(--B);
+    border: none;
+    padding: 10px 18px;
+    border-radius: 6px;
+    font-family: var(--mono);
+    font-size: 10px;
+    font-weight: 800;
+    letter-spacing: .08em;
+    text-transform: uppercase;
+    cursor: pointer;
+    white-space: nowrap;
+    min-height: 40px;
+    flex-shrink: 0;
+  }
+}
+
+/* ── Active tap states for all interactive elements ── */
+@media (hover: none) {
+  .pyr-tier:active .pyr-bar      { filter: brightness(1.15); transform: scaleX(1.01); }
+  .tier-card:active              { background: #F1F5F9 !important; }
+  .uc2-card:active               { box-shadow: 0 8px 32px rgba(0,0,0,.12) !important; }
+  .uc2-step:active               { box-shadow: 0 4px 16px rgba(0,0,0,.15) !important; }
+  .persona:active                { box-shadow: 0 6px 24px rgba(0,0,0,.12) !important; }
+  button:active, .btn-primary:active, .btn-w:active { opacity: .85; transform: scale(.98); }
+  a[onclick]:active              { opacity: .7; }
+}
+
+/* ═══════════════════════════════════════════════════════
+   MOBILE FIX LAYER v2  —  targeted fixes for all issues
+   ═══════════════════════════════════════════════════════ */
+
+/* ── 0. Base: prevent any overflow source ── */
+html { overflow-x: hidden !important; }
+body { overflow-x: hidden !important; max-width: 100% !important; }
+img, svg, video, canvas { max-width: 100% !important; }
+
+/* ── 0b. Force reveal elements visible on mobile (no IO needed) ── */
+@media (max-width: 768px) {
+  .reveal {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+}
+
+/* ════ HAMBURGER NAV ════════════════════════════════════ */
+#nav-hamburger {
+  display: none;
+  flex-direction: column;
+  gap: 4px;
+  cursor: pointer;
+  padding: 8px;
+  border: none;
+  background: transparent;
+  flex-shrink: 0;
+}
+#nav-hamburger span {
+  display: block;
+  width: 20px;
+  height: 2px;
+  background: rgba(255,255,255,.8);
+  border-radius: 2px;
+  transition: all .2s;
+}
+#nav-mobile-menu {
+  display: none;
+  position: fixed;
+  top: 52px;
+  left: 0; right: 0;
+  background: rgba(8,13,26,.98);
+  backdrop-filter: blur(20px);
+  z-index: 190;
+  padding: 16px 0;
+  border-bottom: 1px solid rgba(255,255,255,.1);
+  flex-direction: column;
+  gap: 0;
+}
+#nav-mobile-menu.open { display: flex !important; }
+.nav-mobile-link {
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,.75);
+  padding: 13px 28px;
+  border-bottom: 1px solid rgba(255,255,255,.06);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  transition: background .15s;
+}
+.nav-mobile-link:hover, .nav-mobile-link:active {
+  background: rgba(255,255,255,.08);
+  color: white;
+}
+.nav-mobile-link::after { content: '→'; opacity: .4; }
+
+@media (max-width: 768px) {
+  #nav-hamburger { display: flex !important; }
+  .nav-links { display: none !important; }
+  .nav-cta-btn { display: none !important; }
+  #nav { justify-content: space-between !important; }
+  .nav-logo-text { display: none !important; } /* show only BEAT tiles on mobile */
+}
+
+/* ════ HERO STATS: 2-col stack, constrained width ═══════ */
+@media (max-width: 768px) {
+  .hero-stats {
+    grid-template-columns: 1fr 1fr !important;
+    max-width: 100% !important;
+    width: 100% !important;
+    margin-top: 20px !important;
+    gap: 1px !important;
+  }
+  .hero-stat { padding: 16px 14px !important; }
+  .hs-n { font-size: 26px !important; }
+  .hs-l { font-size: 11px !important; }
+}
+
+/* ════ OVERVIEW: collapse grids ════════════════════════= */
+@media (max-width: 768px) {
+  /* Value bar: vertical stack */
+  #overview > div:first-child > div {
+    flex-direction: column !important;
+    gap: 10px !important;
+    align-items: flex-start !important;
+    text-align: left !important;
+  }
+  #overview > div:first-child { padding: 16px 20px !important; }
+
+  /* 3-col and 4-col insight/card grids → 1-col */
+  #overview [style*="grid-template-columns:repeat(3"],
+  #overview [style*="grid-template-columns:repeat(4"] {
+    grid-template-columns: 1fr !important;
+    gap: 12px !important;
+  }
+  /* Section padding */
+  #overview > div:not(:first-child) {
+    padding-left: 20px !important;
+    padding-right: 20px !important;
+    padding-top: 40px !important;
+    padding-bottom: 40px !important;
+  }
+}
+
+/* ════ PROBLEM: text visible, proper sizing ═════════════ */
+@media (max-width: 768px) {
+  #problem { padding: 52px 0 !important; }
+  #problem .wrap { padding: 0 20px !important; }
+  .prob-grid {
+    grid-template-columns: 1fr !important;
+    gap: 24px !important;
+    margin-top: 24px !important;
+  }
+  .prob-h { margin-bottom: 16px !important; }
+  .pull-q { margin: 16px 0 !important; }
+  .fail-cards { gap: 8px !important; }
+  .fail-card { padding: 14px 16px !important; }
+  .insight-bar {
+    grid-template-columns: 1fr !important;
+    gap: 12px !important;
+    padding: 18px 16px !important;
+  }
+  .ib-icon { width: 32px !important; height: 32px !important; font-size: 15px !important; }
+}
+
+/* ════ FRAMEWORK: pyramid + tier cards ═════════════════= */
+@media (max-width: 768px) {
+  #framework { padding: 52px 0 !important; }
+  #framework .wrap { padding: 0 20px !important; }
+  .pyr-wrap { max-width: 100% !important; margin: 24px 0 32px !important; }
+  .pyr-tier { margin-bottom: 4px !important; }
+  .pyr-bar  { height: 44px !important; font-size: 8.5px !important; letter-spacing: .08em !important; }
+  .pyr-side { font-size: 12px !important; min-width: 100px !important; padding-left: 10px !important; }
+  .tier-grid { grid-template-columns: 1fr !important; border-radius: 8px !important; }
+  .tc-hd { padding: 16px 16px !important; }
+  .tc-name { font-size: 16px !important; }
+}
+
+/* ════ DECISION TOOL: full mobile layout ═══════════════= */
+@media (max-width: 768px) {
+  #tool { padding: 48px 0 60px !important; }
+  #tool .wrap { padding: 0 20px !important; }
+
+  /* Stack sliders + quadrant vertically */
+  #tool .wrap > div[style*="grid-template-columns:1fr 1fr"] {
+    grid-template-columns: 1fr !important;
+    gap: 20px !important;
+  }
+  /* Full-width result panel */
+  #tool-result-panel { margin: 0 !important; border-radius: 10px !important; }
+
+  /* Quadrant matrix: smaller cells */
+  #mq1, #mq2, #mq3, #mq4 {
+    padding: 10px 10px !important;
+  }
+  #mq1 div[style*="font-size:13px"],
+  #mq2 div[style*="font-size:13px"],
+  #mq3 div[style*="font-size:13px"],
+  #mq4 div[style*="font-size:13px"] {
+    font-size: 11px !important;
+    font-weight: 700 !important;
+  }
+
+  /* Result panel: single column */
+  #tool-result-panel > div:last-child {
+    grid-template-columns: 1fr !important;
+  }
+  /* Score circle */
+  #tr-score-circle { width: 52px !important; height: 52px !important; }
+  #tr-name { font-size: 18px !important; }
+
+  /* Sliders: larger tap targets */
+  .sc-slider { height: 8px !important; }
+  .sc-slider::-webkit-slider-thumb { width: 26px !important; height: 26px !important; }
+  .sc-name { font-size: 14px !important; }
+  .sc-row { margin-bottom: 18px !important; padding-bottom: 18px !important; }
+
+  /* CTA button full-width */
+  #tool button[onclick*="calcScore"] {
+    min-height: 52px !important;
+    font-size: 12px !important;
+  }
+
+  /* Mobile posture card: simplified outcome view */
+  .mob-posture-card {
+    display: block !important;
+    background: white;
+    border: 1.5px solid #E2E8F0;
+    border-radius: 12px;
+    padding: 20px;
+    margin-top: 16px;
+    box-shadow: 0 2px 12px rgba(0,0,0,.06);
+  }
+}
+
+/* ════ BVA: single column ═══════════════════════════════ */
+@media (max-width: 768px) {
+  .bva-upgrade-wrap {
+    grid-template-columns: 1fr !important;
+  }
+  .bva-side { padding: 36px 20px !important; }
+  .bva-side-bad {
+    border-right: none !important;
+    border-bottom: 1px solid rgba(255,255,255,.1) !important;
+  }
+  .bva-ctr-badge { padding: 20px 20px !important; }
+}
+
+/* ════ CUSTOMERS: single col ════════════════════════════ */
+@media (max-width: 768px) {
+  #customers { padding: 52px 0 !important; }
+  .persona-grid { grid-template-columns: 1fr !important; gap: 12px !important; }
+  .p-body { padding: 16px 16px !important; }
+}
+
+/* ════ USE CASES: mobile-first card layout ══════════════ */
+@media (max-width: 768px) {
+  #usecases { padding: 48px 0 !important; }
+  #usecases > .wrap { padding: 0 16px !important; padding-top: 48px !important; }
+  
+  /* Context strip: single column */
+  #usecases > .wrap > div[style*="repeat(3,1fr)"] {
+    grid-template-columns: 1fr !important;
+    gap: 8px !important;
+  }
+
+  /* Card header */
+  .uc2-hd {
+    grid-template-columns: 44px 1fr !important;
+    padding: 14px 16px !important;
+    gap: 12px !important;
+  }
+  .uc2-num { font-size: 44px !important; }
+  .uc2-title { font-size: 16px !important; }
+
+  /* Exec banner wraps */
+  .uc2-exec-banner, 
+  div[style*="Executive Takeaway"] {
+    flex-direction: column !important;
+    gap: 6px !important;
+    padding: 10px 16px !important;
+  }
+
+  /* BEAT steps: vertical */
+  .uc2-steps {
+    flex-direction: column !important;
+    padding: 0 14px 14px !important;
+    gap: 8px !important;
+  }
+  .uc2-step { min-width: auto !important; max-width: 100% !important; }
+  .uc2-arrow {
+    transform: rotate(90deg) !important;
+    align-self: center !important;
+    margin: 2px 0 !important;
+  }
+
+  /* Result box: metrics 3-col stays, just smaller */
+  .uc2-metrics { gap: 0 !important; }
+  .uc2-met-n { font-size: 22px !important; }
+  .uc2-met-l { font-size: 10px !important; }
+
+  /* Bottom split: stack */
+  .uc2-bottom { grid-template-columns: 1fr !important; }
+  .uc2-outcome { padding: 16px 16px !important; }
+}
+
+/* ════ AI AT SCALE: collapse grid ══════════════════════= */
+@media (max-width: 768px) {
+  #aiscale { padding: 52px 0 !important; }
+  .aig-head { display: none !important; }
+  .aig-row  { grid-template-columns: 1fr !important; }
+  .aig-rl   { writing-mode: horizontal-tb !important; transform: none !important; padding: 10px 16px !important; justify-content: flex-start !important; }
+  .aig-cell { border-right: none !important; border-bottom: 1px solid var(--rule) !important; }
+  .ai-hor   { grid-template-columns: 1fr 1fr !important; }
+}
+
+/* ════ HOWTO: stack ═════════════════════════════════════ */
+@media (max-width: 768px) {
+  #howto { padding: 52px 0 !important; }
+  .howto-grid { grid-template-columns: 1fr !important; gap: 24px !important; }
+  .gate { padding: 12px 14px !important; }
+}
+
+/* ════ CTA section ══════════════════════════════════════ */
+@media (max-width: 768px) {
+  #cta { padding: 52px 20px !important; }
+  .cta-h { font-size: clamp(22px,6vw,32px) !important; }
+  .cta-btns {
+    flex-direction: column !important;
+    align-items: stretch !important;
+    gap: 10px !important;
+    width: 100% !important;
+  }
+  .btn-w, .btn-ow {
+    width: 100% !important;
+    min-height: 52px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    text-align: center !important;
+  }
+}
+
+/* ════ REFERENCES ═══════════════════════════════════════ */
+@media (max-width: 768px) {
+  #references .wrap { padding: 0 16px !important; padding-top: 48px !important; padding-bottom: 40px !important; }
+  .ref-grid { grid-template-columns: 1fr !important; gap: 0 !important; }
+}
+
+/* ════ PRIORITIZE: score table ══════════════════════════ */
+@media (max-width: 768px) {
+  .pri-grid { grid-template-columns: 1fr !important; gap: 20px !important; }
+  .st-head  { display: none !important; }
+  .st-row   { grid-template-columns: 1fr auto !important; }
+  .mat-2x2  { grid-template-columns: 1fr 1fr !important; }
+}
+
+/* ════ BEYOND PHARMA ════════════════════════════════════ */
+@media (max-width: 768px) {
+  #beyond .wrap { padding: 0 20px !important; padding-top: 52px !important; padding-bottom: 52px !important; }
+  #beyond [style*="grid-template-columns:repeat(auto-fit"] {
+    grid-template-columns: 1fr !important;
+    gap: 12px !important;
+  }
+}
+
+/* ════ GENERAL SPACING ══════════════════════════════════ */
+@media (max-width: 768px) {
+  /* Section labels */
+  .sec-label { margin-bottom: 10px !important; }
+  /* Reduce disp heading */
+  .disp, h2.disp {
+    font-size: clamp(26px,7vw,36px) !important;
+    line-height: 1.15 !important;
+  }
+  .lede { font-size: 14px !important; line-height: 1.68 !important; }
+  /* Pill labels */
+  .pill span { font-size: .72em !important; padding: 2px 5px !important; }
+}
+
+/* ════ SMALL PHONE ══════════════════════════════════════ */
+@media (max-width: 380px) {
+  .hero-title { font-size: 30px !important; }
+  .hs-n { font-size: 22px !important; }
+  .btn-primary, .btn-ghost { font-size: 10px !important; padding: 12px 16px !important; }
+  .uc2-metrics { grid-template-columns: 1fr 1fr 1fr !important; }
+  .uc2-met-n   { font-size: 18px !important; }
+}
+
+/* ── BvA cite links wrap correctly ── */
+@media (max-width: 768px) {
+  .bva-item { flex-wrap: wrap !important; word-break: break-word !important; }
+  .cite-link { font-size: 9px !important; }
+  .bva-side { overflow: hidden !important; }
+}
+
+/* ── Mobile posture summary card ── */
+#mob-posture-summary {
+  display: none;
+  background: white;
+  border: 1.5px solid #E2E8F0;
+  border-radius: 14px;
+  overflow: hidden;
+  margin-top: 20px;
+  box-shadow: 0 4px 20px rgba(0,0,0,.08);
+}
+@media (max-width: 768px) {
+  #mob-posture-summary { display: block; }
+  #mob-posture-summary.hidden { display: none; }
+
+  /* On mobile, hide the complex quadrant map, show summary card instead */
+  #q-description { display: none !important; }
+  #tool-result-panel > div > div:nth-child(2),
+  #tool-result-panel > div > div:nth-child(3) {
+    display: none !important;
+  }
+  #tool-result-panel > div:first-child {
+    flex-wrap: wrap !important;
+    gap: 12px !important;
+  }
+}
+
+/* Posture card styles */
+.mob-posture-header {
+  padding: 16px 18px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.mob-posture-badge {
+  width: 48px; height: 48px;
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-family: var(--serif);
+  font-size: 20px; font-weight: 900;
+  color: white; flex-shrink: 0;
+}
+.mob-posture-title { font-family: var(--serif); font-size: 17px; font-weight: 700; color: #0F172A; line-height: 1.2; }
+.mob-posture-sub { font-family: var(--mono); font-size: 9px; letter-spacing: .1em; text-transform: uppercase; margin-top: 3px; }
+
+.mob-posture-score {
+  display: flex; gap: 0;
+  border-top: 1px solid #F1F5F9;
+  border-bottom: 1px solid #F1F5F9;
+}
+.mob-score-item {
+  flex: 1; padding: 12px 10px; text-align: center;
+  border-right: 1px solid #F1F5F9;
+}
+.mob-score-item:last-child { border-right: none; }
+.mob-score-n { font-family: var(--mono); font-size: 18px; font-weight: 800; color: #0F172A; line-height: 1; }
+.mob-score-l { font-size: 9px; color: #64748B; margin-top: 3px; letter-spacing: .03em; }
+
+.mob-posture-seq {
+  padding: 14px 18px;
+  display: flex; gap: 6px; align-items: center; flex-wrap: wrap;
+  border-bottom: 1px solid #F1F5F9;
+}
+.mob-seq-label { font-family: var(--mono); font-size: 8.5px; letter-spacing: .12em; text-transform: uppercase; color: #64748B; margin-right: 4px; }
+.mob-seq-pill {
+  font-family: var(--mono); font-size: 10px; font-weight: 700;
+  padding: 4px 10px; border-radius: 4px; color: white;
+}
+
+.mob-posture-actions {
+  padding: 14px 18px;
+  display: flex; flex-direction: column; gap: 7px;
+}
+.mob-action-item {
+  display: flex; gap: 8px; align-items: flex-start;
+  font-size: 13px; color: #0F172A; line-height: 1.55;
+  padding: 9px 12px;
+  background: #F8FAFC;
+  border-radius: 6px;
+  border-left: 3px solid #CBD5E1;
+}
+.mob-action-item::before { content: '→'; font-weight: 800; flex-shrink: 0; }
+
+.mob-posture-risk {
+  margin: 0 18px 16px;
+  padding: 11px 14px;
+  background: #FEF2F2;
+  border: 1px solid rgba(220,38,38,.2);
+  border-radius: 8px;
+  font-size: 13px; color: #7F1D1D; line-height: 1.6;
+}
+.mob-risk-lbl {
+  font-family: var(--mono); font-size: 8.5px; letter-spacing: .1em;
+  text-transform: uppercase; color: #DC2626; font-weight: 700;
+  margin-bottom: 5px;
+}
+
+/* ── Mobile: hide quadrant matrix on phone, keep sliders ── */
+@media (max-width: 768px) {
+  /* Hide the complex 2-col tool layout right panel */
+  #tool .wrap > div[style*="grid-template-columns:1fr 1fr"] > div:last-child {
+    display: none !important;
+  }
+  /* Show mobile summary card instead */
+  #mob-posture-summary { margin-top: 16px; }
+}
+
+/* ══ FINAL MOBILE POLISH ══════════════════════════════════════════════ */
+
+@media (max-width: 768px) {
+
+  /* ── Hero: remove min-height so it doesn't waste screen space ── */
+  #hero {
+    min-height: unset !important;
+  }
+  .hero-left {
+    min-height: unset !important;
+    padding-top: 72px !important;
+    padding-bottom: 40px !important;
+  }
+  .hero-scroll { display: none !important; }
+
+  /* ── BvA: fix citation overflow ── */
+  .bva-item {
+    word-break: break-word !important;
+    overflow-wrap: break-word !important;
+  }
+  .bva-item a.cite-link {
+    display: inline !important;
+    word-break: break-all !important;
+  }
+
+  /* ── Prioritize: score table readable ── */
+  .score-tbl { font-size: 13px !important; }
+  .st-row { padding: 2px 0 !important; }
+  .st-c { padding: 8px 12px !important; }
+  .st-v { padding: 8px 6px !important; font-size: 12px !important; }
+
+  /* ── Sbar outcomes ── */
+  .sbar { flex-direction: column !important; gap: 6px !important; padding: 12px !important; }
+  .sbar-b { height: 4px !important; width: 40px !important; }
+
+  /* ── Matrix 2x2 quadrants ── */
+  .mat-2x2 { grid-template-columns: 1fr 1fr !important; gap: 8px !important; }
+  .mc { padding: 12px !important; }
+  .mc-qn { font-size: 13px !important; }
+  .mc-qd { font-size: 11px !important; }
+
+  /* ── AI horizon strip ── */
+  .ai-hor { grid-template-columns: 1fr 1fr !important; }
+  .ah-c { padding: 14px 12px !important; }
+
+  /* ── Use case BEAT steps: tighter on mobile ── */
+  .uc2-step-body { font-size: 11px !important; }
+  .uc2-step-head { padding: 10px 12px 8px !important; }
+  .uc2-step-body-wrap { padding: 8px 12px 10px !important; }
+
+  /* ── Context strip: single col ── */
+  #usecases > .wrap > div[style*="grid-template-columns:repeat(3"] {
+    grid-template-columns: 1fr !important;
+    margin-bottom: 20px !important;
+  }
+
+  /* ── Use case card header: number smaller ── */
+  .uc2-num { font-size: 36px !important; min-width: 44px !important; }
+
+  /* ── Exec banner: stack ── */
+  div[style*="Executive Takeaway"][style*="display:flex"] {
+    flex-direction: column !important;
+    gap: 4px !important;
+    padding: 10px 16px !important;
+  }
+
+  /* ── Customers toggle buttons ── */
+  .p-tog-btn {
+    font-size: 10px !important;
+    padding: 9px 6px !important;
+  }
+
+  /* ── Beyond Pharma grids: 1-col ── */
+  #beyond [style*="repeat(auto-fit"] {
+    grid-template-columns: 1fr !important;
+  }
+  #beyond [style*="repeat(4"] {
+    grid-template-columns: 1fr 1fr !important;
+  }
+
+  /* ── References: single col ── */
+  #references [style*="grid-template-columns:1fr 1fr"] {
+    grid-template-columns: 1fr !important;
+  }
+
+  /* ── Gate cards: tighter ── */
+  .gate { padding: 12px 14px !important; gap: 10px !important; }
+  .gate-n { width: 22px !important; height: 22px !important; font-size: 9px !important; }
+  .gate-t { font-size: 14px !important; }
+  .gate-d { font-size: 13px !important; }
+
+  /* ── Mistake cards ── */
+  .mistake { padding: 12px 14px !important; }
+  .mistake-txt { font-size: 13px !important; }
+
+  /* ── Sticky mobile CTA: above slim footer ── */
+  #mobile-sticky-cta { bottom: 44px !important; }
+
+  /* ── Remove weird double-footer gap ── */
+  body { padding-bottom: 88px !important; }
+
+  /* ── Tool description text: smaller ── */
+  #tool p[style*="font-size:17px"] {
+    font-size: 14px !important;
+    margin-bottom: 24px !important;
+  }
+}
+
+@media (max-width: 480px) {
+  /* Even tighter on small phones */
+  .hero-title { font-size: clamp(30px, 9vw, 42px) !important; }
+  .disp, h2.disp { font-size: clamp(24px, 7.5vw, 34px) !important; }
+  .bva-item { font-size: 14px !important; }
+  .gate-d { font-size: 12.5px !important; }
+  .uc2-num { font-size: 30px !important; }
+}
 </style>
 </head>
 <body>
@@ -2120,6 +3061,20 @@ a.cite-link:hover { color: var(--B); border-color: var(--B); }
     <span class="nav-pill">B·E·A·T</span>
     <span style="white-space:nowrap">The B·E·A·T Framework</span>
   </div>
+
+<!-- Mobile navigation drawer -->
+<div id="nav-mobile-menu" role="navigation" aria-label="Mobile navigation">
+  <div class="nav-mobile-link" onclick="navTo('overview');closeMobileMenu()">Overview</div>
+  <div class="nav-mobile-link" onclick="navTo('problem');closeMobileMenu()">The Problem</div>
+  <div class="nav-mobile-link" onclick="navTo('framework');closeMobileMenu()">Framework</div>
+  <div class="nav-mobile-link" onclick="navTo('prioritize');closeMobileMenu()">Prioritize</div>
+  <div class="nav-mobile-link" onclick="navTo('customers');closeMobileMenu()">Customers</div>
+  <div class="nav-mobile-link" onclick="navTo('usecases');closeMobileMenu()">Use Cases</div>
+  <div class="nav-mobile-link" onclick="navTo('aiscale');closeMobileMenu()">AI at Scale</div>
+  <div class="nav-mobile-link" onclick="navTo('tool');closeMobileMenu()" style="color:var(--A);border-bottom:1px solid rgba(255,255,255,.12)">&#9654; Decision Tool</div>
+  <div onclick="navTo('tool');closeMobileMenu()" style="margin:14px 20px 6px;padding:14px;background:var(--B);border-radius:8px;font-family:var(--mono);font-size:11px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:white;text-align:center;cursor:pointer">Apply B&middot;E&middot;A&middot;T →</div>
+</div>
+
   <div class="nav-links">
     <button class="nav-btn" onclick="navTo('overview')">Overview</button><button class="nav-btn" onclick="navTo('problem')">The Problem</button>
     <button class="nav-btn" onclick="navTo('framework')">Framework</button>
@@ -2131,6 +3086,10 @@ a.cite-link:hover { color: var(--B); border-color: var(--B); }
   </div>
   <button class="nav-btn" onclick="navTo('tool')">Decision Tool</button>
     <button class="nav-cta-btn" onclick="navTo('tool')">Apply B·E·A·T &#8594;</button>
+    <!-- Hamburger for mobile -->
+    <button id="nav-hamburger" aria-label="Open navigation menu" onclick="toggleMobileMenu()">
+      <span></span><span></span><span></span>
+    </button>
 </nav>
 
 <!-- ════ HERO ════ -->
@@ -2925,25 +3884,7 @@ a.cite-link:hover { color: var(--B); border-color: var(--B); }
   </div>
 </section>
 
-<!-- ════ AI AT SCALE ════ -->
- B&middot;E&middot;A were earned first. Every tier below this one was load-bearing. The 11% of companies that reach scaled AI value share this pattern: they built the foundation before deploying the intelligence. EY confirms that PA automation at scale requires end-to-end integration and a digital operating model — not just technology. [Ref. <a href="#ref-15" class="cite-link">15</a>, <a href="#ref-18" class="cite-link">18</a>, <a href="#ref-25" class="cite-link">25</a>, <a href="#ref-32" class="cite-link">32</a>]</div>
-      </div>
-      </div>
-  </div>
 
-
-  </div>
-</section>
-
-<!-- ════ AI AT SCALE ════ -->
-nk">32</a>]</div>
-      </div>
-      </div>
-  </div>
-
-
-  </div>
-</section>
 
 <!-- ════ AI AT SCALE ════ -->
 <section id="aiscale" aria-label="Enabling B·E·A·T for AI-First Delivery at Scale">
@@ -3022,6 +3963,7 @@ nk">32</a>]</div>
   <div class="wrap">
     <div class="sec-label" style="color:#64748B">Interactive Decision Tool</div>
     <h2 class="disp" style="color:#0F172A;margin-bottom:10px">Score your organization.<br><em style="color:#475569;font-style:italic">See your B&middot;E&middot;A&middot;T posture instantly.</em></h2>
+    <p style="font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--A);font-weight:700;margin-bottom:8px;display:flex;align-items:center;gap:8px"><span style="display:inline-block;width:8px;height:8px;border-radius:50%;background:var(--A)"></span>Get your B&middot;E&middot;A&middot;T posture in 2 minutes</p>
     <p style="font-size:17px;color:#334155;line-height:1.7;max-width:680px;margin-bottom:44px">Drag each slider to score 1–3. Your total maps to one of four investment quadrants — with specific sequence, watchouts, and AI readiness guidance.</p>
 
     <!-- TOP ROW: Sliders (left) + Quadrant Map (right) -->
@@ -3054,6 +3996,31 @@ nk">32</a>]</div>
         <button onclick="calcScore(true)" style="width:100%;margin-top:22px;padding:14px;background:var(--B);color:white;border:none;border-radius:8px;font-family:var(--mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;cursor:pointer;font-weight:700;transition:all .2s;display:flex;align-items:center;justify-content:center;gap:8px" onmouseover="this.style.background='#C2410C';this.style.transform='translateY(-1px)'" onmouseout="this.style.background='var(--B)';this.style.transform='none'">
           <span>Get My B&middot;E&middot;A&middot;T Posture</span><span>&rarr;</span>
         </button>
+
+        <!-- ── Mobile posture summary card (hidden on desktop) ── -->
+        <div id="mob-posture-summary" class="hidden">
+          <div class="mob-posture-header">
+            <div class="mob-posture-badge" id="mob-badge" style="background:var(--B)">Q</div>
+            <div>
+              <div class="mob-posture-title" id="mob-title">Move sliders to see your posture</div>
+              <div class="mob-posture-sub" id="mob-sub" style="color:var(--B)">Adjust all 7 sliders above</div>
+            </div>
+          </div>
+          <div class="mob-posture-score">
+            <div class="mob-score-item"><div class="mob-score-n" id="mob-total">—</div><div class="mob-score-l">Total /18</div></div>
+            <div class="mob-score-item"><div class="mob-score-n" id="mob-urgency">—</div><div class="mob-score-l">Urgency</div></div>
+            <div class="mob-score-item"><div class="mob-score-n" id="mob-maturity">—</div><div class="mob-score-l">Maturity</div></div>
+          </div>
+          <div class="mob-posture-seq" id="mob-seq" style="display:none">
+            <span class="mob-seq-label">Sequence:</span>
+          </div>
+          <div class="mob-posture-actions" id="mob-actions" style="display:none"></div>
+          <div class="mob-posture-risk" id="mob-risk" style="display:none">
+            <div class="mob-risk-lbl">⚠ Primary Risk</div>
+            <div id="mob-risk-txt"></div>
+          </div>
+        </div>
+
       </div>
 
       <!-- RIGHT: Quadrant Map -->
@@ -3222,7 +4189,7 @@ nk">32</a>]</div>
 <section id="cta" style="background:var(--B);padding:72px 40px;text-align:center">
   <div class="wrap" style="max-width:700px;margin:0 auto">
     <div style="font-family:var(--mono);font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:rgba(255,255,255,.8);margin-bottom:16px">Apply B&middot;E&middot;A&middot;T to Your Organization</div>
-    <h2 style="font-family:var(--serif);font-size:clamp(24px,3.5vw,42px);font-weight:800;color:white;line-height:1.35;margin-bottom:14px">The sequence is structural.<br><em style="font-style:italic;font-weight:600;opacity:.85">Every tier carries the weight of what sits above it.</em></h2>
+    <h2 style="font-family:var(--serif);font-size:clamp(24px,3.5vw,42px);font-weight:800;color:white;line-height:1.35;margin-bottom:14px">Apply B&middot;E&middot;A&middot;T — know exactly what to build next.<br><em style="font-style:italic;font-weight:600;opacity:.85">Align strategy, data, and execution in one decision system.</em></h2>
     <p style="font-size:17px;color:rgba(255,255,255,.82);line-height:1.7;margin-bottom:32px;max-width:560px;margin-left:auto;margin-right:auto">Use the Decision Tool above to find your quadrant. Start with your gates. Build the tier you are actually in &mdash; not the one you wish you were in.</p>
     <div style="display:flex;gap:14px;justify-content:center;flex-wrap:wrap">
       <button onclick="navTo('tool')" style="padding:15px 32px;background:white;color:var(--B);border:none;border-radius:7px;font-family:var(--mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;font-weight:700;cursor:pointer;transition:all .2s" onmouseover="this.style.transform='translateY(-2px)'" onmouseout="this.style.transform='none'">Score My Organization &rarr;</button>
@@ -3346,7 +4313,7 @@ nk">32</a>]</div>
     </div>
   </section>
 
-  <section id="references" aria-label="Research References and Citations" style="background:#F8FAFC;padding:64px 0 72px">
+  <section id="references" aria-label="Research References and Citations" style="background:#F8FAFC;padding:64px 0 32px">
   <div class="wrap">
     <div style="font-family:var(--mono);font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:#64748B;font-weight:600;margin-bottom:8px">Citations &amp; Sources</div>
     <h2 style="font-family:var(--serif);font-size:clamp(28px,3vw,40px);font-weight:800;color:#0F172A;margin-bottom:10px">34 Verified References</h2>
@@ -3672,19 +4639,42 @@ nk">32</a>]</div>
   </div>
 </section>
 
-<footer style="position:sticky;bottom:0;z-index:100;background:#0F172A;border-top:1px solid rgba(255,255,255,.08)">
-  <!-- Main footer row -->
-  <div style="display:flex;justify-content:space-between;align-items:center;padding:14px 40px;flex-wrap:wrap;gap:12px">
-    <div style="font-family:var(--mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.5)">The B&middot;E&middot;A&middot;T Framework &middot; Saurav Gupta &middot; 2026</div>
-    <div style="display:flex;gap:20px;align-items:center">
-      <a href="#" onclick="navTo('hero');return false" style="font-family:var(--mono);font-size:9.5px;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.35);text-decoration:none;transition:color .15s" onmouseover="this.style.color='rgba(255,255,255,.7)'" onmouseout="this.style.color='rgba(255,255,255,.35)'">Top</a>
-      <a href="#" onclick="navTo('framework');return false" style="font-family:var(--mono);font-size:9.5px;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.35);text-decoration:none;transition:color .15s" onmouseover="this.style.color='rgba(255,255,255,.7)'" onmouseout="this.style.color='rgba(255,255,255,.35)'">Framework</a>
-      <a href="#" onclick="navTo('tool');return false" style="font-family:var(--mono);font-size:9.5px;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.35);text-decoration:none;transition:color .15s" onmouseover="this.style.color='rgba(255,255,255,.7)'" onmouseout="this.style.color='rgba(255,255,255,.35)'">Decision Tool</a>
-      <a href="#" onclick="navTo('references');return false" style="font-family:var(--mono);font-size:9.5px;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.35);text-decoration:none;transition:color .15s" onmouseover="this.style.color='rgba(255,255,255,.7)'" onmouseout="this.style.color='rgba(255,255,255,.35)'">References</a>
+<footer style="position:fixed;bottom:0;left:0;right:0;z-index:300;height:44px;background:rgba(8,13,26,.96);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border-top:1px solid rgba(255,255,255,.1);display:flex;align-items:center;justify-content:space-between;padding:0 32px;gap:16px">
+
+  <!-- Left: BEAT tiles + brand -->
+  <div style="display:flex;align-items:center;gap:9px;flex-shrink:0">
+    <div style="display:flex;gap:2px">
+      <span style="display:inline-flex;align-items:center;justify-content:center;width:18px;height:18px;border-radius:3px;background:var(--B);font-family:var(--mono);font-size:9px;font-weight:800;color:white">B</span>
+      <span style="display:inline-flex;align-items:center;justify-content:center;width:18px;height:18px;border-radius:3px;background:var(--E);font-family:var(--mono);font-size:9px;font-weight:800;color:white">E</span>
+      <span style="display:inline-flex;align-items:center;justify-content:center;width:18px;height:18px;border-radius:3px;background:var(--A);font-family:var(--mono);font-size:9px;font-weight:800;color:white">A</span>
+      <span style="display:inline-flex;align-items:center;justify-content:center;width:18px;height:18px;border-radius:3px;background:var(--T);font-family:var(--mono);font-size:9px;font-weight:800;color:white">T</span>
     </div>
-    <div style="font-size:11px;color:rgba(255,255,255,.3);font-style:italic;max-width:420px;text-align:right;line-height:1.5">Personal views of Saurav Gupta &mdash; not representative of any employer or client. &copy; 2026</div>
+    <span style="font-family:var(--mono);font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.55)">B&middot;E&middot;A&middot;T Framework &nbsp;&middot;&nbsp; Saurav Gupta &nbsp;&middot;&nbsp; &copy; 2026</span>
   </div>
+
+  <!-- Centre: nav links -->
+  <nav style="display:flex;gap:2px">
+    <a href="#" onclick="navTo('overview');return false" style="display:inline-flex;align-items:center;gap:5px;padding:5px 10px;border-radius:4px;font-family:var(--mono);font-size:9px;letter-spacing:.07em;text-transform:uppercase;color:rgba(255,255,255,.45);text-decoration:none;transition:all .15s" onmouseover="this.style.background='rgba(255,255,255,.1)';this.style.color='white'" onmouseout="this.style.background='';this.style.color='rgba(255,255,255,.45)'"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>Overview</a>
+    <a href="#" onclick="navTo('framework');return false" style="display:inline-flex;align-items:center;gap:5px;padding:5px 10px;border-radius:4px;font-family:var(--mono);font-size:9px;letter-spacing:.07em;text-transform:uppercase;color:rgba(255,255,255,.45);text-decoration:none;transition:all .15s" onmouseover="this.style.background='rgba(255,255,255,.1)';this.style.color='white'" onmouseout="this.style.background='';this.style.color='rgba(255,255,255,.45)'"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>Framework</a>
+    <a href="#" onclick="navTo('usecases');return false" style="display:inline-flex;align-items:center;gap:5px;padding:5px 10px;border-radius:4px;font-family:var(--mono);font-size:9px;letter-spacing:.07em;text-transform:uppercase;color:rgba(255,255,255,.45);text-decoration:none;transition:all .15s" onmouseover="this.style.background='rgba(255,255,255,.1)';this.style.color='white'" onmouseout="this.style.background='';this.style.color='rgba(255,255,255,.45)'"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8m-4-4v4"/></svg>Use Cases</a>
+    <a href="#" onclick="navTo('tool');return false" style="display:inline-flex;align-items:center;gap:5px;padding:5px 10px;border-radius:4px;font-family:var(--mono);font-size:9px;letter-spacing:.07em;text-transform:uppercase;color:rgba(255,255,255,.45);text-decoration:none;transition:all .15s" onmouseover="this.style.background='rgba(255,255,255,.1)';this.style.color='white'" onmouseout="this.style.background='';this.style.color='rgba(255,255,255,.45)'"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><line x1="4" y1="21" x2="4" y2="14"/><line x1="4" y1="10" x2="4" y2="3"/><line x1="12" y1="21" x2="12" y2="12"/><line x1="12" y1="8" x2="12" y2="3"/><line x1="20" y1="21" x2="20" y2="16"/><line x1="20" y1="12" x2="20" y2="3"/><line x1="1" y1="14" x2="7" y2="14"/><line x1="9" y1="8" x2="15" y2="8"/><line x1="17" y1="16" x2="23" y2="16"/></svg>Decision Tool</a>
+    <a href="#" onclick="navTo('beyond');return false" style="display:inline-flex;align-items:center;gap:5px;padding:5px 10px;border-radius:4px;font-family:var(--mono);font-size:9px;letter-spacing:.07em;text-transform:uppercase;color:rgba(255,255,255,.45);text-decoration:none;transition:all .15s" onmouseover="this.style.background='rgba(255,255,255,.1)';this.style.color='white'" onmouseout="this.style.background='';this.style.color='rgba(255,255,255,.45)'"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>Beyond Pharma</a>
+    <a href="#" onclick="navTo('references');return false" style="display:inline-flex;align-items:center;gap:5px;padding:5px 10px;border-radius:4px;font-family:var(--mono);font-size:9px;letter-spacing:.07em;text-transform:uppercase;color:rgba(255,255,255,.45);text-decoration:none;transition:all .15s" onmouseover="this.style.background='rgba(255,255,255,.1)';this.style.color='white'" onmouseout="this.style.background='';this.style.color='rgba(255,255,255,.45)'"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>References</a>
+  </nav>
+
+  <!-- Right: disclaimer -->
+  <div style="font-family:var(--mono);font-size:9px;color:rgba(255,255,255,.3);white-space:nowrap;flex-shrink:0">
+    <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-1px;margin-right:4px"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+    Personal views of Saurav Gupta &nbsp;&middot;&nbsp; Not representative of any employer or client &nbsp;&middot;&nbsp; Non-commercial use with attribution permitted
+  </div>
+
 </footer>
+
+<!-- Spacer so content doesn't hide behind sticky footer -->
+<div style="height:44px"></div>
+
+
+
 
 <script>
 // ════ NAVIGATION ════════════════════════════════════
@@ -3922,6 +4912,10 @@ function calcScore(scrollResult) {
     +'<div style="font-size:13px;color:#14532D;line-height:1.6">'+aiTxt+'</div>'
     +'</div>';
 
+    // ── Mobile posture card ──
+  var finalQNum = (!highUrgency && highMaturity)?1:(highUrgency && highMaturity)?2:(!highUrgency && !highMaturity)?3:4;
+  updateMobilePostureCard(finalQNum, effectiveScore, urgency, maturity);
+
   if (scrollResult) {
     setTimeout(function(){ panel.scrollIntoView({behavior:'smooth',block:'start'}); }, 100);
   }
@@ -4033,12 +5027,252 @@ function toggleSkip(lbl) {
   }
   if (!body) return;
   var isOpen = body.classList.contains('open');
-  body.classList.toggle('open', !isOpen);
-  lbl.classList.toggle('open', !isOpen);
+  body.classList.toggle('open');
+  lbl.classList.toggle('open');
   var arrow = lbl.querySelector('.skip-arrow');
-  if (arrow) arrow.textContent = isOpen ? '▶' : '▼';
+  if(arrow) arrow.textContent = isOpen ? '▶' : '▶';
 }
+
+// ── Mobile posture card update ───────────────────────────────────────────────
+function updateMobilePostureCard(q, totalScore, urgency, maturity) {
+  if(window.innerWidth > 768) return; // desktop only needs the full panel
+
+  var card = document.getElementById('mob-posture-summary');
+  if(!card) return;
+  card.classList.remove('hidden');
+
+  var colors = {1:'var(--T)',2:'var(--A)',3:'var(--E)',4:'var(--B)'};
+  var qData = {
+    1: {
+      letter:'Q1', name:'Build Deep — All Tiers',
+      sub:'Low Urgency · High Maturity',
+      seq:[{label:'B',bg:'var(--B)'},{label:'E',bg:'var(--E)'},{label:'A',bg:'var(--A)'},{label:'T',bg:'var(--T)'}],
+      actions:['Fund all four tiers with dedicated stream leads','MDM build in parallel — not waiting for B to complete','NBA and AI activate when Enable gate passes (≥85% MDM match)'],
+      risk:'Scoping Transform before Accelerate proves measurable lift.'
+    },
+    2: {
+      letter:'Q2', name:'Parallel B+E, Fast A',
+      sub:'High Urgency · High Maturity',
+      seq:[{label:'B',bg:'var(--B)'},{label:'E',bg:'var(--E)'},{label:'A',bg:'var(--A)'}],
+      actions:['Run Build and Enable in parallel — maturity earns it','Gate Accelerate on MDM match rate ≥82%, not the launch date','Remove calendar-based triggers from project plans'],
+      risk:'Using launch date as the Accelerate gate. The AI routes wrong.'
+    },
+    3: {
+      letter:'Q3', name:'Build First — Sequential',
+      sub:'Low Urgency · Low Maturity',
+      seq:[{label:'B',bg:'var(--B)'}],
+      actions:['CRM data quality audit before any Enable investment','NPI hierarchy accuracy ≥85% before MDM starts','No NBA vendor contracts until Build gate is passed'],
+      risk:'Approving Enable budget before Build gate is passed.'
+    },
+    4: {
+      letter:'Q4', name:'Triage & Compress',
+      sub:'High Urgency · Low Maturity',
+      seq:[{label:'B',bg:'var(--B)'}],
+      actions:['Emergency CRM refresh only — all budget here','MVP MDM begins only when Build is 80% complete','Pause all NBA and AI copilot conversations'],
+      risk:'Skipping Build under launch pressure. Field trust collapses within 8 weeks of go-live.'
+    }
+  };
+
+  var d = qData[q];
+  var color = colors[q] || 'var(--B)';
+
+  // Badge
+  var badge = document.getElementById('mob-badge');
+  if(badge){ badge.textContent = d.letter; badge.style.background = color; badge.style.boxShadow = '0 4px 14px rgba(0,0,0,.2)'; }
+
+  // Title + sub
+  var titleEl = document.getElementById('mob-title');
+  var subEl   = document.getElementById('mob-sub');
+  if(titleEl) titleEl.textContent = d.name;
+  if(subEl){ subEl.textContent = d.sub; subEl.style.color = color; }
+
+  // Scores
+  var tot = document.getElementById('mob-total');
+  var urg = document.getElementById('mob-urgency');
+  var mat = document.getElementById('mob-maturity');
+  if(tot){ tot.textContent = totalScore + '/18'; tot.style.color = color; }
+  if(urg){ urg.textContent = urgency + '/6'; urg.style.color = urgency >= 4 ? 'var(--B)' : 'var(--E)'; }
+  if(mat){ mat.textContent = maturity + '/12'; mat.style.color = maturity >= 8 ? 'var(--A)' : '#94A3B8'; }
+
+  // Sequence pills
+  var seqEl = document.getElementById('mob-seq');
+  if(seqEl){
+    seqEl.style.display = 'flex';
+    // Remove old pills
+    seqEl.querySelectorAll('.mob-seq-pill').forEach(function(p){p.remove();});
+    d.seq.forEach(function(s){
+      var pill = document.createElement('span');
+      pill.className = 'mob-seq-pill';
+      pill.style.background = s.bg;
+      pill.textContent = s.label;
+      seqEl.appendChild(pill);
+    });
+  }
+
+  // Actions
+  var actEl = document.getElementById('mob-actions');
+  if(actEl){
+    actEl.style.display = 'flex';
+    actEl.innerHTML = '';
+    d.actions.forEach(function(a){
+      var div = document.createElement('div');
+      div.className = 'mob-action-item';
+      div.style.borderLeftColor = color;
+      div.textContent = a;
+      actEl.appendChild(div);
+    });
+  }
+
+  // Risk
+  var riskBox = document.getElementById('mob-risk');
+  var riskTxt = document.getElementById('mob-risk-txt');
+  if(riskBox && riskTxt){
+    riskBox.style.display = 'block';
+    riskTxt.textContent = d.risk;
+  }
+
+  // Scroll to card smoothly
+  setTimeout(function(){ card.scrollIntoView({behavior:'smooth',block:'nearest'}); }, 200);
+}
+
+
+// ── Mobile sticky CTA: hide when near footer, show after hero ──
+(function(){
+  var bar = document.getElementById('mobile-sticky-cta');
+  if (!bar) return;
+  var hero = document.getElementById('hero');
+  var cta  = document.getElementById('cta');
+  function updateBar(){
+    if (!bar) return;
+    var scrollY = window.scrollY || window.pageYOffset;
+    var heroBottom = hero ? hero.getBoundingClientRect().bottom + scrollY : 0;
+    var ctaTop = cta ? cta.getBoundingClientRect().top + scrollY : 99999;
+    if (scrollY > heroBottom && scrollY < ctaTop - 200) {
+      bar.classList.remove('hidden');
+    } else {
+      bar.classList.add('hidden');
+    }
+  }
+  window.addEventListener('scroll', updateBar, {passive:true});
+  updateBar();
+})();
+
+// ── Hamburger menu ──────────────────────────────────
+function toggleMobileMenu() {
+  var menu = document.getElementById('nav-mobile-menu');
+  var btn  = document.getElementById('nav-hamburger');
+  if (!menu || !btn) return;
+  var isOpen = menu.classList.toggle('open');
+  btn.setAttribute('aria-expanded', isOpen);
+  // Animate spans
+  var spans = btn.querySelectorAll('span');
+  if (isOpen) {
+    spans[0].style.transform = 'rotate(45deg) translate(4px, 4px)';
+    spans[1].style.opacity   = '0';
+    spans[2].style.transform = 'rotate(-45deg) translate(4px, -4px)';
+  } else {
+    spans[0].style.transform = '';
+    spans[1].style.opacity   = '';
+    spans[2].style.transform = '';
+  }
+}
+function closeMobileMenu() {
+  var menu = document.getElementById('nav-mobile-menu');
+  var btn  = document.getElementById('nav-hamburger');
+  if (menu) menu.classList.remove('open');
+  if (btn) {
+    btn.setAttribute('aria-expanded', 'false');
+    btn.querySelectorAll('span').forEach(function(s){ s.style.transform=''; s.style.opacity=''; });
+  }
+}
+// Close on outside tap
+document.addEventListener('click', function(e){
+  var menu = document.getElementById('nav-mobile-menu');
+  var btn  = document.getElementById('nav-hamburger');
+  if (menu && menu.classList.contains('open') && !menu.contains(e.target) && btn && !btn.contains(e.target)){
+    closeMobileMenu();
+  }
+});
+
+
+// ── Mobile overflow fixes via JS (CSS specificity workaround) ──────────────
+(function(){
+  if(window.innerWidth > 768) return; // desktop: skip
+
+  function applyMobileFix(){
+    // BvA section — force single column
+    var bva = document.querySelector('.bva-upgrade-wrap');
+    if(bva){
+      bva.style.cssText = 'display:block !important;';
+      var sides = bva.querySelectorAll('.bva-side');
+      sides.forEach(function(s){
+        s.style.cssText = s.style.cssText + 
+          'width:100% !important;padding:36px 20px !important;' +
+          'border-right:none !important;border-bottom:1px solid rgba(255,255,255,.1) !important;';
+      });
+    }
+
+    // Pyramid — constrain side labels
+    var pyrSides = document.querySelectorAll('.pyr-side');
+    pyrSides.forEach(function(s){
+      s.style.cssText = s.style.cssText + 
+        'font-size:11px !important;min-width:0 !important;max-width:160px !important;padding-left:8px !important;overflow:hidden !important;text-overflow:ellipsis !important;white-space:nowrap !important;';
+    });
+    var pyrWrap = document.querySelector('.pyr-wrap');
+    if(pyrWrap){ pyrWrap.style.cssText = pyrWrap.style.cssText + 'overflow:hidden !important;width:100% !important;max-width:100% !important;'; }
+
+    // pyr-bar widths — reduce to fit mobile
+    var bars = document.querySelectorAll('.pyr-bar');
+    var mobileWidths = ['42%','59%','77%','100%']; // T,A,E,B order from top
+    bars.forEach(function(bar, i){
+      // Keep relative widths but they'll be constrained by parent overflow:hidden
+      bar.style.flexShrink = '0';
+    });
+
+    // Overview grids — force 1-col
+    var ovSection = document.getElementById('overview');
+    if(ovSection){
+      ovSection.querySelectorAll('[style*="grid-template-columns"]').forEach(function(el){
+        el.style.gridTemplateColumns = '1fr';
+        el.style.gap = '12px';
+      });
+    }
+
+    // Any remaining wide grids in problem section
+    var probSection = document.getElementById('problem');
+    if(probSection){
+      probSection.querySelectorAll('[style*="grid-template-columns"]').forEach(function(el){
+        el.style.gridTemplateColumns = '1fr';
+      });
+    }
+
+    // Fix any inline width > 390px
+    document.querySelectorAll('[style*="width:"]').forEach(function(el){
+      var r = el.getBoundingClientRect();
+      if(r.width > 390 && !el.closest('#nav-mobile-menu')){
+        el.style.maxWidth = '100%';
+        el.style.width = '100%';
+      }
+    });
+  }
+
+  if(document.readyState === 'loading'){
+    document.addEventListener('DOMContentLoaded', applyMobileFix);
+  } else {
+    applyMobileFix();
+  }
+  // Also run on resize
+  window.addEventListener('resize', function(){
+    if(window.innerWidth <= 768) applyMobileFix();
+  });
+})();
 </script>
 
+
+<!-- ── Mobile sticky CTA bar (visible only on ≤768px) ── -->
+<div id="mobile-sticky-cta">
+  <div class="msc-label">B·E·A·T Framework<br>What will you build next?</div>
+  <button class="msc-btn" onclick="navTo('tool');return false">Apply B·E·A·T →</button>
+</div>
 </body>
 </html>
