@@ -7,8 +7,8 @@
 
 <!-- Primary Meta -->
 <title>BEAT Framework — Commercial Technology Decision System for Pharma</title>
-<meta name="description" content="BEAT Framework: A Commercial transformation decision system for pharma — CRM transformation, AI readiness, patient services optimization, and agentic workflows. Built in pharma.">
-<meta name="keywords" content="commercial transformation framework, AI in pharma transformation, CRM transformation strategy, patient services optimization, decision system framework, healthcare digital transformation, pharma AI strategy, omnichannel pharma, next best action, MDM pharma, commercial technology sequencing">
+<meta name="description" content="BEAT Framework: A Commercial transformation Decision System for Pharma — Digital transformation, AI readiness, patient services optimization, and agentic workflows. Built in pharma.">
+<meta name="keywords" content="commercial transformation framework, AI in pharma transformation, CRM transformation strategy, patient services optimization, decision system framework, healthcare digital transformation, pharma AI strategy, omnichannel pharma, next best action, MDM pharma, commercial technology sequencing, technology strategy, BEAT">
 <meta name="author" content="Saurav Gupta">
 <meta name="robots" content="index, follow">
 <link rel="canonical" href="https://beatframework.ai/">
@@ -1436,7 +1436,6 @@ abbr { border-bottom:1px dotted #94A3B8; cursor:help; font-style:normal }
 .uc2-card{background:#fff;border-radius:12px;border:1.5px solid #E2E8F0;margin-bottom:32px;overflow:hidden;box-shadow:0 2px 8px rgba(0,0,0,.06)}
 .uc2-card:hover{box-shadow:0 6px 28px rgba(0,0,0,.1)}
 .uc2-hd{display:grid;grid-template-columns:52px 1fr auto;gap:18px;padding:22px 26px;background:#F8FAFC;border-bottom:1.5px solid #E2E8F0;align-items:start}
-.uc2-num{font-family:var(--serif);font-size:32px;font-weight:800;line-height:1;padding-top:4px}
 .uc2-hd-body{flex:1}
 .uc2-title{font-family:var(--serif);font-size:20px;font-weight:700;color:#0F172A;margin-bottom:5px;line-height:1.25}
 .uc2-meta{font-size:12.5px;color:#64748B;margin-bottom:8px}
@@ -1897,14 +1896,6 @@ a.cite-link:hover { color: var(--B); border-color: var(--B); }
   border-bottom: 1.5px solid #E2E8F0 !important;
   align-items: start !important;
 }
-.uc2-num {
-  font-family: var(--serif);
-  font-size: 36px;
-  font-weight: 800;
-  color: #E2E8F0;
-  line-height: 1;
-  letter-spacing: -.02em;
-}
 .uc2-title {
   font-family: var(--serif);
   font-size: 17px;
@@ -1987,6 +1978,137 @@ a.cite-link:hover { color: var(--B); border-color: var(--B); }
 
 /* BEAT sequence wrapper */
 .uc2-seq-wrap { padding: 20px 28px 16px !important; }
+
+/* ── USE CASE NUMBER FIX ── */
+/* Card-specific number accent colors */
+.uc2-card:nth-child(1) .uc2-card:nth-child(2) .uc2-card:nth-child(3) /* ── REDUCE TOP PADDING on section header ── */
+#usecases > .wrap {
+  padding-top: 52px !important;
+}
+/* Tighten the section lede */
+#usecases .lede {
+  margin-bottom: 8px !important;
+}
+/* Remove large gap between lede and first card */
+#usecases .uc2-card:first-child {
+  margin-top: 24px !important;
+}
+
+/* ── TIGHTER CARD HEADER ── */
+.uc2-hd {
+  padding: 18px 24px !important;
+  gap: 16px !important;
+  grid-template-columns: 52px 1fr 220px !important;
+  align-items: center !important;
+}
+.uc2-exec {
+  min-width: unset !important;
+  max-width: 220px !important;
+}
+.uc2-exec-lbl { margin-bottom: 5px !important; }
+.uc2-exec-txt { font-size: 12px !important; line-height: 1.55 !important; }
+
+/* ══ USE CASE NUMBERS — high contrast, bold tier color ══ */
+
+/* Remove old conflicting rule */
+/* Per-card tier-colored numbers */
+.uc2-card:nth-child(1) .uc2-card:nth-child(2) .uc2-card:nth-child(3) /* ══ CARD HEADER — tighter, aligned ══ */
+.uc2-hd {
+  display: grid !important;
+  grid-template-columns: 72px 1fr 220px !important;
+  gap: 16px !important;
+  padding: 20px 24px !important;
+  background: #F8FAFC !important;
+  border-bottom: 1.5px solid #E2E8F0 !important;
+  align-items: start !important;
+}
+
+/* ══ SECTION INTRO — less top space, more content density ══ */
+#usecases > .wrap {
+  padding-top: 52px !important;
+  padding-bottom: 72px !important;
+}
+
+/* Tighten gap between lede and context strip */
+#usecases > .wrap > .lede {
+  margin-bottom: 4px !important;
+}
+
+/* Context strip cards — make the numbers bigger and more prominent */
+#usecases > .wrap > div[style*="grid-template-columns:repeat(3"] [style*="font-size:28px"] {
+  font-size: 36px !important;
+  line-height: 0.9 !important;
+}
+
+/* ══════════════════════════════════════════
+   USE CASE NUMBERS — single source of truth
+   ══════════════════════════════════════════ */
+.uc2-num {
+  font-family: var(--serif) !important;
+  font-size: 60px !important;
+  font-weight: 900 !important;
+  line-height: 0.9 !important;
+  letter-spacing: -0.04em !important;
+  color: #CBD5E1;              /* fallback */
+  display: block !important;
+  min-width: 64px !important;
+}
+/* orange */
+/* teal   */
+/* purple */
+
+/* Card header: tighter, number prominent */
+.uc2-hd {
+  display: grid !important;
+  grid-template-columns: 80px 1fr 220px !important;
+  gap: 16px !important;
+  padding: 18px 24px !important;
+  background: #F8FAFC !important;
+  border-bottom: 1.5px solid #E2E8F0 !important;
+  align-items: start !important;
+}
+
+/* Section top padding reduction */
+#usecases > .wrap {
+  padding-top: 52px !important;
+}
+
+
+/* ══ EXEC TAKEAWAY BANNER — horizontal under card header ══ */
+.uc2-exec-banner {
+  display: flex;
+  align-items: baseline;
+  gap: 12px;
+  padding: 12px 24px;
+  flex-wrap: wrap;
+}
+.uc2-exec-banner-lbl {
+  font-family: var(--mono);
+  font-size: 9px;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  font-weight: 800;
+  flex-shrink: 0;
+  white-space: nowrap;
+  margin-top: 1px;
+}
+.uc2-exec-banner-txt {
+  font-size: 13.5px;
+  color: #1E293B;
+  line-height: 1.6;
+  font-style: italic;
+  font-weight: 500;
+}
+
+/* uc2-hd: 2-col now (no exec on right) */
+.uc2-hd {
+  grid-template-columns: 80px 1fr !important;
+}
+
+/* ── Exec in banner: uc2-hd is now 2-col ── */
+.uc2-hd {
+  grid-template-columns: 80px 1fr !important;
+}
 </style>
 </head>
 <body>
@@ -2043,7 +2165,7 @@ a.cite-link:hover { color: var(--B); border-color: var(--B); }
     <div class="hero-right">
       <div class="hero-stats reveal r2">
         <div class="hero-stat"><div class="hs-n" style="color:var(--B)">10&ndash;15%</div><div class="hs-l">of commercial tech investments measurably move brand KPIs [<a href="#ref-1" class="cite-link">1</a>]</div></div>
-        <div class="hero-stat"><div class="hs-n" style="color:var(--E)">60%</div><div style="font-size:13px;color:#475569;line-height:1.45">of AI projects lacking AI-ready data are abandoned before delivering value [<a href="#ref-1" class="cite-link">1</a>]</div></div>
+        <div class="hero-stat"><div class="hs-n" style="color:var(--E)">60%</div><div class="hs-l">of AI projects lacking AI-ready data are abandoned before delivering value [<a href="#ref-1" class="cite-link">1</a>]</div></div>
         <div class="hero-stat"><div class="hs-n" style="color:var(--A)">2&times;</div><div class="hs-l">revenue growth for highest omnichannel maturity vs. average peers [<a href="#ref-6" class="cite-link">6</a>]</div></div>
         <div class="hero-stat"><div class="hs-n" style="color:var(--T)">Billions</div><div class="hs-l">in annual pharma SG&amp;A spend &mdash; the problem is sequence, not investment [<a href="#ref-21" class="cite-link">21</a>]</div></div>
       </div>
@@ -2417,41 +2539,68 @@ a.cite-link:hover { color: var(--B); border-color: var(--B); }
         </div>
         <div class="p-body">
           <div class="p-panel active" id="payer-today">Formulary proposals arrive without real-world outcomes data she can verify. The Reimbursement Specialist calls quarterly with pull-through reports the payer can&rsquo;t reconcile. Coverage change decisions happen without manufacturer awareness &mdash; the field finds out from a rejected PA. [<a href="#ref-5" class="cite-link">5</a>, <a href="#ref-10" class="cite-link">10</a>]</div>
-          <div class="p-panel" id="payer-fut">Real-time formulary pull-through mapped to her own claims. The Reimbursement Specialist arrives with verified outcomes data. Coverage changes trigger manufacturer alerts within hours. Predictive contract modelling shows both sides the outcome before negotiation begins. [<a href="#ref-19" class="cite-link">19</a>, <a href="#ref-8" class="cite-link">8</a>]</div>
-        </div>
-        <div class="p-foot"><span class="cb">B</span> Payer master + claims &rarr; <span class="ce">E</span> Payer analytics &rarr; <span class="ca">A</span> Reimbursement Specialist + <abbr title="Outcomes Liaison" style="border-bottom:1px dotted rgba(255,255,255,.4);cursor:help">Outcomes Liaison</abbr> intelligence &rarr; <span class="ct">T</span> Autonomous formulary</div>
-      </div>
-    </div>
-  </div>
-</section>
+          <div class="p-panel" id="payer-fut">Real-time formulary pull-through mapped to her own claims. The Reimbursement Specialist arrives with verified outcomes data. Coverage changes trigger manufacturer alerts within hours. ows which accounts warrant investment ahead of renewal windows. Every downstream system knows what she does. [<a href="#ref-5" class="cite-link">5</a>, <a href="#ref-10" class="cite-link">10</a>]</div>
+          </div><!-- end p-body -->
+          <div class="p-foot">B&middot;E&middot;A&middot;T posture: Build &middot; Enable &middot; Accelerate</div>
+        </div><!-- end persona payer -->
+      </div><!-- end persona-grid -->
+    </div><!-- end wrap -->
+  </section><!-- end customers -->
 
-<!-- ════ USE CASES ════ -->
-<section id="usecases" aria-label="B·E·A·T Framework Use Cases">
+  <section id="usecases" aria-label="B·E·A·T Framework Use Cases">
   <div class="wrap" style="padding-top:64px;padding-bottom:72px">
     <div class="sec-label">05 &mdash; Use Cases</div>
     <h2 class="disp uc-h">B&middot;E&middot;A&middot;T <em>in practice</em></h2>
     <p class="lede" style="margin-top:10px;margin-bottom:48px">Three real pharma commercial scenarios. Each shows exactly how sequencing applies &mdash; and what breaks when a tier is skipped.</p>
+    <!-- ── Use case navigator strip ── -->
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:24px 0 0">
+      <a href="#uc-card-1" style="display:flex;gap:12px;align-items:flex-start;padding:14px 16px;background:#FFF7F5;border:1.5px solid rgba(232,82,10,.2);border-radius:10px;text-decoration:none;transition:box-shadow .15s;cursor:pointer" onclick="document.getElementById('uc-card-1').scrollIntoView({behavior:'smooth',block:'start'});return false;" onmouseover="this.style.boxShadow='0 4px 16px rgba(232,82,10,.12)'" onmouseout="this.style.boxShadow='none'">
+        <div style="font-family:var(--serif);font-size:28px;font-weight:900;color:var(--B);line-height:1;flex-shrink:0">01</div>
+        <div>
+          <div style="font-family:var(--mono);font-size:9px;letter-spacing:.1em;text-transform:uppercase;color:var(--B);font-weight:700;margin-bottom:4px">Specialty Launch</div>
+          <div style="font-size:13px;color:#334155;line-height:1.5;font-weight:500">Year 1 go-live with compressed timeline. How to sequence CRM, MDM, and NBA when leadership wants AI at launch.</div>
+          <div style="font-family:var(--mono);font-size:10px;color:var(--B);font-weight:700;margin-top:8px">B active · E compress →</div>
+        </div>
+      </a>
+      <a href="#uc-card-2" style="display:flex;gap:12px;align-items:flex-start;padding:14px 16px;background:#F0F9FF;border:1.5px solid rgba(2,132,199,.2);border-radius:10px;text-decoration:none;transition:box-shadow .15s;cursor:pointer" onclick="document.getElementById('uc-card-2').scrollIntoView({behavior:'smooth',block:'start'});return false;" onmouseover="this.style.boxShadow='0 4px 16px rgba(2,132,199,.12)'" onmouseout="this.style.boxShadow='none'">
+        <div style="font-family:var(--serif);font-size:28px;font-weight:900;color:var(--E);line-height:1;flex-shrink:0">02</div>
+        <div>
+          <div style="font-family:var(--mono);font-size:9px;letter-spacing:.1em;text-transform:uppercase;color:var(--E);font-weight:700;margin-bottom:4px">CRM Consolidation</div>
+          <div style="font-size:13px;color:#334155;line-height:1.5;font-weight:500">Three legacy CRMs from acquisitions. How to run parallel B+E tracks while maintaining field continuity.</div>
+          <div style="font-family:var(--mono);font-size:10px;color:var(--E);font-weight:700;margin-top:8px">Parallel B+E · High maturity →</div>
+        </div>
+      </a>
+      <a href="#uc-card-3" style="display:flex;gap:12px;align-items:flex-start;padding:14px 16px;background:#F5F3FF;border:1.5px solid rgba(124,58,237,.2);border-radius:10px;text-decoration:none;transition:box-shadow .15s;cursor:pointer" onclick="document.getElementById('uc-card-3').scrollIntoView({behavior:'smooth',block:'start'});return false;" onmouseover="this.style.boxShadow='0 4px 16px rgba(124,58,237,.12)'" onmouseout="this.style.boxShadow='none'">
+        <div style="font-family:var(--serif);font-size:28px;font-weight:900;color:var(--T);line-height:1;flex-shrink:0">03</div>
+        <div>
+          <div style="font-family:var(--mono);font-size:9px;letter-spacing:.1em;text-transform:uppercase;color:var(--T);font-weight:700;margin-bottom:4px">Agentic Patient Services</div>
+          <div style="font-size:13px;color:#334155;line-height:1.5;font-weight:500">Full Transform ambition. Autonomous PA, agentic patient support — only possible because B·E·A were earned first.</div>
+          <div style="font-family:var(--mono);font-size:10px;color:var(--T);font-weight:700;margin-top:8px">Transform active · All tiers →</div>
+        </div>
+      </a>
+    </div>
+    </div>
+
 
     <!-- ══ UC 1: Specialty Launch ═══════════════════════════════ -->
     
   <!-- USE CASE 1 -->
-  <div class="uc2-card" id="uc-1">
-    <div class="uc2-hd">
-      <div class="uc2-num">01</div>
-      <div>
-        <div class="uc2-title">Specialty Brand Launch &mdash; Year 1 Go-Live</div>
-        <div class="uc2-meta">Pre-launch greenfield &middot; Specialty / complex therapy &middot; Quadrant 4 (Triage &amp; Compress) &middot; Score: 7</div>
-        <div style="display:flex;gap:8px;margin-top:8px;flex-wrap:wrap">
-          <span class="uc2-step-gate" style="background:rgba(232,82,10,.15);color:var(--B)">B active</span>
-          <span class="uc2-step-gate" style="background:rgba(2,132,199,.12);color:var(--E)">E compress</span>
-          <span class="uc2-step-gate" style="background:#FEF3C7;color:#92400E">Urgent &middot; Low maturity</span>
+  <div id="uc-card-1" class="uc2-card">
+          <div class="uc2-hd">
+        <div class="uc2-num" style="color:var(--B)">01</div>
+        <div class="uc2-hd-body">
+          <div class="uc2-title">Specialty Brand Launch &mdash; Year 1 Go-Live</div>
+          <div class="uc2-meta">Pre-launch greenfield &middot; Specialty / complex therapy &middot; Quadrant 4 (Triage &amp; Compress) &middot; Score: 7</div>
+          <div style="display:flex;gap:8px;margin-top:8px;flex-wrap:wrap">
+            <span class="uc2-step-gate" style="background:rgba(232,82,10,.15);color:var(--B)">B active</span><span class="uc2-step-gate" style="background:rgba(2,132,199,.12);color:var(--E)">E compress</span><span class="uc2-step-gate" style="background:#FEF3C7;color:#92400E">Urgent &middot; Low maturity</span>
+          </div>
         </div>
       </div>
-      <div class="uc2-exec">
-        <div class="uc2-exec-lbl">EXECUTIVE TAKEAWAY</div>
-        <div class="uc2-exec-txt"><em>Ship Build first, even if it delays launch by weeks. Industry evidence shows that fragmented commercial data at launch leads to slower script uptake and field credibility loss &mdash; consequences that outlast the delay. [<a href="#ref-24" class="cite-link">24</a>]</em></div>
+      <div style="display:flex;align-items:baseline;gap:14px;padding:11px 28px;background:rgba(232,82,10,.05);border-bottom:1.5px solid rgba(0,0,0,.06);flex-wrap:wrap">
+        <span style="font-family:var(--mono);font-size:9px;letter-spacing:.14em;text-transform:uppercase;font-weight:800;color:var(--B);flex-shrink:0;white-space:nowrap">&#9654;&nbsp;Executive Takeaway</span>
+        <span style="font-size:13.5px;color:#1E293B;line-height:1.6;font-style:italic;font-weight:500">Ship Build first, even if it delays launch by weeks. Industry evidence shows that fragmented commercial data at launch leads to slower script uptake and field credibility loss &mdash; consequences that outlast the delay. <a href="#ref-24" class="cite-link">[24]</a></span>
       </div>
-    </div>
+      
 
     <div class="uc2-sit">
       <span class="uc2-sit-lbl">&#9658; THE SITUATION</span>
@@ -2550,23 +2699,22 @@ a.cite-link:hover { color: var(--B); border-color: var(--B); }
   </div>
 
   <!-- USE CASE 2 -->
-  <div class="uc2-card" id="uc-2">
-    <div class="uc2-hd">
-      <div class="uc2-num">02</div>
-      <div>
-        <div class="uc2-title">Mature Multi-Brand Portfolio &mdash; CRM Consolidation &amp; MDM Build</div>
-        <div class="uc2-meta">3 legacy CRMs from acquisitions &middot; Low urgency &middot; Quadrant 1 (Build Deep) &middot; Score: 15</div>
-        <div style="display:flex;gap:8px;margin-top:8px;flex-wrap:wrap">
-          <span class="uc2-step-gate" style="background:#DCFCE7;color:#166534">All tiers active</span>
-          <span class="uc2-step-gate" style="background:rgba(2,132,199,.12);color:var(--E)">Parallel B+E</span>
-          <span class="uc2-step-gate" style="background:#F0F9FF;color:#0C4A6E">Low urgency &middot; High maturity</span>
+  <div id="uc-card-2" class="uc2-card">
+          <div class="uc2-hd">
+        <div class="uc2-num" style="color:var(--E)">02</div>
+        <div class="uc2-hd-body">
+          <div class="uc2-title">Mature Multi-Brand Portfolio &mdash; CRM Consolidation &amp; MDM Build</div>
+          <div class="uc2-meta">3 legacy CRMs from acquisitions &middot; Low urgency &middot; Quadrant 1 (Build Deep) &middot; Score: 15</div>
+          <div style="display:flex;gap:8px;margin-top:8px;flex-wrap:wrap">
+            <span class="uc2-step-gate" style="background:#DCFCE7;color:#166534">All tiers active</span><span class="uc2-step-gate" style="background:rgba(2,132,199,.12);color:var(--E)">Parallel B+E</span><span class="uc2-step-gate" style="background:#F0F9FF;color:#0C4A6E">Low urgency &middot; High maturity</span>
+          </div>
         </div>
       </div>
-      <div class="uc2-exec">
-        <div class="uc2-exec-lbl">EXECUTIVE TAKEAWAY</div>
-        <div class="uc2-exec-txt"><em>High maturity earns parallel tracks. But E still gates A. The MDM match rate is the difference between AI that works and AI that routes confidently wrong. A unified HCP identity is what makes every downstream model trustworthy. [<a href="#ref-23" class="cite-link">23</a>, <a href="#ref-24" class="cite-link">24</a>]</em></div>
+      <div style="display:flex;align-items:baseline;gap:14px;padding:11px 28px;background:rgba(2,132,199,.05);border-bottom:1.5px solid rgba(0,0,0,.06);flex-wrap:wrap">
+        <span style="font-family:var(--mono);font-size:9px;letter-spacing:.14em;text-transform:uppercase;font-weight:800;color:var(--E);flex-shrink:0;white-space:nowrap">&#9654;&nbsp;Executive Takeaway</span>
+        <span style="font-size:13.5px;color:#1E293B;line-height:1.6;font-style:italic;font-weight:500">High maturity earns parallel tracks. But E still gates A. The MDM match rate is the difference between AI that works and AI that routes confidently wrong. A unified HCP identity is what makes every downstream model trustworthy. <a href="#ref-23" class="cite-link">[23]</a>, <a href="#ref-24" class="cite-link">[24]</a></span>
       </div>
-    </div>
+      
 
     <div class="uc2-sit">
       <span class="uc2-sit-lbl">&#9658; THE SITUATION</span>
@@ -2662,22 +2810,22 @@ a.cite-link:hover { color: var(--B); border-color: var(--B); }
   </div>
 
   <!-- USE CASE 3 -->
-  <div class="uc2-card" id="uc-3">
-    <div class="uc2-hd">
-      <div class="uc2-num">03</div>
-      <div>
-        <div class="uc2-title">Large Pharma &mdash; Agentic Patient Services at Scale</div>
-        <div class="uc2-meta">All tiers operational &middot; Full Transform ambition &middot; Quadrant 1 &middot; Score: 17</div>
-        <div style="display:flex;gap:8px;margin-top:8px;flex-wrap:wrap">
-          <span class="uc2-step-gate" style="background:#F3E8FF;color:#6B21A8">Transform active</span>
-          <span class="uc2-step-gate" style="background:#F0F9FF;color:#0C4A6E">Low urgency &middot; High maturity</span>
+  <div id="uc-card-3" class="uc2-card">
+          <div class="uc2-hd">
+        <div class="uc2-num" style="color:var(--T)">03</div>
+        <div class="uc2-hd-body">
+          <div class="uc2-title">Large Pharma &mdash; Agentic Patient Services at Scale</div>
+          <div class="uc2-meta">All tiers operational &middot; Full Transform ambition &middot; Quadrant 1 &middot; Score: 17</div>
+          <div style="display:flex;gap:8px;margin-top:8px;flex-wrap:wrap">
+            <span class="uc2-step-gate" style="background:rgba(124,58,237,.12);color:var(--T)">Transform active</span><span class="uc2-step-gate" style="background:#F0F9FF;color:#0C4A6E">Low urgency &middot; High maturity</span>
+          </div>
         </div>
       </div>
-      <div class="uc2-exec">
-        <div class="uc2-exec-lbl">EXECUTIVE TAKEAWAY</div>
-        <div class="uc2-exec-txt"><em>Transform is not a destination you announce. It is a state you earn &mdash; tier by tier. The agentic PA program works because every upstream dependency was already production-stable. Without that foundation, automation at scale is the fastest way to destroy field trust. [<a href="#ref-24" class="cite-link">24</a>, <a href="#ref-26" class="cite-link">26</a>]</em></div>
+      <div style="display:flex;align-items:baseline;gap:14px;padding:11px 28px;background:rgba(124,58,237,.05);border-bottom:1.5px solid rgba(0,0,0,.06);flex-wrap:wrap">
+        <span style="font-family:var(--mono);font-size:9px;letter-spacing:.14em;text-transform:uppercase;font-weight:800;color:var(--T);flex-shrink:0;white-space:nowrap">&#9654;&nbsp;Executive Takeaway</span>
+        <span style="font-size:13.5px;color:#1E293B;line-height:1.6;font-style:italic;font-weight:500">Transform is not a destination you announce. It is a state you earn &mdash; tier by tier. The agentic PA program works because every upstream dependency was already production-stable. B&middot;E&middot;A earned this.</span>
       </div>
-    </div>
+      
 
     <div class="uc2-sit">
       <span class="uc2-sit-lbl">&#9658; THE SITUATION</span>
@@ -2769,6 +2917,26 @@ a.cite-link:hover { color: var(--B); border-color: var(--B); }
           <div class="uc2-met-cell"><div class="uc2-met-n" style="color:var(--T)">0</div><div class="uc2-met-l">PA cases by field rep</div><div class="uc2-met-s">fully autonomous</div></div>
         </div>
         <div class="uc2-result-txt">Only possible because B&middot;E&middot;A were earned first. Every tier below this one was load-bearing. The 11% of companies that reach scaled AI value share this pattern: they built the foundation before deploying the intelligence. EY confirms that PA automation at scale requires end-to-end integration and a digital operating model — not just technology. [Ref. <a href="#ref-15" class="cite-link">15</a>, <a href="#ref-18" class="cite-link">18</a>, <a href="#ref-25" class="cite-link">25</a>, <a href="#ref-32" class="cite-link">32</a>]</div>
+      </div>
+      </div>
+  </div>
+
+
+  </div>
+</section>
+
+<!-- ════ AI AT SCALE ════ -->
+ B&middot;E&middot;A were earned first. Every tier below this one was load-bearing. The 11% of companies that reach scaled AI value share this pattern: they built the foundation before deploying the intelligence. EY confirms that PA automation at scale requires end-to-end integration and a digital operating model — not just technology. [Ref. <a href="#ref-15" class="cite-link">15</a>, <a href="#ref-18" class="cite-link">18</a>, <a href="#ref-25" class="cite-link">25</a>, <a href="#ref-32" class="cite-link">32</a>]</div>
+      </div>
+      </div>
+  </div>
+
+
+  </div>
+</section>
+
+<!-- ════ AI AT SCALE ════ -->
+nk">32</a>]</div>
       </div>
       </div>
   </div>
