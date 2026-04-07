@@ -6,9 +6,9 @@
 <!-- ══ SEO / DISCOVERABILITY ══════════════════════════════════════════ -->
 
 <!-- Primary Meta -->
-<title>BEAT Framework — Commercial Tech Decision System for Pharma</title>
-<meta name="description" content="BEAT Framework: a commercial transformation decision system for pharma — CRM transformation, AI readiness, patient services optimization, and agentic workflows. Built in pharma.">
-<meta name="keywords" content="commercial transformation framework, AI in pharma transformation, CRM transformation strategy, patient services optimization, decision system framework, healthcare digital transformation, pharma AI strategy, omnichannel pharma, next best action, MDM pharma, commercial technology sequencing">
+<title>BEAT Framework — Commercial Technology Decision System for Pharma</title>
+<meta name="description" content="BEAT Framework: A Commercial transformation Decision System for Pharma — Digital transformation, AI readiness, patient services optimization, and agentic workflows. Built in pharma.">
+<meta name="keywords" content="commercial transformation framework, AI in pharma transformation, CRM transformation strategy, patient services optimization, decision system framework, healthcare digital transformation, pharma AI strategy, omnichannel pharma, next best action, MDM pharma, commercial technology sequencing, technology strategy, BEAT">
 <meta name="author" content="Saurav Gupta">
 <meta name="robots" content="index, follow">
 <link rel="canonical" href="https://beatframework.ai/">
@@ -3050,6 +3050,400 @@ img, svg, video, canvas { max-width: 100% !important; }
   .gate-d { font-size: 12.5px !important; }
   .uc2-num { font-size: 30px !important; }
 }
+
+/* ═══════════════════════════════════════════════════════
+   MOBILE MARGIN FIX  —  ensure 20px horizontal padding
+   and consistent 52px top spacing on every section
+   ═══════════════════════════════════════════════════════ */
+
+@media (max-width: 768px) {
+
+  /* ── Universal: every section's first-level wrap gets 20px sides ── */
+  section > .wrap,
+  section > div > .wrap {
+    padding-left:  20px !important;
+    padding-right: 20px !important;
+  }
+
+  /* ── Sections whose top padding was 0px ── */
+  #problem  > .wrap  { padding-top: 52px !important; }
+  #framework > .wrap { padding-top: 52px !important; }
+  #tool > .wrap      { padding-top: 52px !important; }
+  #cta               { padding-top: 52px !important; padding-left: 20px !important; padding-right: 20px !important; }
+
+  /* ── BvA: the section itself has no wrap — pad the sides directly ── */
+  #bva {
+    padding-left:  0 !important;
+    padding-right: 0 !important;
+  }
+  #bva .bva-upgrade-wrap {
+    display: block !important;
+  }
+  #bva .bva-side {
+    padding: 40px 20px !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+  }
+  #bva .bva-side-bad {
+    border-right:  none !important;
+    border-bottom: 1px solid rgba(255,255,255,.1) !important;
+  }
+  #bva .bva-ctr-badge {
+    padding: 20px 20px !important;
+  }
+
+  /* ── Inline-style sections that bypass .wrap ── */
+  /* CTA section has inline padding:72px 40px — override */
+  section#cta[style*="padding"] {
+    padding: 52px 20px !important;
+  }
+
+  /* ── Tool: the inline grid inside tool also needs sides ── */
+  #tool .wrap > div[style*="grid-template-columns"] {
+    padding-left:  0 !important;
+    padding-right: 0 !important;
+  }
+
+  /* ── Beyond pharma inline wrap ── */
+  #beyond > div[style*="max-width"] {
+    padding-left:  20px !important;
+    padding-right: 20px !important;
+  }
+  #beyond > .wrap {
+    padding-left:  20px !important;
+    padding-right: 20px !important;
+  }
+
+  /* ── References: the two-col inline grid ── */
+  #references > .wrap > div[style*="grid-template-columns:1fr 1fr"] {
+    grid-template-columns: 1fr !important;
+  }
+
+  /* ── Use cases: cards need full-bleed padding ── */
+  .uc2-card {
+    margin-left:  0 !important;
+    margin-right: 0 !important;
+  }
+  .uc2-result-box {
+    border-radius: 0 0 12px 12px !important;
+  }
+
+  /* ── Ensure all inline-styled divs with padding:0 get sides ── */
+  #usecases .uc2-seq-wrap {
+    padding-left:  14px !important;
+    padding-right: 14px !important;
+  }
+  .uc2-skip-items {
+    padding-left:  16px !important;
+    padding-right: 16px !important;
+  }
+  .uc2-result-box {
+    padding-left:  16px !important;
+    padding-right: 16px !important;
+  }
+
+  /* ── HowTo section top padding ── */
+  #howto > .wrap { padding-top: 52px !important; }
+
+  /* ── AI scale section top ── */
+  #aiscale > .wrap { padding-top: 52px !important; }
+}
+
+/* ═══════════════════════════════════════════════════════
+   USE CASE + BVA MOBILE MARGIN FIX
+   ═══════════════════════════════════════════════════════ */
+
+@media (max-width: 768px) {
+
+  /* ── Use case section: 16px outer margin for whole section ── */
+  #usecases > .wrap {
+    padding-left:  16px !important;
+    padding-right: 16px !important;
+  }
+
+  /* ── UC card: full-bleed is fine, but inner padding consistent ── */
+  .uc2-card {
+    border-radius: 12px !important;
+    overflow: hidden !important;
+  }
+  .uc2-hd {
+    padding: 16px 18px !important;
+  }
+
+  /* ── Exec banner ── */
+  div[style*="Executive Takeaway"] {
+    padding: 10px 18px !important;
+  }
+
+  /* ── Situation bar ── */
+  .uc2-sit {
+    padding: 12px 18px !important;
+  }
+
+  /* ── BEAT sequence label ── */
+  .uc2-seq-lbl {
+    margin: 16px 18px 10px !important;
+  }
+
+  /* ── BEAT steps: vertical stack, centered, with outer padding ── */
+  .uc2-steps {
+    flex-direction: column !important;
+    align-items: center !important;
+    gap: 0 !important;
+    padding: 0 16px 16px !important;
+    overflow-x: visible !important;
+  }
+
+  /* Each step tile: full width, centered content, clear border */
+  .uc2-step {
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: unset !important;
+    margin: 0 0 4px 0 !important;
+    border-radius: 10px !important;
+    box-shadow: 0 1px 4px rgba(0,0,0,.08), 0 0 0 1.5px #E2E8F0 !important;
+  }
+
+  /* Step head: centre the icon + letter tile */
+  .uc2-step-head {
+    justify-content: flex-start !important;
+    padding: 12px 16px 10px !important;
+    gap: 12px !important;
+  }
+
+  /* Arrow between steps: centred, pointing down */
+  .uc2-arrow {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    transform: rotate(90deg) !important;
+    color: #CBD5E1 !important;
+    padding: 2px 0 !important;
+    margin: 0 !important;
+    width: 100% !important;
+    flex-shrink: 0 !important;
+  }
+
+  /* Step body text */
+  .uc2-step-body-wrap {
+    padding: 10px 16px 14px !important;
+  }
+  .uc2-step-body { font-size: 13px !important; line-height: 1.6 !important; }
+  .uc2-step-gate { font-size: 10px !important; }
+  .uc2-step-why  { font-size: 11px !important; }
+
+  /* ── What Breaks (skip) section: add side margin ── */
+  .uc2-skip {
+    margin: 16px 16px 0 !important;
+    border-radius: 10px !important;
+  }
+  .uc2-skip-lbl {
+    padding: 14px 16px !important;
+    font-size: 11px !important;
+  }
+  .uc2-skip-items {
+    padding: 14px 16px !important;
+  }
+  .uc2-skip-item {
+    font-size: 13px !important;
+    padding: 9px 0 9px 24px !important;
+  }
+
+  /* ── Result box: add side margin, inner padding ── */
+  .uc2-result-box {
+    margin: 0 16px 16px !important;
+    border-radius: 10px !important;
+    padding: 18px 16px !important;
+  }
+  .uc2-result-lbl { font-size: 9px !important; margin-bottom: 12px !important; }
+  .uc2-metrics    { gap: 0 !important; }
+  .uc2-met-n      { font-size: 22px !important; }
+  .uc2-met-l      { font-size: 10px !important; line-height: 1.4 !important; }
+  .uc2-met-s      { font-size: 9.5px !important; }
+  .uc2-result-txt { font-size: 13px !important; line-height: 1.65 !important; margin-top: 12px !important; padding-top: 12px !important; border-top: 1px solid rgba(255,255,255,.1) !important; }
+
+  /* ── BvA before/after: FORCE side margin via JS override ── */
+  /* CSS already in place via .bva-side { padding: 40px 20px } — but let's ensure */
+  .bva-upgrade-wrap {
+    display: block !important;
+  }
+  .bva-side {
+    padding: 40px 20px !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+  }
+  .bva-side-bad {
+    border-right: none !important;
+    border-bottom: 1px solid rgba(255,255,255,.12) !important;
+  }
+  .bva-item {
+    padding: 12px 0 !important;
+    font-size: 14px !important;
+    line-height: 1.65 !important;
+  }
+  .bva-side-head {
+    padding-bottom: 16px !important;
+    margin-bottom: 16px !important;
+    font-size: 11px !important;
+  }
+  .bva-ctr-badge {
+    padding: 20px 20px !important;
+    font-size: clamp(15px, 4vw, 20px) !important;
+  }
+
+  /* ── Context strip (01 02 03 cards): consistent padding ── */
+  #usecases > .wrap > div[style*="grid-template-columns:repeat(3"] {
+    grid-template-columns: 1fr !important;
+    gap: 10px !important;
+    margin-bottom: 20px !important;
+  }
+}
+
+/* ── Small phone: tighter ── */
+@media (max-width: 380px) {
+  .uc2-hd     { padding: 14px 14px !important; }
+  .uc2-steps  { padding: 0 12px 12px !important; }
+  .uc2-skip   { margin: 12px 12px 0 !important; }
+  .uc2-result-box { margin: 0 12px 12px !important; }
+  .bva-side   { padding: 32px 16px !important; }
+}
+
+/* ═══════════════════════════════════════════════════════
+   DESKTOP MARGIN FIX — UC cards + BvA section
+   ═══════════════════════════════════════════════════════ */
+
+/* ── 1. UC cards: remove the 0-margin override (was global, should be mobile-only) ── */
+/* The global rule .uc2-card { margin-left:0!important; margin-right:0!important }
+   was preventing cards from sitting inside the wrap correctly on desktop. */
+.uc2-card {
+  margin-left:  auto !important;
+  margin-right: auto !important;
+  /* Let cards fill the wrap's inner width naturally */
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* ── 2. BEAT steps: constrain inside card width, centre horizontally ── */
+.uc2-seq-wrap {
+  /* Already inside the card — just ensure padding is consistent */
+  padding-left:  28px;
+  padding-right: 28px;
+  box-sizing: border-box;
+}
+.uc2-steps {
+  /* Desktop: horizontal flex (the original design) */
+  display: flex !important;
+  flex-direction: row !important;
+  align-items: stretch !important;
+  gap: 8px !important;
+  overflow-x: auto !important;
+  justify-content: flex-start;
+  padding-left:  0 !important;
+  padding-right: 0 !important;
+}
+.uc2-step {
+  flex: 1 !important;
+}
+
+/* ── 3. UC skip + result: ensure they sit inside card with consistent padding ── */
+.uc2-skip {
+  margin-left:  28px !important;
+  margin-right: 28px !important;
+}
+.uc2-result-box {
+  margin-left:  28px !important;
+  margin-right: 28px !important;
+}
+
+/* ── 4. BvA: add a centred max-width wrap ── */
+.bva-upgrade-wrap {
+  max-width: 1160px !important;
+  margin-left:  auto !important;
+  margin-right: auto !important;
+  padding-left:  40px !important;
+  padding-right: 40px !important;
+  box-sizing: border-box !important;
+}
+/* On desktop: 2 columns side by side */
+@media (min-width: 769px) {
+  .bva-upgrade-wrap {
+    display: grid !important;
+    grid-template-columns: 1fr 1fr !important;
+  }
+  .bva-side {
+    padding: 64px 48px !important;
+  }
+  .bva-side-bad {
+    border-right: 1px solid rgba(255,255,255,.1) !important;
+    border-bottom: none !important;
+  }
+}
+
+/* ── 5. UC section: ensure the seq-lbl label also has padding ── */
+.uc2-seq-lbl {
+  padding-left:  28px !important;
+  padding-right: 28px !important;
+  margin-left:   0 !important;
+  margin-right:  0 !important;
+}
+
+/* ── 6. Exec banner inside card: consistent padding ── */
+.uc2-exec-banner {
+  padding-left:  28px !important;
+  padding-right: 28px !important;
+}
+.uc2-sit {
+  padding-left:  28px !important;
+  padding-right: 28px !important;
+}
+
+/* ══ MOBILE OVERRIDES (keep mobile behavior correct) ══ */
+@media (max-width: 768px) {
+  .uc2-card {
+    margin-left:  0 !important;
+    margin-right: 0 !important;
+    width: 100% !important;
+  }
+  .uc2-steps {
+    flex-direction: column !important;
+    padding-left:  16px !important;
+    padding-right: 16px !important;
+    overflow-x: visible !important;
+  }
+  .uc2-skip {
+    margin-left:  16px !important;
+    margin-right: 16px !important;
+  }
+  .uc2-result-box {
+    margin-left:  16px !important;
+    margin-right: 16px !important;
+  }
+  .uc2-seq-wrap {
+    padding-left:  14px !important;
+    padding-right: 14px !important;
+  }
+  .uc2-seq-lbl {
+    padding-left:  14px !important;
+    padding-right: 14px !important;
+  }
+  .uc2-exec-banner {
+    padding-left:  16px !important;
+    padding-right: 16px !important;
+  }
+  .uc2-sit {
+    padding-left:  16px !important;
+    padding-right: 16px !important;
+  }
+  .bva-upgrade-wrap {
+    padding-left:  0 !important;
+    padding-right: 0 !important;
+    max-width: 100% !important;
+  }
+  .bva-side {
+    padding: 40px 20px !important;
+  }
+}
 </style>
 </head>
 <body>
@@ -3543,7 +3937,9 @@ img, svg, video, canvas { max-width: 100% !important; }
 
     <!-- ══ UC 1: Specialty Launch ═══════════════════════════════ -->
     
-  <!-- USE CASE 1 -->
+  
+  <div style="max-width:1160px;margin:0 auto;padding:0 40px;box-sizing:border-box">
+<!-- USE CASE 1 -->
   <div id="uc-card-1" class="uc2-card">
           <div class="uc2-hd">
         <div class="uc2-num" style="color:var(--B)">01</div>
@@ -3780,6 +4176,8 @@ img, svg, video, canvas { max-width: 100% !important; }
           </div>
         </div>
       </div>
+  </div><!-- end cards-wrapper -->
+
       <div style="display:flex;align-items:baseline;gap:14px;padding:11px 28px;background:rgba(124,58,237,.05);border-bottom:1.5px solid rgba(0,0,0,.06);flex-wrap:wrap">
         <span style="font-family:var(--mono);font-size:9px;letter-spacing:.14em;text-transform:uppercase;font-weight:800;color:var(--T);flex-shrink:0;white-space:nowrap">&#9654;&nbsp;Executive Takeaway</span>
         <span style="font-size:13.5px;color:#1E293B;line-height:1.6;font-style:italic;font-weight:500">Transform is not a destination you announce. It is a state you earn &mdash; tier by tier. The agentic PA program works because every upstream dependency was already production-stable. B&middot;E&middot;A earned this.</span>
