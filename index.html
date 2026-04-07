@@ -7,7 +7,7 @@
 
 <!-- Primary Meta -->
 <title>BEAT Framework — Commercial Technology Decision System for Pharma</title>
-<meta name="description" content="BEAT Framework: A Commercial transformation Decision System for Pharma — Digital transformation, AI readiness, patient services optimization, and agentic workflows. Built in pharma.">
+<meta name="description" content="BEAT Framework: A Commercial Transformation Decision System for Pharma — Digital transformation, AI readiness, patient services optimization, and agentic workflows. Built in pharma.">
 <meta name="keywords" content="commercial transformation framework, AI in pharma transformation, CRM transformation strategy, patient services optimization, decision system framework, healthcare digital transformation, pharma AI strategy, omnichannel pharma, next best action, MDM pharma, commercial technology sequencing, technology strategy, BEAT">
 <meta name="author" content="Saurav Gupta">
 <meta name="robots" content="index, follow">
@@ -3444,6 +3444,144 @@ img, svg, video, canvas { max-width: 100% !important; }
     padding: 40px 20px !important;
   }
 }
+
+/* ═══════════════════════════════════════════════════════
+   MOBILE UC CARDS FIX — wrapper padding was applying on mobile
+   making cards only 310px (40px offset each side).
+   On mobile, cards should span full section width with
+   the section's own 16px padding as breathing room.
+   Desktop unchanged.
+   ═══════════════════════════════════════════════════════ */
+
+@media (max-width: 768px) {
+
+  /* Remove the desktop 40px padding from the cards wrapper */
+  #uc-cards-wrapper {
+    padding-left:  0 !important;
+    padding-right: 0 !important;
+    max-width: 100% !important;
+  }
+
+  /* Cards: fill the usecases section (which has 16px side padding from .wrap) */
+  .uc2-card {
+    margin-left:  0 !important;
+    margin-right: 0 !important;
+    width: 100% !important;
+    border-radius: 12px !important;
+  }
+
+  /* Metrics: 3-col layout, equal widths, centred numbers */
+  .uc2-metrics {
+    display: grid !important;
+    grid-template-columns: 1fr 1fr 1fr !important;
+    gap: 0 !important;
+    width: 100% !important;
+  }
+
+  /* Each metric cell */
+  .uc2-met-cell {
+    padding: 14px 8px !important;
+    text-align: center !important;
+    border-right: 1px solid rgba(255,255,255,.1) !important;
+  }
+  .uc2-met-cell:last-child { border-right: none !important; }
+
+  /* Metric number: large enough to read */
+  .uc2-met-n {
+    font-size: 22px !important;
+    line-height: 1 !important;
+    margin-bottom: 4px !important;
+    white-space: nowrap !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+  }
+
+  /* Metric label */
+  .uc2-met-l {
+    font-size: 9px !important;
+    letter-spacing: .04em !important;
+    line-height: 1.4 !important;
+  }
+
+  /* Metric source */
+  .uc2-met-s {
+    font-size: 9px !important;
+    margin-top: 2px !important;
+  }
+
+  /* Result box: full width of card, no side margin (card itself has border) */
+  .uc2-result-box {
+    margin-left:  0 !important;
+    margin-right: 0 !important;
+    padding: 16px 16px 18px !important;
+    border-radius: 0 0 12px 12px !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+  }
+
+  /* Result text */
+  .uc2-result-txt {
+    font-size: 13px !important;
+    line-height: 1.65 !important;
+    color: rgba(255,255,255,.82) !important;
+  }
+
+  /* Skip section: light side margins */
+  .uc2-skip {
+    margin: 0 12px !important;
+    border-radius: 8px !important;
+  }
+
+  /* BEAT steps: full width, vertical */
+  .uc2-steps {
+    flex-direction: column !important;
+    padding: 0 12px 12px !important;
+    gap: 0 !important;
+    align-items: stretch !important;
+    overflow-x: visible !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+  }
+
+  .uc2-step {
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: unset !important;
+    flex: none !important;
+    box-sizing: border-box !important;
+    margin-bottom: 4px !important;
+  }
+
+  /* Seq label and exec banner: 16px padding */
+  .uc2-seq-lbl {
+    padding-left: 16px !important;
+    padding-right: 16px !important;
+  }
+  .uc2-exec-banner {
+    padding-left: 16px !important;
+    padding-right: 16px !important;
+  }
+  .uc2-sit {
+    padding-left: 16px !important;
+    padding-right: 16px !important;
+  }
+  .uc2-seq-wrap {
+    padding-left: 12px !important;
+    padding-right: 12px !important;
+  }
+
+  /* Context strip: already in section's 16px padding area */
+  #usecases > .wrap > div[style*="repeat(3"] {
+    grid-template-columns: 1fr !important;
+  }
+}
+
+/* Small phone adjustments */
+@media (max-width: 380px) {
+  .uc2-met-n { font-size: 18px !important; }
+  .uc2-met-l { font-size: 8px !important; }
+  .uc2-steps { padding: 0 8px 8px !important; }
+}
 </style>
 </head>
 <body>
@@ -3938,7 +4076,7 @@ img, svg, video, canvas { max-width: 100% !important; }
     <!-- ══ UC 1: Specialty Launch ═══════════════════════════════ -->
     
   
-  <div style="max-width:1160px;margin:0 auto;padding:0 40px;box-sizing:border-box">
+  <div id="uc-cards-wrapper" style="max-width:1160px;margin:0 auto;padding:0 40px;box-sizing:border-box">
 <!-- USE CASE 1 -->
   <div id="uc-card-1" class="uc2-card">
           <div class="uc2-hd">
@@ -4176,8 +4314,7 @@ img, svg, video, canvas { max-width: 100% !important; }
           </div>
         </div>
       </div>
-  </div><!-- end cards-wrapper -->
-
+  
       <div style="display:flex;align-items:baseline;gap:14px;padding:11px 28px;background:rgba(124,58,237,.05);border-bottom:1.5px solid rgba(0,0,0,.06);flex-wrap:wrap">
         <span style="font-family:var(--mono);font-size:9px;letter-spacing:.14em;text-transform:uppercase;font-weight:800;color:var(--T);flex-shrink:0;white-space:nowrap">&#9654;&nbsp;Executive Takeaway</span>
         <span style="font-size:13.5px;color:#1E293B;line-height:1.6;font-style:italic;font-weight:500">Transform is not a destination you announce. It is a state you earn &mdash; tier by tier. The agentic PA program works because every upstream dependency was already production-stable. B&middot;E&middot;A earned this.</span>
@@ -4280,6 +4417,8 @@ img, svg, video, canvas { max-width: 100% !important; }
 
 
   </div>
+
+  </div><!-- end cards-wrapper -->
 </section>
 
 
