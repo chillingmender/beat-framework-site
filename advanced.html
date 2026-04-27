@@ -343,9 +343,12 @@ a{color:inherit;text-decoration:none}
 <!-- GATED ACCESS MODAL -->
 <div class="gate-overlay" id="gate-overlay">
   <div class="gate-modal">
-    <div class="gate-modal-logo">
-      <span class="gate-modal-pill">B·E·A·T</span>
-      <span style="font-family:var(--mono);font-size:11px;color:var(--ink4);letter-spacing:.1em">ADVANCED ENGINE</span>
+    <div class="gate-modal-logo" style="justify-content:space-between">
+      <div style="display:flex;align-items:center;gap:8px">
+        <span class="gate-modal-pill">B·E·A·T</span>
+        <span style="font-family:var(--mono);font-size:11px;color:var(--ink4);letter-spacing:.1em">ADVANCED ENGINE</span>
+      </div>
+      <a href="index.html" style="display:inline-flex;align-items:center;gap:5px;font-family:var(--mono);font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink4);text-decoration:none;padding:5px 10px;border:1px solid var(--rule);border-radius:4px;transition:all .15s" onmouseover="this.style.color='var(--E)';this.style.borderColor='var(--E)'" onmouseout="this.style.color='var(--ink4)';this.style.borderColor='var(--rule)'">← Framework</a>
     </div>
 
     <!-- FORM SECTION -->
@@ -406,6 +409,19 @@ a{color:inherit;text-decoration:none}
       <div class="gate-skip">Wrong email? <a onclick="document.getElementById('gate-inbox-section').style.display='none';document.getElementById('gate-form-section').style.display='block';var b=document.getElementById('gate-submit-btn');if(b){b.disabled=false;b.textContent='Access the Engine →'}">Go back</a></div>
     </div>
 
+    <!-- COMING SOON SECTION (shown when backend not yet live) -->
+    <div id="gate-coming-soon" style="display:none;text-align:center;padding:10px 0">
+      <div style="width:72px;height:72px;border-radius:50%;background:rgba(124,58,237,.1);border:2px solid #7C3AED;display:flex;align-items:center;justify-content:center;margin:0 auto 20px;font-size:32px">🚀</div>
+      <h2 style="font-size:22px;margin-bottom:10px;color:var(--ink)">Coming Soon</h2>
+      <p style="font-size:15px;color:var(--ink3);line-height:1.7;margin-bottom:20px">
+        The Advanced Engine is being set up.<br>Check back shortly — it won't be long.
+      </p>
+      <a href="index.html" style="display:inline-flex;align-items:center;gap:8px;padding:12px 24px;background:var(--B);color:white;border-radius:7px;font-family:var(--mono);font-size:10px;letter-spacing:.1em;text-transform:uppercase;font-weight:700;text-decoration:none;margin-bottom:16px" onmouseover="this.style.background='#C2410C'" onmouseout="this.style.background='var(--B)'">← Back to B·E·A·T Framework</a>
+      <div style="font-size:12px;color:var(--ink5);margin-top:8px">
+        In the meantime, use the free <a href="index.html#tool" style="color:var(--E);text-decoration:underline">Decision Tool on the main site</a>.
+      </div>
+    </div>
+
   </div>
 </div>
 
@@ -420,10 +436,10 @@ a{color:inherit;text-decoration:none}
 
 <!-- NAV -->
 <nav id="nav">
-  <div class="nav-logo" onclick="window.location.href='index.html'" style="cursor:pointer">
+  <a href="index.html" class="nav-logo" style="cursor:pointer;text-decoration:none">
     <span class="nav-pill">B·E·A·T</span>
     <span style="color:rgba(255,255,255,.55);font-size:10px">Advanced Engine</span>
-  </div>
+  </a>
   <div class="nav-right">
     <div class="nav-score-badge" id="nav-score-wrap" style="display:none">
       <span class="nav-score-n" id="nav-score-n">12</span>
@@ -1602,11 +1618,10 @@ async function submitGate() {
   // Loading state
   if (submitBtn) { submitBtn.disabled = true; submitBtn.textContent = 'Sending…'; }
 
-  // Backend not configured — block, do not unlock
+  // Backend not configured — show Coming Soon screen
   if (BACKEND_URL === 'https://your-backend.onrender.com') {
     if (submitBtn) { submitBtn.disabled = false; submitBtn.textContent = 'Access the Engine →'; }
-    const errDiv = document.getElementById('gate-submit-err');
-    if (errDiv) { errDiv.style.display = 'block'; errDiv.textContent = 'Engine not yet connected. Please try again shortly.'; }
+    showComingSoon();
     return;
   }
 
@@ -1627,6 +1642,12 @@ async function submitGate() {
     const errDiv = document.getElementById('gate-submit-err');
     if (errDiv) { errDiv.style.display = 'block'; errDiv.textContent = 'Could not reach server — please try again in a moment.'; }
   }
+}
+
+function showComingSoon() {
+  document.getElementById('gate-form-section').style.display = 'none';
+  document.getElementById('gate-inbox-section').style.display = 'none';
+  document.getElementById('gate-coming-soon').style.display = 'block';
 }
 
 function showCheckInbox(email) {
