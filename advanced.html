@@ -307,7 +307,7 @@ a{color:inherit;text-decoration:none}
 @media(max-width:768px){.form-wrap{padding:0 20px;padding-top:40px;padding-bottom:80px}.results-inner{padding:0 20px}.hero-inner{padding:0 20px}.score-band-inner{padding:0 16px}.submit-strip-inner{padding:0 20px}.ft-grid{grid-template-columns:1fr}.beat-tiers{grid-template-columns:1fr 1fr}.risk-matrix{grid-template-columns:1fr}.role-playbooks{grid-template-columns:1fr}.air-phases{grid-template-columns:1fr 1fr}.result-top-band{padding:24px}.rtb-score-pill{position:static;flex-direction:row;gap:8px;align-items:baseline;margin-top:16px;padding-top:16px;border-top:1px solid rgba(255,255,255,.1)}.result-cta{grid-template-columns:1fr}}
 
 /* ── COOKIE BANNER ── */
-.cookie-banner{position:fixed;bottom:0;left:0;right:0;z-index:2000;background:#0F172A;border-top:1px solid rgba(255,255,255,.12);padding:14px 32px;display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap;box-shadow:0 -4px 24px rgba(0,0,0,.3)}
+.cookie-banner{position:fixed;bottom:0;left:0;right:0;z-index:3000;background:#0F172A;border-top:1px solid rgba(255,255,255,.12);padding:14px 32px;display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap;box-shadow:0 -4px 24px rgba(0,0,0,.3);transition:transform .3s ease,opacity .3s ease}
 .cookie-banner.hidden{display:none}
 .cookie-txt{font-size:13px;color:rgba(255,255,255,.75);line-height:1.6;flex:1;min-width:200px}
 .cookie-txt a{color:var(--E);text-decoration:underline}
@@ -1602,12 +1602,11 @@ async function submitGate() {
   // Loading state
   if (submitBtn) { submitBtn.disabled = true; submitBtn.textContent = 'Sending…'; }
 
-  // Backend not configured — dev mode, unlock immediately
+  // Backend not configured — block, do not unlock
   if (BACKEND_URL === 'https://your-backend.onrender.com') {
-    localStorage.setItem('beat_adv_access', JSON.stringify({
-      token: 'dev', confirmed: true, name, email, ts: Date.now(), skipped: false
-    }));
-    unlockTool(name);
+    if (submitBtn) { submitBtn.disabled = false; submitBtn.textContent = 'Access the Engine →'; }
+    const errDiv = document.getElementById('gate-submit-err');
+    if (errDiv) { errDiv.style.display = 'block'; errDiv.textContent = 'Engine not yet connected. Please try again shortly.'; }
     return;
   }
 
@@ -1620,23 +1619,13 @@ async function submitGate() {
     });
     const data = resp.ok ? await resp.json() : {};
 
-    // Dev mode: backend returned a dev_confirm_url (no RESEND_KEY set)
-    if (data.dev_confirm_url) {
-      localStorage.setItem('beat_adv_access', JSON.stringify({
-        token: 'dev', confirmed: true, name, email, ts: Date.now()
-      }));
-      unlockTool(name);
-      return;
-    }
-
-    // Production: show "check your inbox" screen
+    // Always require email confirmation — never unlock without verified token
     showCheckInbox(email);
 
   } catch(e) {
     if (submitBtn) { submitBtn.disabled = false; submitBtn.textContent = 'Access the Engine →'; }
-    // On network error show a message but still allow access (don't block)
     const errDiv = document.getElementById('gate-submit-err');
-    if (errDiv) { errDiv.style.display = 'block'; errDiv.textContent = 'Could not reach server — try again or continue below.'; }
+    if (errDiv) { errDiv.style.display = 'block'; errDiv.textContent = 'Could not reach server — please try again in a moment.'; }
   }
 }
 
@@ -1723,7 +1712,12 @@ function checkCookieBanner() {
   const stored = localStorage.getItem('beat_cookie_consent');
   const b = document.getElementById('cookie-banner');
   if (!b) return;
-  if (stored) { b.classList.add('hidden'); } else { b.classList.remove('hidden'); }
+  if (stored) {
+    b.classList.add('hidden');
+  } else {
+    // Show after 1.5s so it appears cleanly above the gate overlay
+    setTimeout(() => { b.classList.remove('hidden'); }, 1500);
+  }
 }
 function acceptCookies() {
   localStorage.setItem('beat_cookie_consent', JSON.stringify({accepted:true, ts:Date.now()}));
@@ -1759,7 +1753,7 @@ document.addEventListener('DOMContentLoaded', () => {
 </footer>
 
 <!-- COOKIE BANNER -->
-<div class="cookie-banner" id="cookie-banner">
+<div class="cookie-banner hidden" id="cookie-banner">
   <div class="cookie-txt">
     This site uses cookies for session management only — no tracking or advertising.
     Your submitted email is stored securely for framework research. 
