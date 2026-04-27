@@ -3633,7 +3633,7 @@ img, svg, video, canvas { max-width: 100% !important; }
     
   </div>
   <button class="nav-btn" onclick="navTo('tool')">Decision Tool</button>
-<a href="advanced.html" style="font-family:var(--mono);font-size:9.5px;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.45);padding:5px 10px;border-radius:3px;border:1px solid rgba(255,255,255,.12);transition:all .15s;margin-right:6px;text-decoration:none" onmouseover="this.style.color='white';this.style.borderColor='rgba(255,255,255,.35)'" onmouseout="this.style.color='rgba(255,255,255,.45)';this.style.borderColor='rgba(255,255,255,.12)'">Advanced →</a>
+<a href="https://beatframework.ai/advanced" style="font-family:var(--mono);font-size:9.5px;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.45);padding:5px 10px;border-radius:3px;border:1px solid rgba(255,255,255,.12);transition:all .15s;margin-right:6px;text-decoration:none" onmouseover="this.style.color='white';this.style.borderColor='rgba(255,255,255,.35)'" onmouseout="this.style.color='rgba(255,255,255,.45)';this.style.borderColor='rgba(255,255,255,.12)'">Advanced →</a>
     <button class="nav-cta-btn" onclick="navTo('tool')">Apply B·E·A·T &#8594;</button>
     <!-- Hamburger for mobile -->
     <button id="nav-hamburger" aria-label="Open navigation menu" onclick="toggleMobileMenu()">
@@ -4748,7 +4748,7 @@ img, svg, video, canvas { max-width: 100% !important; }
       </div>
     </div>
     <div style="flex-shrink:0">
-      <a href="advanced.html" style="display:inline-flex;align-items:center;gap:8px;padding:13px 22px;background:#7C3AED;color:white;border-radius:7px;font-family:var(--mono);font-size:10px;letter-spacing:.1em;text-transform:uppercase;font-weight:700;text-decoration:none;white-space:nowrap;transition:all .2s" onmouseover="this.style.background='#6D28D9'" onmouseout="this.style.background='#7C3AED'">Advanced Engine →</a>
+      <a href="https://beatframework.ai/advanced" style="display:inline-flex;align-items:center;gap:8px;padding:13px 22px;background:#7C3AED;color:white;border-radius:7px;font-family:var(--mono);font-size:10px;letter-spacing:.1em;text-transform:uppercase;font-weight:700;text-decoration:none;white-space:nowrap;transition:all .2s" onmouseover="this.style.background='#6D28D9'" onmouseout="this.style.background='#7C3AED'">Advanced Engine →</a>
       <div style="text-align:center;margin-top:6px;font-family:var(--mono);font-size:8px;color:rgba(255,255,255,.2)">Free · ~10 minutes</div>
     </div>
   </div>
@@ -5851,7 +5851,7 @@ document.addEventListener('click', function(e){
 </body>
 </html>
 <!-- Cookie banner -->
-<div class="beat-cookie-banner hidden" id="beat-cookie-banner">
+<div class="beat-cookie-banner" id="beat-cookie-banner" style="display:none">
   <div class="beat-cookie-txt">
     This site uses cookies for session management only — no tracking or advertising.
     Submitted emails are stored securely for framework research only.
@@ -5915,46 +5915,28 @@ function resetTool() {
 })();
 
 // ── Cookie banner ───────────────────────────────────────
+window.acceptCookies = function() {
+  localStorage.setItem('beat_cookie_consent', '1');
+  var b = document.getElementById('beat-cookie-banner');
+  if (b) b.style.display = 'none';
+};
+window.declineCookies = function() {
+  localStorage.setItem('beat_cookie_consent', '0');
+  var b = document.getElementById('beat-cookie-banner');
+  if (b) b.style.display = 'none';
+};
+window.showCookieFull = function() {
+  var f = document.getElementById('beat-cookie-full');
+  if (f) f.style.display = f.style.display === 'none' ? 'block' : 'none';
+};
 (function() {
-  function checkCookie() {
-    if (localStorage.getItem('beat_cookie_consent')) {
-      var b = document.getElementById('beat-cookie-banner');
-      if (b) b.classList.add('hidden');
-    }
+  var b = document.getElementById('beat-cookie-banner');
+  if (!b) return;
+  if (localStorage.getItem('beat_cookie_consent')) {
+    b.style.display = 'none';
+  } else {
+    b.style.display = 'flex';
   }
-  function acceptCookies() {
-    localStorage.setItem('beat_cookie_consent', JSON.stringify({accepted:true,ts:Date.now()}));
-    var b = document.getElementById('beat-cookie-banner');
-    if (b) b.classList.add('hidden');
-    var f = document.getElementById('beat-cookie-full');
-    if (f) f.style.display = 'none';
-  }
-  function declineCookies() {
-    localStorage.setItem('beat_cookie_consent', JSON.stringify({accepted:false,ts:Date.now()}));
-    var b = document.getElementById('beat-cookie-banner');
-    if (b) b.classList.add('hidden');
-    var f = document.getElementById('beat-cookie-full');
-    if (f) f.style.display = 'none';
-  }
-  function showCookieFull() {
-    var f = document.getElementById('beat-cookie-full');
-    if (f) f.style.display = f.style.display === 'none' ? 'block' : 'none';
-  }
-  window.acceptCookies = acceptCookies;
-  window.declineCookies = declineCookies;
-  window.showCookieFull = showCookieFull;
-  function initCookieBanner() {
-    var consent = localStorage.getItem('beat_cookie_consent');
-    var b = document.getElementById('beat-cookie-banner');
-    if (!b) return;
-    if (consent) {
-      b.classList.add('hidden');
-    } else {
-      setTimeout(function() { b.classList.remove('hidden'); }, 1200);
-    }
-  }
-  // Script runs after DOM — call directly, don't wait for DOMContentLoaded
-  initCookieBanner();
 })();
 </script>
 </body>
