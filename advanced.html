@@ -1,0 +1,1790 @@
+<!DOCTYPE html>
+<html lang="en" style="scroll-behavior:smooth">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Advanced Decision Engine — B·E·A·T Framework</title>
+<meta name="description" content="Advanced commercial technology diagnostic. 62-dimension analysis across patient access, HCP engagement, payer, digital, AI readiness. Same B·E·A·T scoring — deeper precision.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,700&family=IBM+Plex+Sans:ital,wght@0,300;0,400;0,500;0,600;1,300&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA2NCA2NCIgd2lkdGg9IjY0IiBoZWlnaHQ9IjY0Ij4KICA8cmVjdCB3aWR0aD0iNjQiIGhlaWdodD0iNjQiIHJ4PSIxMCIgZmlsbD0iIzBGMTgyOSIvPgogIDxyZWN0IHg9IjYiIHk9IjYiIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgcng9IjQiIGZpbGw9IiNFODUwMTAiLz4KICA8cmVjdCB4PSIzNCIgeT0iNiIgd2lkdGg9IjI0IiBoZWlnaHQ9IjI0IiByeD0iNCIgZmlsbD0iIzAwODdDMyIvPgogIDxyZWN0IHg9IjYiIHk9IjM0IiB3aWR0aD0iMjQiIGhlaWdodD0iMjQiIHJ4PSI0IiBmaWxsPSIjMDA5NjY5Ii8+CiAgPHJlY3QgeD0iMzQiIHk9IjM0IiB3aWR0aD0iMjQiIGhlaWdodD0iMjQiIHJ4PSI0IiBmaWxsPSIjN0IzQUYwIi8+CiAgPHRleHQgeD0iMTgiIHk9IjI0IiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmb250LWZhbWlseT0iQXJpYWwsc2Fucy1zZXJpZiIgZm9udC1zaXplPSIxNCIgZm9udC13ZWlnaHQ9IjcwMCIgZmlsbD0id2hpdGUiPkI8L3RleHQ+CiAgPHRleHQgeD0iNDYiIHk9IjI0IiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmb250LWZhbWlseT0iQXJpYWwsc2Fucy1zZXJpZiIgZm9udC1zaXplPSIxNCIgZm9udC13ZWlnaHQ9IjcwMCIgZmlsbD0id2hpdGUiPkU8L3RleHQ+CiAgPHRleHQgeD0iMTgiIHk9IjUyIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmb250LWZhbWlseT0iQXJpYWwsc2Fucy1zZXJpZiIgZm9udC1zaXplPSIxNCIgZm9udC13ZWlnaHQ9IjcwMCIgZmlsbD0id2hpdGUiPkE8L3RleHQ+CiAgPHRleHQgeD0iNDYiIHk9IjUyIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmb250LWZhbWlseT0iQXJpYWwsc2Fucy1zZXJpZiIgZm9udC1zaXplPSIxNCIgZm9udC13ZWlnaHQ9IjcwMCIgZmlsbD0id2hpdGUiPlQ8L3RleHQ+Cjwvc3ZnPg==">
+<style>
+:root{
+  --B:#E8520A;--E:#0284C7;--A:#059669;--T:#7C3AED;
+  --B10:rgba(232,82,10,.1);--E10:rgba(2,132,199,.1);--A10:rgba(5,150,105,.1);--T10:rgba(124,58,237,.1);
+  --ink:#0F172A;--ink2:#1E293B;--ink3:#334155;--ink4:#64748B;--ink5:#94A3B8;
+  --light:#F1F5F9;--white:#fff;--rule:#E2E8F0;--rule2:#CBD5E1;--hero:#080D1A;
+  --serif:'Playfair Display',Georgia,serif;
+  --sans:'IBM Plex Sans',system-ui,sans-serif;
+  --mono:'IBM Plex Mono','Courier New',monospace;
+  --max:1160px;--ease:cubic-bezier(.16,1,.3,1);
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{font-size:16px}
+body{font-family:var(--sans);color:var(--ink);background:var(--white);-webkit-font-smoothing:antialiased;overflow-x:hidden}
+a{color:inherit;text-decoration:none}
+
+/* NAV */
+#nav{position:fixed;top:0;left:0;right:0;z-index:300;height:52px;display:flex;align-items:center;justify-content:space-between;padding:0 32px;background:rgba(8,13,26,.97);backdrop-filter:blur(16px);border-bottom:1px solid rgba(255,255,255,.07)}
+.nav-logo{display:flex;align-items:center;gap:10px;font-family:var(--mono);font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:white;cursor:pointer}
+.nav-pill{background:var(--B);color:white;padding:3px 9px;border-radius:3px;font-size:10px;letter-spacing:.1em}
+.nav-right{display:flex;align-items:center;gap:10px}
+.nav-back{font-family:var(--mono);font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.5);padding:5px 12px;border-radius:3px;border:1px solid rgba(255,255,255,.12);transition:all .15s;cursor:pointer}
+.nav-back:hover{color:white;border-color:rgba(255,255,255,.35)}
+.nav-score-badge{display:flex;align-items:baseline;gap:4px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);border-radius:6px;padding:4px 12px}
+.nav-score-n{font-family:var(--mono);font-size:18px;font-weight:700;color:white;line-height:1;transition:color .3s}
+.nav-score-d{font-family:var(--mono);font-size:10px;color:rgba(255,255,255,.35)}
+.nav-score-lbl{font-family:var(--mono);font-size:9px;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.4);margin-left:6px}
+
+/* HERO */
+#adv-hero{background:var(--hero);padding:88px 0 64px;position:relative;overflow:hidden;margin-top:52px}
+#adv-hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 55% 60% at 0% 40%,rgba(232,82,10,.13) 0%,transparent 55%),radial-gradient(ellipse 45% 55% at 100% 60%,rgba(124,58,237,.11) 0%,transparent 55%),radial-gradient(ellipse 30% 40% at 50% 10%,rgba(2,132,199,.07) 0%,transparent 50%)}
+#adv-hero::after{content:'';position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.018) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.018) 1px,transparent 1px);background-size:64px 64px;pointer-events:none}
+.hero-inner{position:relative;z-index:1;max-width:var(--max);margin:0 auto;padding:0 40px;display:grid;grid-template-columns:1fr 360px;gap:56px;align-items:center}
+.hero-eyebrow{font-family:var(--mono);font-size:10px;letter-spacing:.24em;text-transform:uppercase;color:var(--A);display:flex;align-items:center;gap:10px;margin-bottom:20px}
+.hero-eyebrow::before{content:'';width:20px;height:2px;background:var(--A)}
+.hero-h1{font-family:var(--serif);font-size:clamp(38px,5vw,62px);font-weight:700;color:white;line-height:1.04;letter-spacing:-.02em;margin-bottom:16px}
+.hero-h1 em{font-style:italic;color:var(--E)}
+.hero-sub{font-size:17px;color:rgba(255,255,255,.68);line-height:1.72;max-width:520px;margin-bottom:28px;font-weight:300}
+.mode-toggle-wrap{display:flex;gap:10px;flex-wrap:wrap}
+.mode-btn{font-family:var(--mono);font-size:10px;letter-spacing:.1em;text-transform:uppercase;padding:10px 18px;border-radius:6px;border:1.5px solid;cursor:pointer;transition:all .2s;font-weight:600;display:flex;align-items:center;gap:7px}
+.mode-btn.active-mode{background:var(--B);border-color:var(--B);color:white}
+.mode-btn:not(.active-mode){background:transparent;border-color:rgba(255,255,255,.18);color:rgba(255,255,255,.6)}
+.mode-btn:not(.active-mode):hover{border-color:rgba(255,255,255,.4);color:white}
+.mode-btn-dot{width:7px;height:7px;border-radius:50%;background:currentColor;flex-shrink:0}
+/* right panel */
+.hero-stats-panel{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);border-radius:12px;padding:22px}
+.hsp-lbl{font-family:var(--mono);font-size:9px;letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,.4);font-weight:600;margin-bottom:14px}
+.hsp-row{display:flex;align-items:center;gap:10px;padding:8px 0;border-bottom:1px solid rgba(255,255,255,.06);font-size:13px;color:rgba(255,255,255,.7);line-height:1.4}
+.hsp-row:last-child{border-bottom:none}
+.hsp-dot{width:8px;height:8px;border-radius:50%;flex-shrink:0}
+.hsp-row b{color:white;font-weight:600}
+
+/* SCORE TRACKER BAND */
+.score-band{background:var(--ink2);border-bottom:1px solid rgba(255,255,255,.07);position:sticky;top:52px;z-index:200;padding:10px 0}
+.score-band-inner{max-width:var(--max);margin:0 auto;padding:0 40px;display:flex;align-items:center;gap:16px}
+.score-criterion{flex:1;display:flex;flex-direction:column;gap:4px;min-width:0}
+.sc-lbl{font-family:var(--mono);font-size:8px;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.4);font-weight:600;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.sc-bar-wrap{background:rgba(255,255,255,.08);border-radius:2px;height:5px;position:relative;overflow:hidden}
+.sc-bar-fill{position:absolute;left:0;top:0;bottom:0;border-radius:2px;transition:width .4s var(--ease)}
+.sc-val{font-family:var(--mono);font-size:11px;font-weight:700;color:white}
+.sc-of{font-family:var(--mono);font-size:9px;color:rgba(255,255,255,.3)}
+.score-total{flex-shrink:0;display:flex;flex-direction:column;align-items:center;padding:0 16px;border-left:1px solid rgba(255,255,255,.1);margin-left:8px}
+.score-total-n{font-family:var(--serif);font-size:28px;font-weight:700;color:white;line-height:1;transition:color .3s}
+.score-total-d{font-family:var(--mono);font-size:10px;color:rgba(255,255,255,.3)}
+.score-total-lbl{font-family:var(--mono);font-size:8px;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.3);margin-top:2px}
+
+/* QUADRANT INDICATOR in band */
+.q-indicator-band{flex-shrink:0;padding:6px 14px;border-radius:6px;border:1px solid rgba(255,255,255,.1);transition:all .3s}
+.q-ind-q{font-family:var(--mono);font-size:9px;letter-spacing:.12em;text-transform:uppercase;font-weight:700;margin-bottom:2px}
+.q-ind-name{font-family:var(--sans);font-size:12px;color:white;font-weight:500;white-space:nowrap}
+
+/* FORM */
+.form-wrap{max-width:var(--max);margin:0 auto;padding:0 40px;padding-top:56px;padding-bottom:80px}
+.theme-block{margin-bottom:48px;border:1.5px solid var(--rule);border-radius:14px;overflow:hidden;transition:border-color .2s}
+.theme-block:hover{border-color:var(--rule2)}
+.theme-header{padding:24px 28px;background:#FAFBFD;display:grid;grid-template-columns:1fr auto;gap:20px;align-items:start;cursor:pointer;transition:background .15s}
+.theme-header:hover{background:#F1F5F9}
+.theme-header-left{flex:1}
+.theme-eyebrow{display:flex;align-items:center;gap:8px;margin-bottom:8px}
+.theme-tier-pill{font-family:var(--mono);font-size:8px;letter-spacing:.12em;text-transform:uppercase;padding:2px 8px;border-radius:2px;color:white;font-weight:700}
+.theme-criterion-lbl{font-family:var(--mono);font-size:8px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink5);font-weight:500}
+.theme-title{font-family:var(--serif);font-size:19px;font-weight:700;color:var(--ink);margin-bottom:4px}
+.theme-sub{font-size:13px;color:var(--ink3);line-height:1.55;max-width:580px}
+.theme-header-right{display:flex;flex-direction:column;align-items:flex-end;gap:8px}
+/* high-level score in header */
+.theme-score-display{display:flex;align-items:baseline;gap:4px}
+.tsd-n{font-family:var(--mono);font-size:22px;font-weight:800;transition:color .3s}
+.tsd-d{font-family:var(--mono);font-size:11px;color:var(--ink5)}
+/* fine-tune toggle */
+.finetune-toggle{display:flex;align-items:center;gap:7px;font-family:var(--mono);font-size:9px;letter-spacing:.08em;text-transform:uppercase;font-weight:600;padding:5px 12px;border-radius:4px;border:1px solid var(--rule2);cursor:pointer;transition:all .15s;color:var(--ink4);background:white;white-space:nowrap}
+.finetune-toggle:hover{border-color:var(--B);color:var(--B)}
+.finetune-toggle.active{background:var(--B10);border-color:var(--B);color:var(--B)}
+.ft-dot{width:6px;height:6px;border-radius:50%;background:currentColor;flex-shrink:0}
+/* high-level slider */
+.hl-slider-wrap{padding:20px 28px 24px;border-top:1px solid var(--rule)}
+.hl-slider-labels{display:grid;grid-template-columns:repeat(3,1fr);gap:0;margin-bottom:8px;text-align:center}
+.hl-label-item{display:flex;flex-direction:column;gap:3px;align-items:center}
+.hl-label-val{font-family:var(--mono);font-size:13px;font-weight:700}
+.hl-label-txt{font-size:11px;color:var(--ink3);line-height:1.3;max-width:120px;text-align:center}
+.hl-range-wrap{position:relative;padding:8px 0}
+.hl-range{width:100%;height:6px;-webkit-appearance:none;appearance:none;border-radius:3px;outline:none;cursor:pointer;transition:background .2s}
+.hl-range::-webkit-slider-thumb{-webkit-appearance:none;width:24px;height:24px;border-radius:50%;background:white;border:3px solid var(--B);cursor:pointer;box-shadow:0 2px 8px rgba(0,0,0,.18);transition:transform .15s,border-color .2s}
+.hl-range::-webkit-slider-thumb:hover{transform:scale(1.15)}
+/* fine-tune section */
+.finetune-body{display:none;padding:0 28px 24px;border-top:1px solid var(--rule);background:white}
+.finetune-body.open{display:block}
+.finetune-intro{padding:16px 0 20px;font-size:13px;color:var(--ink4);line-height:1.6;border-bottom:1px solid var(--rule);margin-bottom:20px}
+.finetune-intro b{color:var(--ink);font-weight:600}
+.ft-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.ft-inp{background:#FAFBFD;border:1px solid var(--rule);border-radius:8px;padding:16px;transition:border-color .2s}
+.ft-inp:hover{border-color:var(--rule2)}
+.ft-inp-header{display:flex;justify-content:space-between;align-items:flex-start;gap:10px;margin-bottom:5px}
+.ft-label{font-size:13px;font-weight:500;color:var(--ink);line-height:1.35;flex:1}
+.ft-val{font-family:var(--mono);font-size:13px;font-weight:800;transition:color .2s}
+.ft-help{font-size:11px;color:var(--ink3);line-height:1.5;margin-bottom:10px}
+.ft-ends{display:flex;justify-content:space-between;font-family:var(--mono);font-size:9px;color:var(--ink5);letter-spacing:.05em;margin-bottom:5px}
+.ft-range{width:100%;height:4px;-webkit-appearance:none;appearance:none;border-radius:2px;outline:none;cursor:pointer;transition:background .15s}
+.ft-range::-webkit-slider-thumb{-webkit-appearance:none;width:18px;height:18px;border-radius:50%;background:white;border:2.5px solid var(--B);cursor:pointer;box-shadow:0 1px 5px rgba(0,0,0,.15);transition:transform .15s}
+.ft-range::-webkit-slider-thumb:hover{transform:scale(1.18)}
+/* computed indicator in fine-tune mode */
+.ft-computed-note{margin-top:16px;padding:10px 14px;background:var(--light);border-radius:6px;font-size:12px;color:var(--ink4);line-height:1.5;display:flex;align-items:center;gap:8px}
+.ft-comp-score{font-family:var(--mono);font-size:14px;font-weight:700}
+
+/* SUBMIT */
+.submit-strip{position:sticky;bottom:0;z-index:200;background:rgba(8,13,26,.98);backdrop-filter:blur(16px);border-top:1px solid rgba(255,255,255,.08);padding:14px 0}
+.submit-strip-inner{max-width:var(--max);margin:0 auto;padding:0 40px;display:flex;align-items:center;justify-content:space-between;gap:20px}
+.run-btn{background:var(--B);color:white;border:none;padding:14px 36px;border-radius:6px;font-family:var(--mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;cursor:pointer;font-weight:700;transition:all .2s;display:flex;align-items:center;gap:9px}
+.run-btn:hover{background:#C2410C;transform:translateY(-1px);box-shadow:0 4px 18px rgba(232,82,10,.4)}
+.run-btn:disabled{opacity:.45;cursor:not-allowed;transform:none;box-shadow:none}
+.strip-score{display:flex;align-items:baseline;gap:5px}
+.strip-score-n{font-family:var(--mono);font-size:26px;font-weight:700;color:white;transition:color .3s}
+.strip-score-d{font-family:var(--mono);font-size:12px;color:rgba(255,255,255,.3)}
+.strip-q-label{font-family:var(--mono);font-size:10px;letter-spacing:.1em;text-transform:uppercase;font-weight:700;padding:3px 10px;border-radius:3px;transition:all .3s}
+
+/* RESULTS */
+#results{display:none;background:white;padding:72px 0 80px}
+.results-inner{max-width:var(--max);margin:0 auto;padding:0 40px}
+.result-top-band{background:#0F172A;border-radius:14px;padding:36px 40px;margin-bottom:40px;position:relative;overflow:hidden;border-top:4px solid var(--B)}
+.result-top-band::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 60% 80% at 0% 50%,rgba(232,82,10,.15) 0%,transparent 55%),radial-gradient(ellipse 40% 60% at 100% 50%,rgba(124,58,237,.12) 0%,transparent 55%);pointer-events:none}
+.rtb-q{font-family:var(--mono);font-size:10px;letter-spacing:.2em;text-transform:uppercase;font-weight:700;margin-bottom:8px;position:relative;z-index:1}
+.rtb-posture{font-family:var(--serif);font-size:clamp(24px,3vw,38px);font-weight:700;color:#FFFFFF;margin-bottom:12px;line-height:1.15;position:relative;z-index:1}
+.rtb-insight{font-size:16px;color:rgba(255,255,255,.88);line-height:1.75;max-width:680px;position:relative;z-index:1}
+.rtb-score-pill{position:absolute;right:40px;top:36px;display:flex;flex-direction:column;align-items:center;z-index:1}
+.rtb-score-n{font-family:var(--serif);font-size:56px;font-weight:700;color:white;line-height:1}
+.rtb-score-d{font-family:var(--mono);font-size:13px;color:rgba(255,255,255,.5)}
+.rtb-score-lbl{font-family:var(--mono);font-size:8px;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.4);margin-top:3px}
+.rtb-seq{display:flex;gap:6px;flex-wrap:wrap;margin-top:20px;padding-top:20px;border-top:1px solid rgba(255,255,255,.12);position:relative;z-index:1}
+.seq-pill{font-family:var(--mono);font-size:9px;font-weight:700;padding:5px 12px;border-radius:4px;color:white;letter-spacing:.05em}
+
+/* BEAT TIERS */
+.beat-section{margin-bottom:40px}
+.section-label{font-family:var(--mono);font-size:9px;letter-spacing:.2em;text-transform:uppercase;color:var(--ink5);font-weight:600;display:flex;align-items:center;gap:10px;margin-bottom:20px}
+.section-label::before{content:'';width:18px;height:1px;background:var(--rule2)}
+.beat-tiers{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--rule);border:1px solid var(--rule);border-radius:12px;overflow:hidden;margin-bottom:32px}
+.bt-cell{background:white;padding:20px 18px}
+.bt-lbl{font-family:var(--mono);font-size:9px;letter-spacing:.14em;text-transform:uppercase;font-weight:700;margin-bottom:5px}
+.bt-name{font-family:var(--serif);font-size:14px;font-weight:700;color:var(--ink);margin-bottom:10px}
+.bt-bar-bg{background:var(--light);border-radius:2px;height:6px;margin-bottom:6px;position:relative;overflow:hidden}
+.bt-bar{position:absolute;left:0;top:0;bottom:0;border-radius:2px;transition:width .9s var(--ease)}
+.bt-pct{font-family:var(--mono);font-size:14px;font-weight:700;margin-bottom:4px}
+.bt-verdict{font-size:11px;color:var(--ink3);line-height:1.4}
+
+/* SEQUENCE ROADMAP */
+.roadmap{display:flex;flex-direction:column;gap:0;border:1.5px solid var(--rule);border-radius:12px;overflow:hidden;margin-bottom:32px}
+.roadmap-header{background:var(--ink);padding:14px 20px;font-family:var(--mono);font-size:9px;letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,.5);font-weight:600;display:grid;grid-template-columns:80px 1fr 1fr 1fr 1fr;gap:12px}
+.rm-row{display:grid;grid-template-columns:80px 1fr 1fr 1fr 1fr;gap:12px;border-bottom:1px solid var(--rule);transition:background .15s}
+.rm-row:last-child{border-bottom:none}
+.rm-row:hover{background:var(--light)}
+.rm-cell{padding:14px 12px;font-size:13px;color:var(--ink3);line-height:1.55;display:flex;align-items:flex-start}
+.rm-period{font-family:var(--mono);font-size:11px;font-weight:700;color:var(--ink2);padding:14px 12px;display:flex;align-items:center;flex-shrink:0}
+.rm-tier-dot{width:8px;height:8px;border-radius:50%;flex-shrink:0;margin-top:4px;margin-right:6px}
+.rm-parallel-badge{font-family:var(--mono);font-size:8px;letter-spacing:.08em;text-transform:uppercase;padding:2px 6px;border-radius:2px;background:var(--A10);color:var(--A);font-weight:700;margin-bottom:4px;display:inline-block}
+.rm-gate-badge{font-family:var(--mono);font-size:8px;letter-spacing:.06em;padding:2px 8px;border-radius:2px;background:#FEF3C7;color:#92400E;font-weight:600;margin-top:6px;display:inline-block}
+
+/* RISK MATRIX */
+.risk-matrix{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:32px}
+.risk-card{border-radius:10px;overflow:hidden;border:1.5px solid var(--rule)}
+.risk-head{padding:12px 18px;display:flex;align-items:center;gap:8px}
+.risk-head-lbl{font-family:var(--mono);font-size:9px;letter-spacing:.14em;text-transform:uppercase;font-weight:700;color:white}
+.risk-body{padding:14px 18px;background:white}
+.risk-item{display:flex;gap:9px;align-items:flex-start;padding:9px 0;border-bottom:1px solid var(--rule);font-size:13px;color:var(--ink2);line-height:1.55}
+.risk-item:last-child{border-bottom:none;padding-bottom:0}
+.risk-icon{flex-shrink:0;margin-top:2px;font-size:13px}
+
+/* AI TRANSFORM ROADMAP */
+.ai-roadmap{background:var(--hero);border-radius:12px;padding:32px 36px;margin-bottom:32px}
+.air-title{font-family:var(--serif);font-size:22px;font-weight:700;color:white;margin-bottom:8px}
+.air-sub{font-size:14px;color:rgba(255,255,255,.75);line-height:1.6;margin-bottom:28px}
+.air-phases{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:rgba(255,255,255,.08)}
+.air-phase{padding:20px 16px;background:rgba(255,255,255,.03)}
+.air-phase-lbl{font-family:var(--mono);font-size:9px;letter-spacing:.12em;text-transform:uppercase;font-weight:700;margin-bottom:5px}
+.air-phase-name{font-family:var(--serif);font-size:14px;font-weight:700;color:white;margin-bottom:10px;line-height:1.3}
+.air-item{font-size:12px;color:rgba(255,255,255,.65);line-height:1.55;padding:5px 0;border-bottom:1px solid rgba(255,255,255,.06);display:flex;gap:7px;align-items:flex-start}
+.air-item:last-child{border-bottom:none}
+.air-arrow{color:var(--A);flex-shrink:0;font-weight:700}
+.air-unlock{font-family:var(--mono);font-size:9px;color:rgba(255,255,255,.3);margin-top:10px;padding-top:10px;border-top:1px solid rgba(255,255,255,.08);letter-spacing:.06em}
+.air-locked{opacity:.4}
+
+/* ROLE PLAYBOOKS */
+.role-playbooks{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-bottom:32px}
+.role-card{border:1.5px solid var(--rule);border-radius:10px;overflow:hidden}
+.role-head{padding:12px 16px;display:flex;align-items:center;gap:8px}
+.role-icon{font-size:16px}
+.role-lbl{font-family:var(--mono);font-size:9px;letter-spacing:.1em;text-transform:uppercase;font-weight:700;color:white}
+.role-body{padding:14px 16px;background:white}
+.role-item{font-size:13px;color:var(--ink2);line-height:1.55;padding:7px 0;border-bottom:1px solid var(--rule);display:flex;gap:8px}
+.role-item:last-child{border-bottom:none;padding-bottom:0}
+.role-dot{color:var(--B);font-weight:700;flex-shrink:0}
+
+/* GATE CHECKLIST */
+.gates-section{border:1.5px solid var(--rule);border-radius:12px;overflow:hidden;margin-bottom:32px}
+.gates-header{background:var(--light);padding:16px 24px;display:grid;grid-template-columns:repeat(4,1fr);gap:12px;border-bottom:1px solid var(--rule)}
+.gate-col-head{font-family:var(--mono);font-size:9px;letter-spacing:.12em;text-transform:uppercase;font-weight:700;display:flex;align-items:center;gap:6px}
+.gate-row{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;border-bottom:1px solid var(--rule);background:white;transition:background .15s}
+.gate-row:last-child{border-bottom:none}
+.gate-row:hover{background:#FAFBFD}
+.gate-cell{padding:12px 16px;font-size:13px;color:var(--ink2);line-height:1.5}
+.gate-metric{font-family:var(--mono);font-size:11px;font-weight:700;color:var(--ink)}
+.gate-status{font-family:var(--mono);font-size:10px;font-weight:700;padding:2px 8px;border-radius:3px}
+
+/* CTA */
+.result-cta{background:var(--B);border-radius:12px;padding:32px 36px;display:grid;grid-template-columns:1fr auto;gap:24px;align-items:center;margin-bottom:20px}
+.rcta-h{font-family:var(--serif);font-size:22px;font-weight:700;color:white;margin-bottom:6px}
+.rcta-p{font-size:14px;color:rgba(255,255,255,.7);line-height:1.6}
+.rcta-btn{background:white;color:var(--B);border:none;padding:12px 24px;border-radius:6px;font-family:var(--mono);font-size:10px;letter-spacing:.1em;text-transform:uppercase;cursor:pointer;font-weight:700;transition:all .2s;white-space:nowrap;flex-shrink:0}
+.rcta-btn:hover{transform:translateY(-2px);box-shadow:0 4px 16px rgba(0,0,0,.15)}
+.result-disclaimer{text-align:center;font-size:12px;color:var(--ink4);padding:16px}
+
+/* LOADING */
+.loading-overlay{position:fixed;inset:0;background:rgba(8,13,26,.9);z-index:500;display:none;align-items:center;justify-content:center;flex-direction:column;gap:20px}
+.loading-overlay.show{display:flex}
+.spin{width:44px;height:44px;border:3px solid rgba(255,255,255,.08);border-top-color:var(--B);border-radius:50%;animation:spin .75s linear infinite}
+.load-txt{font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.5)}
+@keyframes spin{to{transform:rotate(360deg)}}
+
+/* QUADRANT MATRIX IN RESULTS */
+.qmatrix-wrap{display:grid;grid-template-columns:28px 1fr 1fr;grid-template-rows:auto 1fr 1fr 28px;gap:6px;background:var(--rule);border:1px solid var(--rule);border-radius:12px;overflow:hidden;margin-bottom:32px;min-height:340px}
+.qm-axis-top{grid-column:2/4;grid-row:1;font-family:var(--mono);font-size:9px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink5);font-weight:600;text-align:center;padding:10px;background:white;border-bottom:1px solid var(--rule)}
+.qm-axis-side{grid-column:1;grid-row:2/4;writing-mode:vertical-lr;transform:rotate(180deg);font-family:var(--mono);font-size:9px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink5);font-weight:600;text-align:center;background:white;border-right:1px solid var(--rule);padding:10px;display:flex;align-items:center;justify-content:center}
+.qm-axis-bl{grid-column:2;grid-row:4;font-family:var(--mono);font-size:8px;color:var(--ink4);font-weight:600;text-align:center;background:white;padding:8px;display:flex;align-items:center;justify-content:center;letter-spacing:.06em;text-transform:uppercase}
+.qm-axis-br{grid-column:3;grid-row:4;font-family:var(--mono);font-size:8px;color:var(--ink4);font-weight:600;text-align:center;background:white;padding:8px;display:flex;align-items:center;justify-content:center;letter-spacing:.06em;text-transform:uppercase}
+.qm-cell{padding:20px 18px;background:white;cursor:pointer;transition:all .2s;position:relative;overflow:hidden}
+.qm-cell:hover{filter:brightness(.97)}
+.qm-cell.active-q{box-shadow:inset 0 0 0 3px var(--active-q-color,#7C3AED);z-index:2}
+.qm-cell.active-q::after{content:'◀ You are here';position:absolute;bottom:10px;right:12px;font-family:var(--mono);font-size:8px;letter-spacing:.06em;color:var(--active-q-color,#7C3AED);font-weight:700;opacity:.8}
+.qm-q{font-family:var(--mono);font-size:9px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;margin-bottom:6px}
+.qm-name{font-family:var(--serif);font-size:14px;font-weight:700;color:var(--ink);margin-bottom:5px;line-height:1.3}
+.qm-desc{font-size:12px;color:var(--ink3);line-height:1.5;margin-bottom:8px}
+.qm-pills{display:flex;gap:3px;flex-wrap:wrap}
+.qm-pill{width:14px;height:14px;border-radius:3px;display:inline-block}
+.qm-score{font-family:var(--mono);font-size:9px;color:var(--ink5);margin-top:6px;font-weight:500}
+
+/* GATED ACCESS MODAL */
+.gate-overlay{position:fixed;inset:0;background:rgba(8,13,26,.85);z-index:1000;display:flex;align-items:center;justify-content:center;padding:20px;backdrop-filter:blur(8px)}
+.gate-modal{background:white;border-radius:16px;padding:44px 40px;max-width:500px;width:100%;box-shadow:0 24px 80px rgba(0,0,0,.4)}
+.gate-modal-logo{display:flex;align-items:center;gap:8px;margin-bottom:24px}
+.gate-modal-pill{background:var(--B);color:white;padding:3px 10px;border-radius:3px;font-family:var(--mono);font-size:11px;letter-spacing:.1em;font-weight:700}
+.gate-modal h2{font-family:var(--serif);font-size:26px;font-weight:700;color:var(--ink);margin-bottom:8px;line-height:1.2}
+.gate-modal p{font-size:15px;color:var(--ink3);line-height:1.65;margin-bottom:24px}
+.gate-benefits{display:flex;flex-direction:column;gap:8px;margin-bottom:28px;padding:16px;background:var(--light);border-radius:8px}
+.gate-benefit{display:flex;gap:9px;align-items:flex-start;font-size:13px;color:var(--ink2);line-height:1.5}
+.gate-benefit-dot{width:6px;height:6px;border-radius:50%;flex-shrink:0;margin-top:4px}
+.gate-form-row{display:flex;flex-direction:column;gap:8px;margin-bottom:16px}
+.gate-input{width:100%;padding:12px 16px;border:1.5px solid var(--rule2);border-radius:7px;font-family:var(--sans);font-size:15px;color:var(--ink);outline:none;transition:border-color .15s}
+.gate-input:focus{border-color:var(--B)}
+.gate-input::placeholder{color:var(--ink5)}
+.gate-submit{width:100%;padding:14px;background:var(--B);color:white;border:none;border-radius:7px;font-family:var(--mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;cursor:pointer;font-weight:700;transition:all .2s}
+.gate-submit:hover{background:#C2410C}
+.gate-skip{text-align:center;margin-top:12px;font-size:12px;color:var(--ink5)}
+.gate-skip a{color:var(--E);cursor:pointer;text-decoration:underline}
+.gate-privacy{font-size:11px;color:var(--ink5);text-align:center;margin-top:8px}
+
+/* FOOTER LINK BAR */
+.adv-footer{background:#0F172A;padding:20px 40px;display:flex;align-items:center;justify-content:space-between;border-top:1px solid rgba(255,255,255,.07)}
+.adv-footer-brand{display:flex;align-items:center;gap:10px;font-family:var(--mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.45)}
+.adv-footer-link{font-family:var(--mono);font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--E);transition:color .15s}
+.adv-footer-link:hover{color:white}
+.adv-footer-disc{font-size:11px;color:rgba(255,255,255,.3);max-width:480px;text-align:right;line-height:1.55}
+
+/* PRINT STYLES */
+@media print{
+  #nav,.score-band,.submit-strip,.gate-overlay,.adv-footer,.mode-toggle-wrap,.theme-header .finetune-toggle,.run-btn{display:none!important}
+  body{background:white!important;font-size:12px}
+  #adv-hero{background:#0F172A!important;-webkit-print-color-adjust:exact;print-color-adjust:exact;padding:40px 0!important;margin-top:0!important;page-break-after:avoid}
+  .form-wrap{display:none!important}
+  #results{display:block!important;padding:20px 0}
+  .results-inner{padding:0 20px}
+  .result-top-band{background:#0F172A!important;-webkit-print-color-adjust:exact;print-color-adjust:exact;page-break-after:avoid}
+  .beat-tiers,.risk-matrix,.role-playbooks,.air-phases{page-break-inside:avoid}
+  .beat-section{page-break-inside:avoid;margin-bottom:24px}
+  .air-roadmap{background:#0F172A!important;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .result-cta{display:none}
+  .print-header{display:block!important}
+}
+.print-header{display:none}
+@media(max-width:1000px){.hero-inner{grid-template-columns:1fr}.hero-stats-panel{display:none}.score-band-inner{gap:8px}.rm-row,.roadmap-header{grid-template-columns:60px 1fr 1fr}}
+@media(max-width:768px){.form-wrap{padding:0 20px;padding-top:40px;padding-bottom:80px}.results-inner{padding:0 20px}.hero-inner{padding:0 20px}.score-band-inner{padding:0 16px}.submit-strip-inner{padding:0 20px}.ft-grid{grid-template-columns:1fr}.beat-tiers{grid-template-columns:1fr 1fr}.risk-matrix{grid-template-columns:1fr}.role-playbooks{grid-template-columns:1fr}.air-phases{grid-template-columns:1fr 1fr}.result-top-band{padding:24px}.rtb-score-pill{position:static;flex-direction:row;gap:8px;align-items:baseline;margin-top:16px;padding-top:16px;border-top:1px solid rgba(255,255,255,.1)}.result-cta{grid-template-columns:1fr}}
+
+/* ── COOKIE BANNER ── */
+.cookie-banner{position:fixed;bottom:0;left:0;right:0;z-index:2000;background:#0F172A;border-top:1px solid rgba(255,255,255,.12);padding:14px 32px;display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap;box-shadow:0 -4px 24px rgba(0,0,0,.3)}
+.cookie-banner.hidden{display:none}
+.cookie-txt{font-size:13px;color:rgba(255,255,255,.75);line-height:1.6;flex:1;min-width:200px}
+.cookie-txt a{color:var(--E);text-decoration:underline}
+.cookie-btns{display:flex;gap:8px;flex-shrink:0;flex-wrap:wrap}
+.cookie-accept{background:var(--B);color:white;border:none;padding:8px 18px;border-radius:5px;font-family:var(--mono);font-size:10px;letter-spacing:.1em;text-transform:uppercase;cursor:pointer;font-weight:700;transition:all .2s}
+.cookie-accept:hover{background:#C2410C}
+.cookie-decline{background:transparent;color:rgba(255,255,255,.55);border:1px solid rgba(255,255,255,.2);padding:8px 14px;border-radius:5px;font-family:var(--mono);font-size:10px;letter-spacing:.1em;text-transform:uppercase;cursor:pointer;font-weight:600;transition:all .2s}
+.cookie-decline:hover{color:white;border-color:rgba(255,255,255,.4)}
+
+/* ── MOBILE NAV (matching index.html) ── */
+#adv-hamburger{display:none;flex-direction:column;gap:4px;cursor:pointer;padding:8px;border:none;background:transparent;flex-shrink:0}
+#adv-hamburger span{display:block;width:20px;height:2px;background:rgba(255,255,255,.8);border-radius:2px;transition:all .2s}
+#adv-mobile-menu{display:none;position:fixed;top:52px;left:0;right:0;background:rgba(8,13,26,.98);backdrop-filter:blur(20px);z-index:190;padding:16px 0;border-bottom:1px solid rgba(255,255,255,.1);flex-direction:column}
+#adv-mobile-menu.open{display:flex}
+.adv-mobile-link{font-family:var(--mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.75);padding:13px 28px;border-bottom:1px solid rgba(255,255,255,.06);cursor:pointer;display:flex;align-items:center;justify-content:space-between;transition:background .15s}
+.adv-mobile-link:hover{background:rgba(255,255,255,.08);color:white}
+.adv-mobile-link::after{content:"→";opacity:.4}
+@media(max-width:768px){
+  #adv-hamburger{display:flex!important}
+  .nav-back{display:none}
+  #nav-score-wrap{display:none!important}
+  .adv-footer{padding:16px 20px;flex-direction:column;gap:10px;text-align:center}
+  .adv-footer-disc{text-align:center;max-width:100%}
+  .cookie-banner{padding:12px 20px}
+}
+@media(max-width:480px){
+  .gate-modal{padding:28px 20px}
+}
+</style>
+</head>
+<body>
+
+<!-- GATED ACCESS MODAL -->
+<div class="gate-overlay" id="gate-overlay">
+  <div class="gate-modal">
+    <div class="gate-modal-logo">
+      <span class="gate-modal-pill">B·E·A·T</span>
+      <span style="font-family:var(--mono);font-size:11px;color:var(--ink4);letter-spacing:.1em">ADVANCED ENGINE</span>
+    </div>
+
+    <!-- FORM SECTION -->
+    <div id="gate-form-section">
+      <h2>One step to access<br>the Engine</h2>
+      <p>This tool is part of an independent practitioner research project on pharma commercial technology sequencing. Your email helps improve the framework. No sales, no follow-up unless you opt in below.</p>
+      <div class="gate-benefits">
+        <div class="gate-benefit"><span class="gate-benefit-dot" style="background:var(--B)"></span>8 commercial themes · up to 62 diagnostic inputs</div>
+        <div class="gate-benefit"><span class="gate-benefit-dot" style="background:var(--E)"></span>Same B·E·A·T scoring — Q1–Q4, 6–18 scale</div>
+        <div class="gate-benefit"><span class="gate-benefit-dot" style="background:var(--A)"></span>Sequencing roadmap, risk matrix, AI transformation plan</div>
+        <div class="gate-benefit"><span class="gate-benefit-dot" style="background:var(--T)"></span>Printable report — share with your leadership team</div>
+      </div>
+      <div class="gate-form-row">
+        <div>
+          <input class="gate-input" id="gate-name" type="text" placeholder="Your name" autocomplete="name">
+          <div id="gate-name-err" style="display:none;color:#DC2626;font-size:12px;margin-top:4px;padding-left:4px">Please enter your name.</div>
+        </div>
+        <div>
+          <input class="gate-input" id="gate-email" type="email" placeholder="Email address" autocomplete="email" oninput="validateEmailInput(this)">
+          <div id="gate-email-err" style="display:none;color:#DC2626;font-size:12px;margin-top:4px;padding-left:4px">Please enter a valid email address.</div>
+        </div>
+      </div>
+      <label style="display:flex;align-items:flex-start;gap:10px;cursor:pointer;margin-bottom:14px;padding:12px 14px;background:var(--light);border-radius:7px;border:1px solid var(--rule2)">
+        <input type="checkbox" id="gate-newsletter" style="width:16px;height:16px;margin-top:2px;accent-color:var(--B);flex-shrink:0">
+        <span style="font-size:13px;color:var(--ink3);line-height:1.55">
+          Yes, I'd like to receive occasional updates about the B·E·A·T Framework.
+          <span style="color:var(--ink5);font-size:12px;display:block;margin-top:2px">You can unsubscribe at any time.</span>
+        </span>
+      </label>
+      <div id="gate-submit-err" style="display:none;color:#DC2626;font-size:12px;margin-bottom:8px;padding:8px 12px;background:#FEF2F2;border-radius:5px"></div>
+      <button class="gate-submit" id="gate-submit-btn" onclick="submitGate()">Access the Engine →</button>
+      <div class="gate-privacy">Data stored securely for framework research only. Independent practitioner work — not affiliated with any employer. <a href="#" onclick="showPrivacyNote();return false" style="color:var(--E);text-decoration:underline">Privacy note →</a></div>
+      <div id="gate-privacy-note" style="display:none;margin-top:12px;padding:14px 16px;background:var(--light);border-radius:8px;border:1px solid var(--rule);font-size:12px;color:var(--ink4);line-height:1.72">
+        <strong style="color:var(--ink);display:block;margin-bottom:6px;font-size:13px">Privacy &amp; Data Note</strong>
+        Your name and email are stored securely and used only for: (1) framework research and improvement, and (2) occasional updates if you opted in. Your data is never sold, shared with employers, or used for commercial purposes. You can request deletion at any time by contacting the framework author at <a href="https://beatframework.ai" style="color:var(--E)">beatframework.ai</a>.
+        <div style="margin-top:10px;padding-top:10px;border-top:1px solid var(--rule)">
+          <span style="font-family:var(--mono);font-size:9px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink5);font-weight:600">Related</span>
+          <div style="margin-top:6px;display:flex;gap:12px;flex-wrap:wrap">
+            <a href="index.html" style="color:var(--E);font-size:12px;text-decoration:underline">← B·E·A·T Framework (main site)</a>
+            <a href="https://medium.com/@ravgupta" target="_blank" rel="noopener" style="color:var(--E);font-size:12px;text-decoration:underline">Medium articles →</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- CHECK INBOX SECTION -->
+    <div id="gate-inbox-section" style="display:none;text-align:center;padding:10px 0">
+      <div style="width:64px;height:64px;border-radius:50%;background:rgba(5,150,105,.1);border:2px solid #059669;display:flex;align-items:center;justify-content:center;margin:0 auto 20px;font-size:28px">✉</div>
+      <h2 style="font-size:22px;margin-bottom:10px">Check your inbox</h2>
+      <p style="font-size:15px;color:var(--ink3);line-height:1.7;margin-bottom:16px">
+        We've sent a confirmation link to<br>
+        <strong id="gate-inbox-email" style="color:var(--ink)"></strong>
+      </p>
+      <div style="padding:14px 16px;background:var(--light);border-radius:8px;border:1px solid var(--rule);font-size:13px;color:var(--ink3);line-height:1.65;text-align:left;margin-bottom:20px">
+        <strong style="color:var(--ink);display:block;margin-bottom:4px">Didn't receive it?</strong>
+        Check your spam folder. The email comes from <span style="font-family:var(--mono);font-size:11px">hello@beatframework.ai</span>. Links expire after 24 hours.
+      </div>
+      <div class="gate-skip">Wrong email? <a onclick="document.getElementById('gate-inbox-section').style.display='none';document.getElementById('gate-form-section').style.display='block';var b=document.getElementById('gate-submit-btn');if(b){b.disabled=false;b.textContent='Access the Engine →'}">Go back</a></div>
+    </div>
+
+  </div>
+</div>
+
+<!-- MOBILE MENU -->
+<div id="adv-mobile-menu">
+  <div class="adv-mobile-link" onclick="window.location.href='index.html'">← B·E·A·T Framework Home</div>
+  <div class="adv-mobile-link" onclick="document.getElementById('adv-hero').scrollIntoView({behavior:'smooth'});closeAdvMenu()">Overview</div>
+  <div class="adv-mobile-link" onclick="document.getElementById('form-wrap').scrollIntoView({behavior:'smooth'});closeAdvMenu()">Run Diagnostic</div>
+  <div class="adv-mobile-link" onclick="document.getElementById('results').scrollIntoView({behavior:'smooth'});closeAdvMenu()">Results</div>
+  <div class="adv-mobile-link" onclick="window.print();closeAdvMenu()">⎙ Print Report</div>
+</div>
+
+<!-- NAV -->
+<nav id="nav">
+  <div class="nav-logo" onclick="window.location.href='index.html'" style="cursor:pointer">
+    <span class="nav-pill">B·E·A·T</span>
+    <span style="color:rgba(255,255,255,.55);font-size:10px">Advanced Engine</span>
+  </div>
+  <div class="nav-right">
+    <div class="nav-score-badge" id="nav-score-wrap" style="display:none">
+      <span class="nav-score-n" id="nav-score-n">12</span>
+      <span class="nav-score-d">/18</span>
+      <span class="nav-score-lbl">Score</span>
+    </div>
+    <a class="nav-back" href="index.html">← Framework</a>
+    <button id="adv-hamburger" aria-label="Open menu" onclick="toggleAdvMenu()">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section id="adv-hero">
+  <div class="hero-inner">
+    <div>
+      <div class="hero-eyebrow">Advanced Diagnostic · 8 Themes · Up to 62 Dimensions</div>
+      <h1 class="hero-h1">Deeper into your<br><em>B·E·A·T posture</em></h1>
+      <p class="hero-sub">Same scoring system as the framework — 6 criteria, 6–18 range, Q1–Q4 quadrants. Two modes: high-level for a quick read, fine-tune for precision across every layer of your commercial stack.</p>
+      <div class="mode-toggle-wrap" id="mode-toggle-wrap">
+        <button class="mode-btn active-mode" id="btn-hl" onclick="setMode('hl')">
+          <span class="mode-btn-dot"></span>High-level · 8 sliders · ~3 min
+        </button>
+        <button class="mode-btn" id="btn-ft" onclick="setMode('ft')">
+          <span class="mode-btn-dot"></span>Fine-tune · up to 62 inputs · ~12 min
+        </button>
+      </div>
+    </div>
+    <div class="hero-stats-panel">
+      <div class="hsp-lbl">Same B·E·A·T scoring system</div>
+      <div class="hsp-row"><span class="hsp-dot" style="background:var(--ink5)"></span><span>6 criteria · <b>1–3 each</b> · 6–18 total</span></div>
+      <div class="hsp-row"><span class="hsp-dot" style="background:var(--B)"></span><span>6–9 = <b>Q4 Triage</b></span></div>
+      <div class="hsp-row"><span class="hsp-dot" style="background:var(--E)"></span><span>9–12 = <b>Q3 Build First</b></span></div>
+      <div class="hsp-row"><span class="hsp-dot" style="background:var(--A)"></span><span>12–15 = <b>Q2 Accelerate</b></span></div>
+      <div class="hsp-row"><span class="hsp-dot" style="background:var(--T)"></span><span>15–18 = <b>Q1 Build Deep</b></span></div>
+      <div class="hsp-row" style="margin-top:6px;padding-top:10px;border-top:1px solid rgba(255,255,255,.06)"><span class="hsp-dot" style="background:var(--T)"></span><span>Fine-tune sub-inputs <b>average into</b> each criterion</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- SCORE TRACKER BAND -->
+<div class="score-band" id="score-band">
+  <div class="score-band-inner">
+    <div class="score-criterion" id="sb-org">
+      <div class="sc-lbl">Org scale</div>
+      <div class="sc-bar-wrap"><div class="sc-bar-fill" id="bar-org" style="background:var(--B);width:66%"></div></div>
+      <span class="sc-val" id="sv-org">2</span><span class="sc-of">/3</span>
+    </div>
+    <div class="score-criterion" id="sb-speed">
+      <div class="sc-lbl">Speed pressure</div>
+      <div class="sc-bar-wrap"><div class="sc-bar-fill" id="bar-speed" style="background:var(--B);width:66%"></div></div>
+      <span class="sc-val" id="sv-speed">2</span><span class="sc-of">/3</span>
+    </div>
+    <div class="score-criterion" id="sb-tech">
+      <div class="sc-lbl">Tech maturity</div>
+      <div class="sc-bar-wrap"><div class="sc-bar-fill" id="bar-tech" style="background:var(--E);width:66%"></div></div>
+      <span class="sc-val" id="sv-tech">2</span><span class="sc-of">/3</span>
+    </div>
+    <div class="score-criterion" id="sb-capital">
+      <div class="sc-lbl">Capital runway</div>
+      <div class="sc-bar-wrap"><div class="sc-bar-fill" id="bar-capital" style="background:var(--E);width:66%"></div></div>
+      <span class="sc-val" id="sv-capital">2</span><span class="sc-of">/3</span>
+    </div>
+    <div class="score-criterion" id="sb-change">
+      <div class="sc-lbl">Change capacity</div>
+      <div class="sc-bar-wrap"><div class="sc-bar-fill" id="bar-change" style="background:var(--A);width:66%"></div></div>
+      <span class="sc-val" id="sv-change">2</span><span class="sc-of">/3</span>
+    </div>
+    <div class="score-criterion" id="sb-compliance">
+      <div class="sc-lbl">Compliance burden</div>
+      <div class="sc-bar-wrap"><div class="sc-bar-fill" id="bar-compliance" style="background:var(--A);width:66%"></div></div>
+      <span class="sc-val" id="sv-compliance">2</span><span class="sc-of">/3</span>
+    </div>
+    <div class="score-total">
+      <span class="score-total-n" id="total-score-n">12</span>
+      <span class="score-total-d">/18</span>
+      <span class="score-total-lbl">Total</span>
+    </div>
+    <div class="q-indicator-band" id="q-band-ind" style="background:rgba(5,150,105,.12);border-color:rgba(5,150,105,.25)">
+      <div class="q-ind-q" id="q-band-q" style="color:var(--A)">Q2</div>
+      <div class="q-ind-name" id="q-band-name">Accelerate Now</div>
+    </div>
+  </div>
+</div>
+
+<!-- FORM -->
+<div class="form-wrap" id="form-wrap">
+  <!-- Built by JS -->
+</div>
+
+<!-- SUBMIT STRIP -->
+<div class="submit-strip">
+  <div class="submit-strip-inner">
+    <div style="display:flex;align-items:center;gap:16px">
+      <div class="strip-score">
+        <span class="strip-score-n" id="strip-score-n">12</span>
+        <span class="strip-score-d">/18</span>
+      </div>
+      <span class="strip-q-label" id="strip-q-label" style="background:rgba(5,150,105,.15);color:var(--A)">Q2 · Accelerate Now</span>
+    </div>
+    <div style="display:flex;align-items:center;gap:12px">
+      <span style="font-family:var(--mono);font-size:10px;color:rgba(255,255,255,.3);letter-spacing:.06em" id="mode-label-strip">High-level mode</span>
+      <button class="run-btn" id="run-btn" onclick="runAnalysis()">
+        Run Full Analysis <span>→</span>
+      </button>
+    </div>
+  </div>
+</div>
+
+<!-- RESULTS -->
+<!-- BACKEND ERROR -->
+<div id="backend-error" style="display:none;max-width:var(--max);margin:40px auto;padding:0 40px">
+  <div style="background:#FEF2F2;border:1.5px solid #EF4444;border-radius:12px;padding:24px 28px;display:flex;align-items:flex-start;gap:16px">
+    <span style="font-size:24px;flex-shrink:0">⚠</span>
+    <div>
+      <div style="font-family:var(--mono);font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:#DC2626;font-weight:700;margin-bottom:6px">Analysis Engine Unavailable</div>
+      <div id="backend-error-msg" style="font-size:14px;color:#7F1D1D;line-height:1.65;margin-bottom:12px"></div>
+      <div style="font-size:13px;color:#991B1B;line-height:1.6">To deploy the backend: push <code style="background:#FEE2E2;padding:2px 6px;border-radius:3px;font-family:var(--mono);font-size:11px">engine.py</code>, <code style="background:#FEE2E2;padding:2px 6px;border-radius:3px;font-family:var(--mono);font-size:11px">main.py</code>, <code style="background:#FEE2E2;padding:2px 6px;border-radius:3px;font-family:var(--mono);font-size:11px">requirements.txt</code>, and <code style="background:#FEE2E2;padding:2px 6px;border-radius:3px;font-family:var(--mono);font-size:11px">render.yaml</code> to GitHub and connect to Render. Then update <code style="background:#FEE2E2;padding:2px 6px;border-radius:3px;font-family:var(--mono);font-size:11px">BACKEND_URL</code> in this file.</div>
+    </div>
+  </div>
+</div>
+
+<section id="results">
+  <div class="results-inner">
+
+    <!-- Print header (shows only when printing) -->
+    <div class="print-header" style="padding:16px 0 24px;border-bottom:2px solid var(--rule);margin-bottom:24px">
+      <div style="font-family:var(--mono);font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--ink5);margin-bottom:4px">B·E·A·T Framework · beatframework.ai</div>
+      <div style="font-family:var(--serif);font-size:20px;font-weight:700;color:var(--ink)">Advanced Decision Engine — Diagnostic Report</div>
+    </div>
+
+    <!-- Top band -->
+    <div class="result-top-band" id="rtb"></div>
+
+    <!-- Print + Back buttons -->
+    <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:32px;flex-wrap:wrap;gap:10px">
+      <a href="index.html" style="display:inline-flex;align-items:center;gap:7px;font-family:var(--mono);font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink4);padding:8px 16px;border:1px solid var(--rule2);border-radius:5px;transition:all .15s" onmouseover="this.style.color='var(--ink)';this.style.borderColor='var(--ink3)'" onmouseout="this.style.color='';this.style.borderColor=''">← beatframework.ai</a>
+      <button onclick="window.print()" style="display:inline-flex;align-items:center;gap:7px;font-family:var(--mono);font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:white;background:var(--ink2);padding:8px 18px;border:none;border-radius:5px;cursor:pointer;transition:all .15s" onmouseover="this.style.background='var(--ink)'" onmouseout="this.style.background='var(--ink2)'">⎙ Print Report</button>
+    </div>
+
+    <!-- Quadrant Matrix -->
+    <div class="beat-section">
+      <div class="section-label">Your Position — Investment Posture Matrix</div>
+      <div class="qmatrix-wrap" id="qmatrix">
+        <div class="qm-axis-top">↑ High Maturity</div>
+        <div class="qm-axis-side">Technology Maturity →</div>
+        <!-- Q1 top-left -->
+        <div class="qm-cell" id="qmc-Q1" style="grid-column:2;grid-row:2;border-right:1px solid var(--rule)">
+          <div class="qm-q" style="color:#7C3AED">Q1 · Build Deep</div>
+          <div class="qm-name">All Tiers · Transform Focus</div>
+          <div class="qm-desc">High maturity, low urgency. Invest deliberately across all tiers. Transform is earned here.</div>
+          <div class="qm-pills">
+            <span class="qm-pill" style="background:#E85010"></span>
+            <span class="qm-pill" style="background:#0284C7"></span>
+            <span class="qm-pill" style="background:#059669"></span>
+            <span class="qm-pill" style="background:#7C3AED"></span>
+          </div>
+          <div class="qm-score">Score 15–18</div>
+        </div>
+        <!-- Q2 top-right -->
+        <div class="qm-cell" id="qmc-Q2" style="grid-column:3;grid-row:2">
+          <div class="qm-q" style="color:#059669">Q2 · Accelerate Now</div>
+          <div class="qm-name">Parallel B+E · Fast A</div>
+          <div class="qm-desc">High maturity, high urgency. Accelerate in 6 months. Transform scoped Year 2.</div>
+          <div class="qm-pills">
+            <span class="qm-pill" style="background:#E85010"></span>
+            <span class="qm-pill" style="background:#0284C7"></span>
+            <span class="qm-pill" style="background:#059669"></span>
+            <span class="qm-pill" style="background:rgba(124,58,237,.3)"></span>
+          </div>
+          <div class="qm-score">Score 12–15</div>
+        </div>
+        <!-- Q3 bottom-left -->
+        <div class="qm-cell" id="qmc-Q3" style="grid-column:2;grid-row:3;border-right:1px solid var(--rule);border-top:1px solid var(--rule)">
+          <div class="qm-q" style="color:#0284C7">Q3 · Build First</div>
+          <div class="qm-name">Sequential Only · No Skip</div>
+          <div class="qm-desc">Low maturity, low urgency. B before E. E before A. A & T are future state.</div>
+          <div class="qm-pills">
+            <span class="qm-pill" style="background:#E85010"></span>
+            <span class="qm-pill" style="background:rgba(2,132,199,.4)"></span>
+            <span class="qm-pill" style="background:rgba(5,150,105,.2)"></span>
+            <span class="qm-pill" style="background:rgba(124,58,237,.1)"></span>
+          </div>
+          <div class="qm-score">Score 9–12</div>
+        </div>
+        <!-- Q4 bottom-right -->
+        <div class="qm-cell" id="qmc-Q4" style="grid-column:3;grid-row:3;border-top:1px solid var(--rule)">
+          <div class="qm-q" style="color:#E85010">Q4 · Triage & Compress</div>
+          <div class="qm-name">MVP B · Accept Risk</div>
+          <div class="qm-desc">Low maturity, high urgency. MVP Build. Compress Enable. Transform deferred.</div>
+          <div class="qm-pills">
+            <span class="qm-pill" style="background:#E85010"></span>
+            <span class="qm-pill" style="background:rgba(2,132,199,.35)"></span>
+            <span class="qm-pill" style="background:rgba(5,150,105,.15)"></span>
+            <span class="qm-pill" style="background:rgba(124,58,237,.08)"></span>
+          </div>
+          <div class="qm-score">Score 6–9</div>
+        </div>
+        <div class="qm-axis-bl">Low Urgency</div>
+        <div class="qm-axis-br">High Urgency →</div>
+      </div>
+    </div>
+
+    <!-- BEAT Tier Scores -->
+    <div class="beat-section">
+      <div class="section-label">B·E·A·T Tier Scores</div>
+      <div class="beat-tiers" id="beat-tiers"></div>
+    </div>
+
+    <!-- Sequence Roadmap -->
+    <div class="beat-section">
+      <div class="section-label">Sequencing & Parallel Work Roadmap</div>
+      <div class="roadmap" id="roadmap"></div>
+    </div>
+
+    <!-- Risk Matrix -->
+    <div class="beat-section">
+      <div class="section-label">Risk Matrix — By Tier</div>
+      <div class="risk-matrix" id="risk-matrix"></div>
+    </div>
+
+    <!-- Gate Checklist -->
+    <div class="beat-section">
+      <div class="section-label">Gate Checklist — Before Each Tier Unlocks</div>
+      <div class="gates-section" id="gates-section"></div>
+    </div>
+
+    <!-- AI Transformation Roadmap -->
+    <div class="beat-section">
+      <div class="section-label">AI Transformation Roadmap</div>
+      <div class="ai-roadmap" id="ai-roadmap"></div>
+    </div>
+
+    <!-- Role Playbooks -->
+    <div class="beat-section">
+      <div class="section-label">What to Do This Quarter — By Role</div>
+      <div class="role-playbooks" id="role-playbooks"></div>
+    </div>
+
+    <!-- CTA -->
+    <div class="result-cta">
+      <div>
+        <div class="rcta-h">Take this to your team</div>
+        <div class="rcta-p">The full B·E·A·T Framework includes three use cases, four stakeholder personas, 34 verified industry references, and the interactive Decision Tool — all mapped to your posture.</div>
+      </div>
+      <button class="rcta-btn" onclick="window.location.href='index.html#framework'">Explore Full Framework →</button>
+    </div>
+    <div class="result-disclaimer">
+      Views are those of Saurav Gupta personally and do not represent any employer, client, or affiliated organization.<br>
+      Original practitioner work · <a href="index.html" style="color:var(--E)">beatframework.ai</a>
+    </div>
+  </div>
+</section>
+
+<!-- LOADING -->
+<div class="loading-overlay" id="loading">
+  <div class="spin"></div>
+  <div class="load-txt">Computing your B·E·A·T posture…</div>
+</div>
+
+<script>
+// ═══════════════════════════════════════════════════════════════════
+// DATA — 8 THEMES WITH HIGH-LEVEL AND FINE-TUNE DEFINITIONS
+// Each theme maps to one of the 6 original BEAT framework criteria
+// ═══════════════════════════════════════════════════════════════════
+const CRITERIA = ['org','speed','tech','capital','change','compliance'];
+const CRITERIA_COLORS = {org:'var(--B)',speed:'var(--B)',tech:'var(--E)',capital:'var(--E)',change:'var(--A)',compliance:'var(--A)'};
+const CRITERIA_LABELS = {org:'Org scale',speed:'Speed pressure',tech:'Tech maturity',capital:'Capital runway',change:'Change capacity',compliance:'Compliance burden'};
+
+const THEMES = [
+  {
+    id:'t1', criterion:'tech',
+    title:'Commercial Data Foundation',
+    tierLabel:'B · Build',tierColor:'#E85010',
+    hlLabel:'How stable and trustworthy is your commercial data foundation today?',
+    hlEnds:['1 · Fragmented & degrading','3 · Mastered & governed'],
+    hlDescriptions:{
+      1:'CRM below 70% completion. Same HCP exists in multiple systems. Claims latency >72h. No MDM governance. Data degrades silently.',
+      2:'CRM functional but patchy. MDM partially deployed — match rate 60–80%. Claims feed with lag. AI models consume questionable inputs.',
+      3:'CRM ≥92% complete. MDM match rate ≥88%. Live claims <24h. All data assets tagged with lineage, consent state, and freshness at ingestion.'
+    },
+    ftIntro:'These inputs compute your <b>Tech Maturity</b> criterion score. Each question scores 1–3. Your average becomes the criterion score.',
+    ftInputs:[
+      {key:'crm_completion', label:'CRM data completion rate',help:'What % of HCP/account records are complete and current?',low:'1 · <70%',high:'3 · ≥92%'},
+      {key:'mdm_match_rate', label:'HCP/HCO MDM match rate',help:'What % of prescribers have a single mastered record across all systems?',low:'1 · <65%',high:'3 · ≥88%'},
+      {key:'claims_latency', label:'Claims feed latency',help:'How fresh is your live claims feed?',low:'1 · >72h or batch',high:'3 · <24h live SLA'},
+      {key:'data_freshness', label:'Data freshness & lineage governance',help:'Are data assets tagged with lineage, consent state, freshness, and confidence at ingestion?',low:'1 · Not tracked',high:'3 · Tagged at ingestion'},
+      {key:'consent_arch', label:'Consent architecture maturity',help:'Is consent production-grade, HIPAA-compliant, and MLR-auditable?',low:'1 · Not systematic',high:'3 · MLR-auditable'},
+      {key:'patient_identity', label:'Patient identity unification',help:'Is the same patient record unified across hub, SP, and claims — no duplicate master records?',low:'1 · Fragmented',high:'3 · Fully unified'},
+      {key:'hco_hierarchy', label:'HCO affiliation & hierarchy accuracy',help:'How accurate is your HCO hierarchy — hospital systems, group practices, IDNs?',low:'1 · <60% accurate',high:'3 · ≥90% accurate'},
+      {key:'cdp_maturity', label:'Customer Data Platform (CDP) maturity',help:'Do you have a unified signal platform ingesting CRM, claims, digital, and engagement in real time?',low:'1 · None',high:'3 · Production CDP'}
+    ]
+  },
+  {
+    id:'t2', criterion:'org',
+    title:'Patient Access & Hub Operations',
+    tierLabel:'B · Build',tierColor:'#E85010',
+    hlLabel:'How well does your patient access infrastructure support the full access journey?',
+    hlEnds:['1 · Manual & siloed','3 · Digital & integrated'],
+    hlDescriptions:{
+      1:'Hub enrollment manual. 18+ day time-to-first-fill. PA processing takes weeks. Patient identity fragmented across hub, SP, and claims. No bridge program automation.',
+      2:'Hub partially digitized. PA automation deployed but dependent on manual steps. E-enrollment live but limited SP integration. Adherence tracking basic.',
+      3:'Hub fully digital with SLA-tracked workflows. PA automation <48h for high-priority cases. Patient identity mastered. Bridge activation automated. E-enrollment reduces time-to-therapy by up to 4 days.'
+    },
+    ftIntro:'These inputs compute your <b>Org Scale / Patient Access</b> criterion. Higher scores mean stronger patient access infrastructure.',
+    ftInputs:[
+      {key:'hub_digital', label:'Hub enrollment digitization',help:'How digital is your hub enrollment and case management workflow?',low:'1 · Fully manual',high:'3 · Fully SLA-tracked digital'},
+      {key:'time_to_fill', label:'Time-to-first-fill performance',help:'What is your current average receipt-to-dispense time?',low:'1 · >18 days avg',high:'3 · <10 days avg'},
+      {key:'pa_processing', label:'PA processing time',help:'How long does a typical prior authorization take from submission?',low:'1 · Manual, weeks',high:'3 · AI-assisted, <48h high-priority'},
+      {key:'patient_id_unified', label:'Patient identity unified across access stack',help:'Are hub, SP, and claims on a single patient master record?',low:'1 · No master',high:'3 · Single mastered record'},
+      {key:'bridge_automation', label:'Bridge / copay program automation',help:'Are bridge program activations triggered automatically without hub manual intervention?',low:'1 · Manual only',high:'3 · Automated triggers'},
+      {key:'sp_integration', label:'Specialty pharmacy data integration',help:'Do you have live bidirectional SP data — dispense data returning within 24h?',low:'1 · No integration',high:'3 · Live bidirectional'},
+      {key:'adherence_tracking', label:'Adherence & persistence tracking',help:'Can you identify and intervene on at-risk patients before they abandon therapy?',low:'1 · No tracking',high:'3 · Real-time intervention triggers'},
+      {key:'patient_support_case', label:'Patient support case management quality',help:'Are Reimbursement Specialist cases tied to a unified patient record with full payer visibility?',low:'1 · Siloed',high:'3 · Fully integrated'}
+    ]
+  },
+  {
+    id:'t3', criterion:'tech',
+    title:'HCP & HCO Identity and Engagement',
+    tierLabel:'B/E · Build to Enable',tierColor:'#0284C7',
+    hlLabel:'How mastered is your HCP identity and how well does your field coordinate engagement?',
+    hlEnds:['1 · Same prescriber in 3+ systems','3 · Single mastered identity, coordinated field'],
+    hlDescriptions:{
+      1:'HCP exists as separate records across CRM, hub, claims, digital, and medical affairs. NBA deployed on fragmented data. Rep, Medical Liaison, Reimbursement Specialist, Outcomes Liaison working from 4 different systems.',
+      2:'MDM in progress — match rate 70–84%. Some field role coordination. HCO hierarchy partially accurate. Duplicate records known but not fully resolved.',
+      3:'HCP MDM match rate ≥88%. Single mastered identity. All field roles (rep/ML/RS/OL) share a unified account view. HCO hierarchy ≥90% accurate. KOL/scientific exchange tracked.'
+    },
+    ftIntro:'These inputs compute a <b>second contribution to Tech Maturity</b> (averaged with Theme 1). HCP identity is the gating factor for every AI investment above it.',
+    ftInputs:[
+      {key:'hcp_match_rate', label:'HCP MDM match rate',help:'What % of prescribers have a single mastered record across all commercial systems?',low:'1 · <65%',high:'3 · ≥88%'},
+      {key:'field_shared_view', label:'Shared account view across field roles',help:'Do rep, Medical Liaison, Reimbursement Specialist, and Outcomes Liaison all access the same account data?',low:'1 · 4 separate systems',high:'3 · Unified shared view'},
+      {key:'rep_targeting', label:'Rep targeting accuracy',help:'What % of rep call recommendations are accurate enough that the field acts on them?',low:'1 · <60% trusted',high:'3 · ≥85% trusted'},
+      {key:'ml_tracking', label:'Medical Liaison engagement tracking',help:'Is Medical Liaison scientific exchange tracked in the same system as commercial engagement?',low:'1 · Not tracked',high:'3 · Unified with commercial'},
+      {key:'rs_data', label:'Reimbursement Specialist case data quality',help:'Do RS cases have the right payer ID, PA status, and claims data at point of contact?',low:'1 · Frequent wrong data',high:'3 · Accurate at point of contact'},
+      {key:'ol_analytics', label:'Outcomes Liaison analytics maturity',help:'Can Outcomes Liaisons arrive at payer meetings with verified real-world outcomes data?',low:'1 · No systematic data',high:'3 · Verified RWE at point of call'},
+      {key:'kol_tracking', label:'KOL / scientific exchange tracking',help:'Are KOL relationships and scientific exchanges tracked consistently across Medical Affairs?',low:'1 · Not tracked',high:'3 · Fully tracked, linked to commercial'},
+      {key:'npi_completeness', label:'NPI hierarchy completeness',help:'What % of NPI records are linked to correct affiliations, group practices, and health systems?',low:'1 · <70% linked',high:'3 · ≥92% complete'}
+    ]
+  },
+  {
+    id:'t4', criterion:'compliance',
+    title:'Payer & Market Access',
+    tierLabel:'E · Enable',tierColor:'#0284C7',
+    hlLabel:'How strong is your payer intelligence and market access coordination?',
+    hlEnds:['1 · Quarterly lag, reactive','3 · Real-time, proactive'],
+    hlDescriptions:{
+      1:'Formulary proposals arrive without outcomes data payers can verify. Coverage changes discovered from rejected PAs. Reimbursement Specialist calling quarterly with unreconcilable pull-through reports.',
+      2:'Some real-time formulary visibility. PA denial pattern analytics in progress. Pull-through data available but not always at point of conversation.',
+      3:'Real-time formulary pull-through mapped to payer claims. Coverage changes trigger alerts within hours. Outcomes Liaison arrives with verified RWE. Contract performance tracked in near real time.'
+    },
+    ftIntro:'These inputs compute your <b>Compliance / Payer Access</b> criterion. Payer coordination directly affects whether AI-driven PA automation can function reliably.',
+    ftInputs:[
+      {key:'formulary_visibility', label:'Real-time formulary visibility',help:'How quickly do you know when formulary status changes for your brand?',low:'1 · Quarterly lag',high:'3 · Real-time alerts'},
+      {key:'pa_denial_analytics', label:'PA denial pattern analytics',help:'Can you identify denial patterns and intervene at the account level before the next submission?',low:'1 · No systematic tracking',high:'3 · Predictive denial analytics'},
+      {key:'payer_master_data', label:'Payer master data quality',help:'How accurate and complete is your payer/PBM master data for claims processing?',low:'1 · Frequent mismatches',high:'3 · ≥95% accurate'},
+      {key:'pull_through_data', label:'Pull-through data integration',help:'Can the Reimbursement Specialist arrive with pull-through data the payer can verify?',low:'1 · Unverifiable reports',high:'3 · Payer-verifiable at point of call'},
+      {key:'contract_performance', label:'Contract performance tracking',help:'Are contract compliance and pull-through metrics tracked in near real time?',low:'1 · Quarterly manual',high:'3 · Near real-time'},
+      {key:'outcomes_for_payer', label:'Real-world outcomes data for payer conversations',help:'Does the Outcomes Liaison have verified RWE to support formulary and coverage decisions?',low:'1 · No systematic RWE',high:'3 · Verified RWE at negotiation'},
+      {key:'coverage_alerts', label:'Coverage change alert speed',help:'How quickly do you know when a payer changes coverage policy?',low:'1 · Found from rejected PA',high:'3 · Automated alerts within hours'}
+    ]
+  },
+  {
+    id:'t5', criterion:'capital',
+    title:'Commercial Execution & Field Force',
+    tierLabel:'A · Accelerate',tierColor:'#059669',
+    hlLabel:'How effectively does your commercial infrastructure drive field force results?',
+    hlEnds:['1 · Siloed, manual, reactive','3 · AI-coordinated, proactive'],
+    hlDescriptions:{
+      1:'Rep, Medical Liaison, Reimbursement Specialist, and Outcomes Liaison working from separate systems. Call planning data 60%+ stale. Territory alignment infrequent. Incentive compensation data lags field reality.',
+      2:'Some field coordination. Call planning active but with data quality gaps. Territory rebalancing done periodically. IC data mostly accurate. Some dynamic routing in place.',
+      3:'Single shared account view across all field roles. AI-driven dynamic territory optimization. IC data accurate in near real time. Rep targeting accuracy ≥85%. Field CRM adoption ≥90%.'
+    },
+    ftIntro:'These inputs compute your <b>Capital Runway / Field Execution</b> criterion. Field execution quality determines whether AI-driven Accelerate investments deliver measurable TRx lift.',
+    ftInputs:[
+      {key:'call_planning_quality', label:'Call planning data quality',help:'How fresh and accurate is the data underlying rep call planning and routing?',low:'1 · >60% stale',high:'3 · Real-time, AI-updated'},
+      {key:'territory_alignment', label:'Territory alignment & routing',help:'How frequently is territory alignment updated to reflect current field dynamics?',low:'1 · Annual or infrequent',high:'3 · Dynamic AI rebalancing'},
+      {key:'ic_accuracy', label:'Incentive compensation data accuracy',help:'How accurately does IC data reflect actual field performance in near real time?',low:'1 · Significant lag/errors',high:'3 · Near real-time, accurate'},
+      {key:'field_crm_adoption', label:'Field CRM adoption rate',help:'What % of reps and field roles actively use and trust the CRM?',low:'1 · <65%',high:'3 · ≥90%'},
+      {key:'cross_functional_visibility', label:'Cross-functional account visibility',help:'Can commercial, medical, and patient support teams see a single account picture?',low:'1 · Fully siloed',high:'3 · Unified single view'},
+      {key:'launch_infra', label:'Launch readiness infrastructure',help:'How mature is your commercial infrastructure for supporting new product launches?',low:'1 · Built fresh each launch',high:'3 · Reusable, scalable platform'},
+      {key:'budget_capability', label:'Commercial technology investment capacity',help:'How funded and sustained is your commercial technology roadmap?',low:'1 · Single-brand tight budget',high:'3 · Multi-year portfolio funded'}
+    ]
+  },
+  {
+    id:'t6', criterion:'speed',
+    title:'Digital, Omnichannel & Channel Orchestration',
+    tierLabel:'E/A · Enable to Accelerate',tierColor:'#0284C7',
+    hlLabel:'How coherent and closed-loop is your omnichannel commercial engagement?',
+    hlEnds:['1 · Independent channels, no signal','3 · Coordinated, closed-loop, AI-personalized'],
+    hlDescriptions:{
+      1:'Channels operate independently. Same HCP receiving duplicate outreach from rep, email, and medical in the same week. No closed-loop signal — models degrading silently. Digital consent not systematically tracked.',
+      2:'Some channel coordination. Omnichannel backbone in place but closed loop incomplete. HCP digital engagement tracked but not fully informing NBA. MLR approval slowing digital personalization.',
+      3:'All commercial actions connect back to measurable outcomes in near real time. Closed-loop signal feeds model retraining weekly. Channel coherence ≥80%. HCP receives one coordinated signal across rep, medical, and digital. Dynamic personalization at scale.'
+    },
+    ftIntro:'These inputs compute your <b>Speed Pressure / Omnichannel</b> criterion. Closed-loop signal is the single architectural difference between AI that scales and AI that gets abandoned.',
+    ftInputs:[
+      {key:'channel_coherence', label:'Channel coherence score',help:'What % of HCPs receive coordinated, non-duplicated outreach across rep, medical, and digital?',low:'1 · Frequent duplicates',high:'3 · ≥80% coherent'},
+      {key:'closed_loop_signal', label:'Closed-loop signal architecture',help:'Do all commercial actions connect back to measurable outcomes in near real time?',low:'1 · No closed loop',high:'3 · Real-time, model retraining weekly'},
+      {key:'digital_consent', label:'Digital consent management',help:'Are HCP and patient digital consent preferences tracked, honored, and integrated across all channels?',low:'1 · Not systematic',high:'3 · Fully integrated, real-time'},
+      {key:'hcp_digital_engagement', label:'HCP digital engagement tracking',help:'Is HCP digital behavior (email opens, portal visits, CME) informing NBA and rep targeting?',low:'1 · Tracked but siloed',high:'3 · Informing NBA in real time'},
+      {key:'mktg_automation', label:'Marketing automation integration',help:'Is marketing automation integrated with the commercial CRM and omnichannel backbone?',low:'1 · Separate system',high:'3 · Fully integrated with field signal'},
+      {key:'personalization_scale', label:'Personalization at scale readiness',help:'Can you deliver personalized content and channel mix at the individual HCP level?',low:'1 · Segment-level only',high:'3 · Individual-level AI personalization'},
+      {key:'mlr_speed', label:'MLR cycle speed impact on digital',help:'How significantly does the MLR approval cycle constrain your ability to personalize and optimize digital content?',low:'1 · Major bottleneck',high:'3 · Streamlined, AI audit trail'},
+      {key:'launch_urgency_digital', label:'Current launch / urgency pressure',help:'How much current time pressure is compressing your sequencing window?',low:'1 · <6 months hard deadline',high:'3 · No near-term pressure'}
+    ]
+  },
+  {
+    id:'t7', criterion:'change',
+    title:'AI & Analytics Readiness',
+    tierLabel:'A · Accelerate',tierColor:'#059669',
+    hlLabel:'How ready is your commercial stack to deliver and trust AI-driven decisions?',
+    hlEnds:['1 · No AI or deployed on fragmented data','3 · AI proven, measurable lift, scaling'],
+    hlDescriptions:{
+      1:'No NBA or deployed on fragmented HCP identity. No PA automation. Field AI copilot absent. Model retraining infrequent. No agentic workflows. MLR has no audit trail for AI decisions.',
+      2:'NBA live but with data quality concerns. PA automation reducing some processing time. AI copilot piloted. Models retraining monthly but not on truly closed-loop signal.',
+      3:'NBA live on mastered identity, driving 30–40% engagement lift. PA automation <48h. AI copilot active. Models retraining weekly on closed-loop signal. MLR audit trail embedded. Agentic workflows scoped.'
+    },
+    ftIntro:'These inputs compute your <b>Change Capacity / AI Readiness</b> criterion. AI readiness is the gate between Accelerate and Transform.',
+    ftInputs:[
+      {key:'nba_status', label:'NBA engine deployment status',help:'Where is your Next-Best-Action engine relative to mastered data and measurable lift?',low:'1 · None or fragmented data',high:'3 · Live, mastered, measurable lift'},
+      {key:'pa_automation_level', label:'PA automation level',help:'What % of PA submissions are automated or AI-assisted?',low:'1 · Fully manual',high:'3 · ≥30% automated, <48h'},
+      {key:'ai_copilot_field', label:'AI copilot for field force',help:'Do reps and field roles have an AI assistant surfacing account context at point of call?',low:'1 · Not deployed',high:'3 · Active, ≥75% adoption'},
+      {key:'dynamic_targeting', label:'Dynamic targeting & routing',help:'Is territory and routing optimization running dynamically based on real-time signal?',low:'1 · Static or periodic',high:'3 · Dynamic AI rebalancing in-week'},
+      {key:'model_retraining', label:'Model retraining cycle',help:'How frequently do AI models retrain on live commercial signal?',low:'1 · Infrequent/manual',high:'3 · Weekly on closed-loop signal'},
+      {key:'agentic_readiness', label:'Agentic workflow readiness',help:'Has your organization deployed or piloted any agentic workflows in commercial operations?',low:'1 · Not considered',high:'3 · Piloting or deployed'},
+      {key:'mlr_ai_audit', label:'MLR audit trail for AI decisions',help:'Does every AI recommendation have an auditable reasoning trail that satisfies MLR review?',low:'1 · No audit trail',high:'3 · Native audit trail, MLR-cleared'},
+      {key:'predictive_analytics', label:'Predictive analytics maturity',help:'How mature are your predictive analytics capabilities across commercial operations?',low:'1 · Descriptive only',high:'3 · Predictive & prescriptive at scale'}
+    ]
+  },
+  {
+    id:'t8', criterion:'compliance',
+    title:'Transform Ambition & Organizational Capacity',
+    tierLabel:'T · Transform',tierColor:'#7C3AED',
+    hlLabel:'How aligned is your organization\'s AI ambition with its capacity to execute?',
+    hlEnds:['1 · Foundation focus only','3 · Transform mandate, board-level'],
+    hlDescriptions:{
+      1:'Leadership focused on getting the foundation right. Conservative compliance posture. No agentic workflows on roadmap. Change capacity limited.',
+      2:'AI ambition building. Some executive sponsorship for AI. Compliance framework being updated for AI decisions. Change management underway.',
+      3:'Board-level mandate for AI transformation. Compliance ceiling managed with AI audit infrastructure. High change capacity proven by prior technology transformations. Budget committed for multi-year AI roadmap.'
+    },
+    ftIntro:'These inputs compute your second contribution to the <b>Compliance / Transform Ambition</b> criterion (averaged with Theme 4). Transform ambition that runs ahead of foundation investment is the most common and costly sequencing mistake.',
+    ftInputs:[
+      {key:'board_ai_mandate', label:'Board-level AI mandate strength',help:'How strong is the board and C-suite mandate for AI and digital transformation?',low:'1 · Cautious, no mandate',high:'3 · Explicit board mandate, funded'},
+      {key:'change_capacity_org', label:'Change absorption capacity',help:'How much organizational change can your field and ops teams absorb without losing performance?',low:'1 · Low, at maximum bandwidth',high:'3 · High, dedicated change management'},
+      {key:'compliance_ceiling', label:'Compliance ceiling management',help:'How well is your compliance infrastructure adapted to handle AI decisions (MLR audit trails, GxP, HIPAA)?',low:'1 · AI compliance unsolved',high:'3 · AI audit trail infrastructure live'},
+      {key:'tech_runway', label:'Multi-year technology investment runway',help:'Is your commercial technology roadmap funded beyond the current fiscal year?',low:'1 · Single year, uncertain',high:'3 · Multi-year portfolio committed'},
+      {key:'partner_ecosystem', label:'Vendor & partner ecosystem readiness',help:'How mature is your ecosystem of technology partners for AI and digital commercial execution?',low:'1 · Limited, fragmented',high:'3 · Curated, integrated ecosystem'},
+      {key:'org_change_history', label:'Proven transformation track record',help:'Has your organization successfully executed a major commercial technology transformation in the past 3 years?',low:'1 · No recent success',high:'3 · Multiple proven transformations'},
+      {key:'cross_func_alignment', label:'Cross-functional alignment (Commercial/Medical/IT)',help:'How aligned are Commercial, Medical Affairs, IT, and Compliance on the AI transformation roadmap?',low:'1 · Each function operating independently',high:'3 · Unified roadmap, shared governance'},
+      {key:'ai_ambition_gap', label:'AI ambition vs. foundation reality',help:'How realistic is your current AI ambition given your actual Build and Enable maturity?',low:'1 · Ambition far ahead of foundation',high:'3 · Ambition calibrated to foundation'}
+    ]
+  }
+];
+
+// ═══════════════════════════════════════════════════
+// CRITERION MAPPING — how themes contribute to the 6 criteria
+// Each criterion averages its contributing theme scores
+// ═══════════════════════════════════════════════════
+const CRITERION_MAP = {
+  org:        ['t2'],          // patient access / hub = org scale proxy
+  speed:      ['t6'],          // omnichannel urgency = speed pressure proxy
+  tech:       ['t1','t3'],     // data foundation + HCP identity = tech maturity
+  capital:    ['t5'],          // field execution / budget = capital runway
+  change:     ['t7'],          // AI readiness = change capacity
+  compliance: ['t4','t8']      // payer + transform ambition = compliance/complexity
+};
+
+// ═══════════════════════════════════════════════════
+// STATE
+// ═══════════════════════════════════════════════════
+let mode = 'hl'; // 'hl' or 'ft'
+const hlScores = {}; // theme id -> 1|2|3
+const ftScores = {}; // theme id -> avg of sub-inputs
+const ftSubVals = {}; // key -> val
+
+// Init defaults
+THEMES.forEach(t => {
+  hlScores[t.id] = 2;
+  ftScores[t.id] = 2;
+  t.ftInputs.forEach(inp => { ftSubVals[inp.key] = 2; });
+});
+
+// ═══════════════════════════════════════════════════
+// MODE
+// ═══════════════════════════════════════════════════
+function setMode(m) {
+  mode = m;
+  document.getElementById('btn-hl').classList.toggle('active-mode', m === 'hl');
+  document.getElementById('btn-ft').classList.toggle('active-mode', m === 'ft');
+  document.getElementById('mode-label-strip').textContent = m === 'hl' ? 'High-level mode · 8 themes' : 'Fine-tune mode · up to 62 inputs';
+  // Show/hide fine-tune sections
+  THEMES.forEach(t => {
+    const ft = document.getElementById('ft-' + t.id);
+    const ftToggle = document.getElementById('ftt-' + t.id);
+    if (m === 'ft') {
+      if (ft) { ft.classList.add('open'); }
+      if (ftToggle) { ftToggle.classList.add('active'); ftToggle.textContent = ''; ftToggle.innerHTML = '<span class="ft-dot"></span>Fine-tune active'; }
+    } else {
+      if (ft) { ft.classList.remove('open'); }
+      if (ftToggle) { ftToggle.classList.remove('active'); ftToggle.textContent = ''; ftToggle.innerHTML = '<span class="ft-dot"></span>Fine-tune'; }
+    }
+  });
+  recompute();
+}
+
+function toggleFineTune(tid) {
+  const ft = document.getElementById('ft-' + tid);
+  const btn = document.getElementById('ftt-' + tid);
+  if (!ft) return;
+  const isOpen = ft.classList.contains('open');
+  ft.classList.toggle('open', !isOpen);
+  if (btn) {
+    btn.classList.toggle('active', !isOpen);
+    btn.innerHTML = !isOpen
+      ? '<span class="ft-dot"></span>Fine-tune active'
+      : '<span class="ft-dot"></span>Fine-tune';
+  }
+  if (!isOpen) mode = 'ft'; // switching to ft mode
+}
+
+// ═══════════════════════════════════════════════════
+// RENDER FORM
+// ═══════════════════════════════════════════════════
+function renderForm() {
+  const wrap = document.getElementById('form-wrap');
+  wrap.innerHTML = '';
+  THEMES.forEach(t => {
+    const block = document.createElement('div');
+    block.className = 'theme-block';
+    block.id = 'block-' + t.id;
+
+    block.innerHTML = `
+      <div class="theme-header" onclick="toggleThemeOpen('${t.id}')">
+        <div class="theme-header-left">
+          <div class="theme-eyebrow">
+            <span class="theme-tier-pill" style="background:${t.tierColor}">${t.tierLabel}</span>
+            <span class="theme-criterion-lbl">→ ${CRITERIA_LABELS[t.criterion]}</span>
+          </div>
+          <div class="theme-title">${t.title}</div>
+          <div class="theme-sub">${t.hlLabel}</div>
+        </div>
+        <div class="theme-header-right">
+          <div class="theme-score-display">
+            <span class="tsd-n" id="tsd-${t.id}" style="color:${t.tierColor}">2</span>
+            <span class="tsd-d">/3</span>
+          </div>
+          <button class="finetune-toggle" id="ftt-${t.id}" onclick="event.stopPropagation();toggleFineTune('${t.id}')">
+            <span class="ft-dot"></span>Fine-tune
+          </button>
+        </div>
+      </div>
+
+      <!-- HIGH-LEVEL SLIDER -->
+      <div class="hl-slider-wrap" id="hl-${t.id}">
+        <div class="hl-slider-labels">
+          <div class="hl-label-item" id="ll1-${t.id}">
+            <span class="hl-label-val" style="color:${t.tierColor}">1</span>
+            <span class="hl-label-txt">${t.hlDescriptions[1].substring(0,80)}…</span>
+          </div>
+          <div class="hl-label-item" id="ll2-${t.id}">
+            <span class="hl-label-val" style="color:${t.tierColor}">2</span>
+            <span class="hl-label-txt">${t.hlDescriptions[2].substring(0,80)}…</span>
+          </div>
+          <div class="hl-label-item" id="ll3-${t.id}">
+            <span class="hl-label-val" style="color:${t.tierColor}">3</span>
+            <span class="hl-label-txt">${t.hlDescriptions[3].substring(0,80)}…</span>
+          </div>
+        </div>
+        <div class="hl-range-wrap">
+          <div class="hl-ends" style="display:flex;justify-content:space-between;font-family:var(--mono);font-size:9px;color:var(--ink5);margin-bottom:6px">
+            <span>${t.hlEnds[0]}</span><span>${t.hlEnds[1]}</span>
+          </div>
+          <input type="range" class="hl-range" min="1" max="3" step="1" value="2"
+            id="hlr-${t.id}" data-tid="${t.id}" data-color="${t.tierColor}"
+            oninput="onHlChange(this)">
+        </div>
+        <div id="hl-desc-${t.id}" style="margin-top:12px;padding:12px 16px;background:var(--light);border-radius:6px;font-size:13px;color:var(--ink3);line-height:1.65;border-left:3px solid ${t.tierColor}">
+          ${t.hlDescriptions[2]}
+        </div>
+      </div>
+
+      <!-- FINE-TUNE SECTION -->
+      <div class="finetune-body" id="ft-${t.id}">
+        <div class="finetune-intro">${t.ftIntro}</div>
+        <div class="ft-grid">
+          ${t.ftInputs.map(inp => `
+            <div class="ft-inp" id="fti-${inp.key}">
+              <div class="ft-inp-header">
+                <div class="ft-label">${inp.label}</div>
+                <span class="ft-val" id="ftv-${inp.key}" style="color:${t.tierColor}">2</span>
+              </div>
+              <div class="ft-help">${inp.help}</div>
+              <div class="ft-ends"><span>${inp.low}</span><span>${inp.high}</span></div>
+              <input type="range" class="ft-range" min="1" max="3" step="1" value="2"
+                id="ftr-${inp.key}" data-key="${inp.key}" data-tid="${t.id}" data-color="${t.tierColor}"
+                oninput="onFtChange(this)">
+            </div>
+          `).join('')}
+        </div>
+        <div class="ft-computed-note">
+          <span style="color:var(--ink5)">Computed theme score:</span>
+          <span class="ft-comp-score" id="ftc-${t.id}" style="color:${t.tierColor}">2.0</span>
+          <span style="color:var(--ink5)">→ becomes ${CRITERIA_LABELS[t.criterion]} criterion contribution</span>
+        </div>
+      </div>
+    `;
+    wrap.appendChild(block);
+    // init slider fill
+    setTimeout(() => {
+      updateHlSliderFill(document.getElementById('hlr-' + t.id), 2, t.tierColor);
+    }, 20);
+  });
+}
+
+function toggleThemeOpen(tid) {
+  const hl = document.getElementById('hl-' + tid);
+  const ft = document.getElementById('ft-' + tid);
+  if (!hl) return;
+  const isOpen = hl.style.display !== 'none';
+  hl.style.display = isOpen ? 'none' : '';
+  if (ft && ft.classList.contains('open')) ft.style.display = isOpen ? 'none' : '';
+}
+
+// ═══════════════════════════════════════════════════
+// INPUT HANDLERS
+// ═══════════════════════════════════════════════════
+function onHlChange(slider) {
+  const tid   = slider.dataset.tid;
+  const color = slider.dataset.color;
+  const v     = parseInt(slider.value);
+  hlScores[tid] = v;
+  document.getElementById('tsd-' + tid).textContent = v;
+  updateHlSliderFill(slider, v, color);
+  // Update description text
+  const theme = THEMES.find(t => t.id === tid);
+  if (theme) {
+    document.getElementById('hl-desc-' + tid).textContent = theme.hlDescriptions[v];
+  }
+  recompute();
+}
+
+function onFtChange(slider) {
+  const key   = slider.dataset.key;
+  const tid   = slider.dataset.tid;
+  const color = slider.dataset.color;
+  const v     = parseInt(slider.value);
+  ftSubVals[key] = v;
+  document.getElementById('ftv-' + key).textContent = v;
+  updateFtSliderFill(slider, v, color);
+  // Recompute theme fine-tune average
+  const theme = THEMES.find(t => t.id === tid);
+  if (theme) {
+    const vals = theme.ftInputs.map(inp => ftSubVals[inp.key] || 2);
+    const avg  = vals.reduce((a,b) => a+b, 0) / vals.length;
+    ftScores[tid] = avg;
+    const rounded = Math.round(avg * 10) / 10;
+    document.getElementById('ftc-' + tid).textContent = rounded.toFixed(1);
+    // Also update header display
+    document.getElementById('tsd-' + tid).textContent = Math.round(avg);
+  }
+  recompute();
+}
+
+function updateHlSliderFill(slider, v, color) {
+  const pct = ((v - 1) / 2) * 100;
+  slider.style.background = `linear-gradient(to right,${color} ${pct}%,${color} ${pct}%,#E2E8F0 ${pct}%,#E2E8F0 100%)`;
+  slider.style.setProperty('--tc', color);
+}
+function updateFtSliderFill(slider, v, color) {
+  const pct = ((v - 1) / 2) * 100;
+  slider.style.background = `linear-gradient(to right,${color} ${pct}%,${color} ${pct}%,#E2E8F0 ${pct}%,#E2E8F0 100%)`;
+}
+
+// ═══════════════════════════════════════════════════
+// SCORING ENGINE — maps to exact BEAT 6-18 system
+// ═══════════════════════════════════════════════════
+function getThemeScore(tid) {
+  const theme = THEMES.find(t => t.id === tid);
+  const ftOpen = document.getElementById('ft-' + tid);
+  const usingFt = ftOpen && ftOpen.classList.contains('open');
+  if (usingFt) {
+    // Use fine-tune average, clamped to 1-3
+    return Math.max(1, Math.min(3, ftScores[tid]));
+  }
+  return hlScores[tid];
+}
+
+function computeCriteria() {
+  const crit = {};
+  CRITERIA.forEach(c => {
+    const themeIds = CRITERION_MAP[c];
+    const scores = themeIds.map(tid => getThemeScore(tid));
+    const avg = scores.reduce((a,b) => a+b, 0) / scores.length;
+    // Round to nearest integer for display, keep float for precision
+    crit[c] = avg;
+  });
+  return crit;
+}
+
+function computeTotal(crit) {
+  const sum = Object.values(crit).reduce((a,b) => a+b, 0);
+  return sum; // 6–18 range
+}
+
+function determinePosture(total, crit) {
+  // Exact same logic as index.html
+  // Speed criterion inverse — higher = less urgency
+  const highUrgency = crit.speed < 2.0; // low speed score = high urgency
+  const highMaturity = (crit.tech + crit.capital) / 2 >= 2.0;
+
+  if (!highUrgency && highMaturity) return 'Q1';
+  if (highUrgency && highMaturity)  return 'Q2';
+  if (!highUrgency && !highMaturity) return 'Q3';
+  return 'Q4';
+}
+
+
+// ═══════════════════════════════════════════════════
+// POSTURE DATA — global constant (same as index.html)
+// ═══════════════════════════════════════════════════
+const POSTURE_DATA = {
+  Q1: {label:'Build Deep — All Tiers',      sublabel:'High maturity · Low urgency',  color:'#7C3AED', scoreRange:'15–18'},
+  Q2: {label:'Accelerate Now',               sublabel:'High maturity · High urgency', color:'#059669', scoreRange:'12–15'},
+  Q3: {label:'Build First — Sequential',     sublabel:'Low maturity · Low urgency',   color:'#0284C7', scoreRange:'9–12'},
+  Q4: {label:'Triage & Compress',            sublabel:'Low maturity · High urgency',  color:'#E85010', scoreRange:'6–9'},
+};
+
+// ═══════════════════════════════════════════════════
+// RECOMPUTE — live score update
+// ═══════════════════════════════════════════════════
+function recompute() {
+  const crit  = computeCriteria();
+  const total = computeTotal(crit);
+  const totalRounded = Math.round(total);
+  const posture = determinePosture(total, crit);
+  const pd = POSTURE_DATA[posture];
+
+  // Update score band
+  CRITERIA.forEach(c => {
+    const v = Math.round(crit[c]);
+    const pct = ((crit[c] - 1) / 2) * 100;
+    const el = document.getElementById('sv-' + c);
+    const bar = document.getElementById('bar-' + c);
+    if (el) el.textContent = v;
+    if (bar) bar.style.width = Math.max(0, Math.min(100, pct)) + '%';
+  });
+
+  // Total score
+  document.getElementById('total-score-n').textContent = totalRounded;
+  document.getElementById('total-score-n').style.color = pd.color;
+
+  // Q indicator in band
+  document.getElementById('q-band-q').textContent = posture;
+  document.getElementById('q-band-q').style.color = pd.color;
+  document.getElementById('q-band-name').textContent = pd.label;
+  document.getElementById('q-band-ind').style.borderColor = pd.color + '50';
+  document.getElementById('q-band-ind').style.background = pd.color + '18';
+
+  // Strip
+  document.getElementById('strip-score-n').textContent = totalRounded;
+  document.getElementById('strip-score-n').style.color = pd.color;
+  const ql = document.getElementById('strip-q-label');
+  ql.textContent = posture + ' · ' + pd.label;
+  ql.style.background = pd.color + '22';
+  ql.style.color = pd.color;
+
+  // Nav score
+  document.getElementById('nav-score-n').textContent = totalRounded;
+  document.getElementById('nav-score-n').style.color = pd.color;
+  document.getElementById('nav-score-wrap').style.display = 'flex';
+}
+
+// ═══════════════════════════════════════════════════
+// FULL ANALYSIS ENGINE
+// ═══════════════════════════════════════════════════
+// ═══════════════════════════════════════════════════
+// BACKEND URL — set this before deploying
+// ═══════════════════════════════════════════════════
+const BACKEND_URL = 'https://your-backend.onrender.com';
+
+async function runAnalysis() {
+  const btn = document.getElementById('run-btn');
+  btn.disabled = true;
+  document.getElementById('loading').classList.add('show');
+  document.getElementById('load-txt').textContent = 'Sending to analysis engine…';
+
+  // Build payload from current slider/fine-tune values
+  const payload = buildPayload();
+
+  try {
+    const resp = await fetch(BACKEND_URL + '/evaluate', {
+      method: 'POST',
+      headers: {'Content-Type': 'application/json'},
+      body: JSON.stringify(payload),
+      signal: AbortSignal.timeout(30000)
+    });
+    if (!resp.ok) throw new Error('Server returned ' + resp.status);
+    const data = await resp.json();
+    const result = adaptBackendResult(data);
+    document.getElementById('loading').classList.remove('show');
+    btn.disabled = false;
+    renderResults(result);
+    document.getElementById('results').style.display = 'block';
+    document.getElementById('results').scrollIntoView({behavior:'smooth',block:'start'});
+  } catch(err) {
+    document.getElementById('loading').classList.remove('show');
+    btn.disabled = false;
+    showBackendError(err.message);
+  }
+}
+
+function buildPayload() {
+  const payload = {};
+  // Collect all theme scores (high-level or fine-tune)
+  THEMES.forEach(t => {
+    const ftOpen = document.getElementById('ft-' + t.id);
+    const usingFt = ftOpen && ftOpen.classList.contains('open');
+    if (usingFt) {
+      // Fine-tune: send each sub-input
+      t.ftInputs.forEach(inp => {
+        payload[inp.key] = ftSubVals[inp.key] || 2;
+      });
+    } else {
+      // High-level: send theme-level score
+      payload['theme_' + t.id] = hlScores[t.id] || 2;
+    }
+    payload['hl_' + t.id] = hlScores[t.id] || 2;
+    payload['ft_' + t.id] = Math.round((ftScores[t.id] || 2) * 10) / 10;
+  });
+  // Also include computed criteria
+  const crit = computeCriteria();
+  Object.assign(payload, {
+    crit_org: Math.round(crit.org * 10)/10,
+    crit_speed: Math.round(crit.speed * 10)/10,
+    crit_tech: Math.round(crit.tech * 10)/10,
+    crit_capital: Math.round(crit.capital * 10)/10,
+    crit_change: Math.round(crit.change * 10)/10,
+    crit_compliance: Math.round(crit.compliance * 10)/10,
+    total_score: Math.round(computeTotal(computeCriteria()))
+  });
+  return payload;
+}
+
+function adaptBackendResult(data) {
+  // Maps backend response to the frontend result object — uses global POSTURE_DATA
+  const posture = data.posture || data.Posture || 'Q3';
+  const pd = POSTURE_DATA[posture] || POSTURE_DATA['Q3'];
+  const beat = data.beat || data.BEAT || {B:50,E:50,A:50,T:50};
+  // Normalize beat to 0-100 if returned as 0-1
+  const normBeat = {};
+  ['B','E','A','T'].forEach(k => {
+    const v = beat[k] || 0;
+    normBeat[k] = v <= 1 ? Math.round(v * 100) : Math.round(v);
+  });
+  return {
+    posture, pd,
+    total: data.score_display || data.total || data.Composite || 12,
+    beat: normBeat,
+    insight: data.insight || data.Insight || '',
+    sequenceRoadmap: data.roadmap || data.Sequence || [],
+    risks: data.risks || data.Risks || {critical:[],high:[],medium:[]},
+    gates: data.gates || data.Gates || [],
+    aiRoadmap: data.ai_roadmap || data.AIRoadmap || [],
+    rolePlaybooks: data.role_playbooks || data.RolePlaybooks || [],
+    seqPills: data.sequence_pills || data.SeqPills || []
+  };
+}
+
+function showBackendError(msg) {
+  const err = document.getElementById('backend-error');
+  if (!err) return;
+  err.style.display = 'block';
+  document.getElementById('backend-error-msg').textContent =
+    'The analysis engine could not be reached. Please ensure the backend is deployed and BACKEND_URL is set correctly. (' + msg + ')';
+  err.scrollIntoView({behavior:'smooth', block:'start'});
+}
+
+
+function renderResults(r) {
+  // Top band
+  const rtb = document.getElementById('rtb');
+  rtb.style.setProperty('background', r.pd.color + '22');
+  rtb.style.setProperty('border', '1px solid ' + r.pd.color + '44');
+  rtb.style.background = `linear-gradient(135deg,${r.pd.color}22 0%,#1E293B 100%)`;
+  rtb.innerHTML = `
+    <div class="rtb-q" style="color:${r.pd.color}">${r.posture} · ${r.pd.label}</div>
+    <div class="rtb-posture">${r.pd.label} <span style="color:${r.pd.color};font-style:italic">·</span> ${r.pd.sublabel}</div>
+    <div class="rtb-insight">${r.insight}</div>
+    <div class="rtb-seq">
+      ${r.seqPills.map(p => `<span class="seq-pill" style="background:${p.bg}">${p.label}</span>`).join('')}
+    </div>
+    <div class="rtb-score-pill">
+      <span class="rtb-score-n" style="color:${r.pd.color}">${r.total}</span>
+      <span class="rtb-score-d">/18</span>
+      <span class="rtb-score-lbl">B·E·A·T Score</span>
+    </div>
+  `;
+
+  // BEAT tiers
+  const bt = document.getElementById('beat-tiers');
+  bt.innerHTML = '';
+  const tierMeta = {
+    B:{name:'Build to Operate',color:'#E85010',verdict:v=>v>70?'Production stable':v>55?'Needs governance':'Critical gaps — fix first'},
+    E:{name:'Enable',color:'#0284C7',verdict:v=>v>70?'Intelligence layer ready':v>55?'MDM/CDP gaps remain':'Not ready for AI investment above'},
+    A:{name:'Accelerate',color:'#059669',verdict:v=>v>70?'Revenue AI active':v>55?'Partially deployed, watch gates':'Not yet gated — foundation first'},
+    T:{name:'Transform',color:'#7C3AED',verdict:v=>v>70?'Transform-eligible now':v>55?'Scoped for Year 2':'Deferred — earn it first'},
+  };
+  ['B','E','A','T'].forEach(tier => {
+    const v = r.beat[tier];
+    const m = tierMeta[tier];
+    const cell = document.createElement('div');
+    cell.className = 'bt-cell';
+    cell.innerHTML = `
+      <div class="bt-lbl" style="color:${m.color}">${tier} · ${m.name}</div>
+      <div class="bt-bar-bg"><div class="bt-bar" id="bbar-${tier}" style="background:${m.color};width:0%"></div></div>
+      <div class="bt-pct" style="color:${m.color}">${v}%</div>
+      <div class="bt-verdict">${m.verdict(v)}</div>
+    `;
+    bt.appendChild(cell);
+    setTimeout(() => { document.getElementById('bbar-' + tier).style.width = v + '%'; }, 200);
+  });
+
+  // Roadmap
+  const rm = document.getElementById('roadmap');
+  rm.innerHTML = `
+    <div class="roadmap-header">
+      <span>Period</span><span>B · Build</span><span>E · Enable</span><span>A · Accelerate</span><span>T · Transform</span>
+    </div>
+    ${r.sequenceRoadmap.map(row => `
+      <div class="rm-row">
+        <div class="rm-period">${row.period}</div>
+        <div class="rm-cell"><span class="rm-tier-dot" style="background:#E85010"></span><div>${row.parallel ? '<span class="rm-parallel-badge">‖ Parallel</span><br>' : ''}${row.B}</div></div>
+        <div class="rm-cell"><div>${row.parallel ? '<span class="rm-parallel-badge">‖ Parallel</span><br>' : ''}${row.E}</div></div>
+        <div class="rm-cell"><div>${row.A}</div></div>
+        <div class="rm-cell"><div>${row.T}${row.gate ? `<br><span class="rm-gate-badge">⊢ Gate: ${row.gate}</span>` : ''}</div></div>
+      </div>
+    `).join('')}
+  `;
+
+  // Risks
+  const riskEl = document.getElementById('risk-matrix');
+  riskEl.innerHTML = '';
+  if (r.risks.critical.length > 0) {
+    const card = buildRiskCard('Critical Risks', '#DC2626', '🚫', r.risks.critical, 'res-x');
+    riskEl.appendChild(card);
+  }
+  if (r.risks.high.length > 0) {
+    const card = buildRiskCard('High Risks', '#D97706', '⚠', r.risks.high, 'res-warn');
+    riskEl.appendChild(card);
+  }
+  if (r.risks.medium.length > 0) {
+    const card = buildRiskCard('Watch Points', '#0284C7', '→', r.risks.medium, 'res-arrow');
+    riskEl.appendChild(card);
+  }
+  if (r.risks.critical.length === 0 && r.risks.high.length === 0) {
+    riskEl.innerHTML = `<div style="padding:20px;font-size:14px;color:var(--ink4);grid-column:1/-1">No critical risks detected at current scores. Maintain active governance — CRM data decays 15–20% annually without MDM oversight.</div>`;
+  }
+
+  // Gates
+  const gs = document.getElementById('gates-section');
+  gs.innerHTML = `
+    <div class="gates-header">
+      <span class="gate-col-head">Tier Gate</span>
+      <span class="gate-col-head">Primary Metric</span>
+      <span class="gate-col-head">Status</span>
+      <span class="gate-col-head">Your Action</span>
+    </div>
+    ${r.gates.map(g => {
+      const statusColors = {'On track':'#059669','Eligible':'#059669','At risk':'#D97706','Not met':'#DC2626','Not yet gated':'#94A3B8','Scoped':'#0284C7','Deferred':'#94A3B8'};
+      const sc = statusColors[g.status] || '#94A3B8';
+      return `
+        <div class="gate-row">
+          <div class="gate-cell"><span style="font-family:var(--mono);font-size:12px;font-weight:700;color:${g.color}">${g.tier}</span></div>
+          <div class="gate-cell">
+            <div class="gate-metric">${g.metric}</div>
+            <div style="font-size:11px;color:var(--ink5);margin-top:2px">${g.metric2}</div>
+          </div>
+          <div class="gate-cell"><span class="gate-status" style="background:${sc}22;color:${sc}">${g.status}</span></div>
+          <div class="gate-cell" style="font-size:12px;color:var(--ink3)">${g.action}</div>
+        </div>
+      `;
+    }).join('')}
+  `;
+
+  // AI Roadmap
+  const air = document.getElementById('ai-roadmap');
+  const allReady = r.beat.B >= 60 && r.beat.E >= 60 && r.beat.A >= 60;
+  air.innerHTML = `
+    <div class="air-title">AI Transformation Roadmap</div>
+    <div class="air-sub">The path from data foundation to autonomous commercial model — tier by tier, gate by gate, in order. ${allReady ? 'Your foundation supports AI transformation.' : 'Build the foundation before the model.'}</div>
+    <div class="air-phases">
+      ${r.aiRoadmap.map(p => `
+        <div class="air-phase ${p.locked ? 'air-locked' : ''}">
+          <div class="air-phase-lbl" style="color:${p.color}">${p.tier}</div>
+          <div class="air-phase-name">${p.name}</div>
+          ${p.items.map(item => `<div class="air-item"><span class="air-arrow">→</span>${item}</div>`).join('')}
+          <div class="air-unlock" style="color:${p.locked ? 'rgba(255,255,255,.25)' : p.color}">${p.locked ? '🔒 ' : '✓ '}${p.unlock}</div>
+        </div>
+      `).join('')}
+    </div>
+  `;
+
+  // Role Playbooks
+  const rp = document.getElementById('role-playbooks');
+  rp.innerHTML = r.rolePlaybooks.map(role => `
+    <div class="role-card">
+      <div class="role-head" style="background:${role.color}"><span class="role-icon">${role.icon}</span><span class="role-lbl">${role.role}</span></div>
+      <div class="role-body">
+        ${role.items.map(item => `<div class="role-item"><span class="role-dot">→</span>${item}</div>`).join('')}
+      </div>
+    </div>
+  `).join('');
+}
+
+function buildRiskCard(title, color, icon, items, iconClass) {
+  const card = document.createElement('div');
+  card.className = 'risk-card';
+  card.innerHTML = `
+    <div class="risk-head" style="background:${color}">
+      <span style="font-size:14px">${icon}</span>
+      <span class="risk-head-lbl">${title}</span>
+    </div>
+    <div class="risk-body">
+      ${items.map(i => `<div class="risk-item"><span class="risk-icon" style="color:${color}">${icon}</span>${i}</div>`).join('')}
+    </div>
+  `;
+  return card;
+}
+
+// ═══════════════════════════════════════════════════
+// INIT
+// ═══════════════════════════════════════════════════
+document.addEventListener('DOMContentLoaded', () => {
+  renderForm();
+  recompute();
+  THEMES.forEach(t => {
+    const slider = document.getElementById('hlr-' + t.id);
+    if (slider) updateHlSliderFill(slider, 2, t.tierColor);
+    t.ftInputs.forEach(inp => {
+      const fs = document.getElementById('ftr-' + inp.key);
+      if (fs) updateFtSliderFill(fs, 2, t.tierColor);
+    });
+  });
+  checkGate();
+});
+
+// ═══════════════════════════════════════════
+// GATED ACCESS
+// ═══════════════════════════════════════════
+// ─── EMAIL VALIDATION ───────────────────────────────
+function isValidEmail(email) {
+  return /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(email.trim());
+}
+function validateEmailInput(input) {
+  const err = document.getElementById('gate-email-err');
+  const val = input.value.trim();
+  if (val && !isValidEmail(val)) {
+    input.style.borderColor = '#E85010';
+    if (err) err.style.display = 'block';
+  } else {
+    input.style.borderColor = '';
+    if (err) err.style.display = 'none';
+  }
+}
+function showPrivacyNote() {
+  const n = document.getElementById('gate-privacy-note');
+  if (n) n.style.display = n.style.display === 'none' ? 'block' : 'none';
+}
+
+// ─── GATE LOGIC ─────────────────────────────────────────────────────────────
+// Flow:
+//   1. Check URL for ?access=TOKEN  → verify with backend → unlock
+//   2. Check localStorage for confirmed access token → verify → unlock
+//   3. Otherwise show gate modal
+// ─────────────────────────────────────────────────────────────────────────────
+
+async function checkGate() {
+  // Step 1: access token in URL (arriving from confirmation email link)
+  const params = new URLSearchParams(window.location.search);
+  const urlToken = params.get('access');
+  const urlName  = params.get('name');
+
+  if (urlToken) {
+    // Verify with backend
+    const valid = await verifyAccessToken(urlToken);
+    if (valid) {
+      // Store confirmed access in localStorage
+      localStorage.setItem('beat_adv_access', JSON.stringify({
+        token: urlToken, confirmed: true, name: urlName || '', ts: Date.now()
+      }));
+      // Clean URL without reloading
+      window.history.replaceState({}, '', window.location.pathname);
+      unlockTool(urlName);
+      return;
+    }
+  }
+
+  // Step 2: existing localStorage token
+  const stored = localStorage.getItem('beat_adv_access');
+  if (stored) {
+    try {
+      const d = JSON.parse(stored);
+      if (d.confirmed && d.token) {
+        const valid = await verifyAccessToken(d.token);
+        if (valid) { unlockTool(d.name); return; }
+        // Token expired — clear and show gate
+        localStorage.removeItem('beat_adv_access');
+      }
+    } catch(e) {}
+  }
+
+  // Step 3: show gate modal
+  document.getElementById('gate-overlay').style.display = 'flex';
+}
+
+async function verifyAccessToken(token) {
+  if (BACKEND_URL === 'https://your-backend.onrender.com') return false;
+  try {
+    const resp = await fetch(BACKEND_URL + '/verify-access', {
+      method: 'POST',
+      headers: {'Content-Type': 'application/json'},
+      body: JSON.stringify({token}),
+      signal: AbortSignal.timeout(5000)
+    });
+    if (!resp.ok) return false;
+    const data = await resp.json();
+    return data.valid === true;
+  } catch(e) {
+    return false;
+  }
+}
+
+function unlockTool(name) {
+  document.getElementById('gate-overlay').style.display = 'none';
+  // Personalise if name available
+  if (name) {
+    const nameDisplay = document.getElementById('gate-name-display');
+    if (nameDisplay) nameDisplay.textContent = name;
+  }
+}
+
+async function submitGate() {
+  const nameEl     = document.getElementById('gate-name');
+  const emailEl    = document.getElementById('gate-email');
+  const nameErr    = document.getElementById('gate-name-err');
+  const emailErr   = document.getElementById('gate-email-err');
+  const submitBtn  = document.getElementById('gate-submit-btn');
+  const name       = nameEl.value.trim();
+  const email      = emailEl.value.trim();
+  const newsletter = document.getElementById('gate-newsletter')?.checked || false;
+  let valid = true;
+
+  // Validate
+  if (!name) {
+    nameEl.style.borderColor = '#E85010';
+    if (nameErr) nameErr.style.display = 'block';
+    valid = false;
+  } else {
+    nameEl.style.borderColor = '';
+    if (nameErr) nameErr.style.display = 'none';
+  }
+  if (!email || !isValidEmail(email)) {
+    emailEl.style.borderColor = '#E85010';
+    if (emailErr) emailErr.style.display = 'block';
+    valid = false;
+  } else {
+    emailEl.style.borderColor = '';
+    if (emailErr) emailErr.style.display = 'none';
+  }
+  if (!valid) {
+    if (!name) nameEl.focus(); else emailEl.focus();
+    return;
+  }
+
+  // Loading state
+  if (submitBtn) { submitBtn.disabled = true; submitBtn.textContent = 'Sending…'; }
+
+  // Backend not configured — dev mode, unlock immediately
+  if (BACKEND_URL === 'https://your-backend.onrender.com') {
+    localStorage.setItem('beat_adv_access', JSON.stringify({
+      token: 'dev', confirmed: true, name, email, ts: Date.now(), skipped: false
+    }));
+    unlockTool(name);
+    return;
+  }
+
+  try {
+    const resp = await fetch(BACKEND_URL + '/leads', {
+      method: 'POST',
+      headers: {'Content-Type': 'application/json'},
+      body: JSON.stringify({name, email, newsletter, skipped: false, ts: Date.now()}),
+      signal: AbortSignal.timeout(10000)
+    });
+    const data = resp.ok ? await resp.json() : {};
+
+    // Dev mode: backend returned a dev_confirm_url (no RESEND_KEY set)
+    if (data.dev_confirm_url) {
+      localStorage.setItem('beat_adv_access', JSON.stringify({
+        token: 'dev', confirmed: true, name, email, ts: Date.now()
+      }));
+      unlockTool(name);
+      return;
+    }
+
+    // Production: show "check your inbox" screen
+    showCheckInbox(email);
+
+  } catch(e) {
+    if (submitBtn) { submitBtn.disabled = false; submitBtn.textContent = 'Access the Engine →'; }
+    // On network error show a message but still allow access (don't block)
+    const errDiv = document.getElementById('gate-submit-err');
+    if (errDiv) { errDiv.style.display = 'block'; errDiv.textContent = 'Could not reach server — try again or continue below.'; }
+  }
+}
+
+function showCheckInbox(email) {
+  // Swap gate form for "check inbox" message
+  document.getElementById('gate-form-section').style.display = 'none';
+  const inbox = document.getElementById('gate-inbox-section');
+  if (inbox) {
+    inbox.style.display = 'block';
+    const emailDisplay = document.getElementById('gate-inbox-email');
+    if (emailDisplay) emailDisplay.textContent = email;
+  }
+}
+
+// skipGate disabled — email verification is required
+
+// ═══════════════════════════════════════════
+// QUADRANT MATRIX HIGHLIGHT
+// ═══════════════════════════════════════════
+function highlightQuadrant(q) {
+  const colors = {Q1:'#7C3AED', Q2:'#059669', Q3:'#0284C7', Q4:'#E85010'};
+  ['Q1','Q2','Q3','Q4'].forEach(qn => {
+    const cell = document.getElementById('qmc-' + qn);
+    if (!cell) return;
+    cell.classList.remove('active-q');
+    cell.style.background = 'white';
+    cell.style.removeProperty('--active-q-color');
+  });
+  const active = document.getElementById('qmc-' + q);
+  if (active) {
+    const color = colors[q] || '#E85010';
+    active.classList.add('active-q');
+    active.style.setProperty('--active-q-color', color);
+    active.style.background = color + '0D';
+  }
+}
+
+// Wrap renderResults to also highlight quadrant after render
+const _origRenderResults = renderResults;
+renderResults = function(r) {
+  _origRenderResults(r);
+  highlightQuadrant(r.posture);
+  const rtb = document.getElementById('rtb');
+  if (rtb) rtb.style.borderTopColor = r.pd.color;
+};
+
+// ─── MOBILE MENU ──────────────────────────────────────
+function toggleAdvMenu() {
+  const menu = document.getElementById('adv-mobile-menu');
+  const btn  = document.getElementById('adv-hamburger');
+  if (!menu || !btn) return;
+  const isOpen = menu.classList.toggle('open');
+  btn.setAttribute('aria-expanded', isOpen);
+  const spans = btn.querySelectorAll('span');
+  if (isOpen) {
+    spans[0].style.transform = 'rotate(45deg) translate(4px,4px)';
+    spans[1].style.opacity = '0';
+    spans[2].style.transform = 'rotate(-45deg) translate(4px,-4px)';
+  } else {
+    spans[0].style.transform = '';
+    spans[1].style.opacity = '';
+    spans[2].style.transform = '';
+  }
+}
+function closeAdvMenu() {
+  const menu = document.getElementById('adv-mobile-menu');
+  const btn  = document.getElementById('adv-hamburger');
+  if (menu) menu.classList.remove('open');
+  if (btn) {
+    btn.setAttribute('aria-expanded', 'false');
+    btn.querySelectorAll('span').forEach(s => { s.style.transform=''; s.style.opacity=''; });
+  }
+}
+document.addEventListener('click', e => {
+  const menu = document.getElementById('adv-mobile-menu');
+  const btn  = document.getElementById('adv-hamburger');
+  if (menu && menu.classList.contains('open') && !menu.contains(e.target) && btn && !btn.contains(e.target)) {
+    closeAdvMenu();
+  }
+});
+
+// ─── COOKIE BANNER ──────────────────────────────────────
+function checkCookieBanner() {
+  const stored = localStorage.getItem('beat_cookie_consent');
+  const b = document.getElementById('cookie-banner');
+  if (!b) return;
+  if (stored) { b.classList.add('hidden'); } else { b.classList.remove('hidden'); }
+}
+function acceptCookies() {
+  localStorage.setItem('beat_cookie_consent', JSON.stringify({accepted:true, ts:Date.now()}));
+  document.getElementById('cookie-banner').classList.add('hidden');
+}
+function declineCookies() {
+  localStorage.setItem('beat_cookie_consent', JSON.stringify({accepted:false, ts:Date.now()}));
+  document.getElementById('cookie-banner').classList.add('hidden');
+}
+function showFullCookieNote() {
+  const n = document.getElementById('cookie-full-note');
+  if (n) n.style.display = n.style.display === 'none' ? 'block' : 'none';
+}
+
+// ─── INIT: check cookie banner ────────────────────────────
+document.addEventListener('DOMContentLoaded', () => {
+  checkCookieBanner();
+});
+</script>
+
+<!-- FOOTER -->
+<footer class="adv-footer">
+  <div class="adv-footer-brand">
+    <span style="background:var(--B);color:white;padding:2px 8px;border-radius:2px;font-size:9px;font-weight:700;letter-spacing:.1em">B·E·A·T</span>
+    Advanced Decision Engine · Saurav Gupta · © 2026
+  </div>
+  <div style="display:flex;align-items:center;gap:20px">
+    <a class="adv-footer-link" href="index.html">← Full Framework</a>
+    <a class="adv-footer-link" href="https://beatframework.ai" target="_blank">beatframework.ai ↗</a>
+    <a class="adv-footer-link" href="https://medium.com/@ravgupta" target="_blank">Medium ↗</a>
+  </div>
+  <div class="adv-footer-disc">Views are personal and do not represent any employer or organization.</div>
+</footer>
+
+<!-- COOKIE BANNER -->
+<div class="cookie-banner" id="cookie-banner">
+  <div class="cookie-txt">
+    This site uses cookies for session management only — no tracking or advertising.
+    Your submitted email is stored securely for framework research. 
+    <a href="#" onclick="showFullCookieNote();return false">Learn more</a>.
+  </div>
+  <div class="cookie-btns">
+    <button class="cookie-accept" onclick="acceptCookies()">Accept</button>
+    <button class="cookie-decline" onclick="declineCookies()">Necessary only</button>
+  </div>
+</div>
+<div id="cookie-full-note" style="display:none;position:fixed;bottom:0;left:0;right:0;z-index:2100;background:#0F172A;border-top:1px solid rgba(255,255,255,.15);padding:20px 32px;max-height:50vh;overflow-y:auto">
+  <div style="max-width:800px;margin:0 auto">
+    <div style="font-family:var(--mono);font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:rgba(255,255,255,.5);font-weight:700;margin-bottom:10px;display:flex;justify-content:space-between;align-items:center">
+      Cookie & Privacy Policy
+      <button onclick="document.getElementById('cookie-full-note').style.display='none'" style="background:rgba(255,255,255,.1);border:none;color:white;padding:4px 10px;border-radius:4px;cursor:pointer;font-family:var(--mono);font-size:10px">Close ✕</button>
+    </div>
+    <div style="font-size:13px;color:rgba(255,255,255,.75);line-height:1.72">
+      <p style="margin-bottom:10px"><strong style="color:white">Cookies used:</strong> This site uses a single session cookie to maintain your diagnostic session. No advertising, analytics, or tracking cookies are used.</p>
+      <p style="margin-bottom:10px"><strong style="color:white">Email data:</strong> If you submit your email through the access form, it is stored securely and used only for: (1) framework research and improvement, (2) occasional updates if you consented. Your email is never sold, shared with employers, or used for commercial purposes.</p>
+      <p style="margin-bottom:10px"><strong style="color:white">Newsletter consent:</strong> If you checked the newsletter box, you may receive occasional emails (maximum ~1/month) about B·E·A·T Framework updates and related pharma commercial technology research. You can unsubscribe at any time by replying to any email.</p>
+      <p style="margin-bottom:10px"><strong style="color:white">Your rights:</strong> You have the right to access, correct, or delete your data at any time. To exercise these rights, contact the framework author via the contact details on beatframework.ai.</p>
+      <p style="color:rgba(255,255,255,.5);font-size:12px">This is an independent research project. Views are those of Saurav Gupta personally and do not represent any employer or organization.</p>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>
