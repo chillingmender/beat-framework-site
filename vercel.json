@@ -1,0 +1,6 @@
+{
+  "cleanUrls": true,
+  "rewrites": [
+    { "source": "/advanced", "destination": "/advanced.html" }
+  ]
+}
