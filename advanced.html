@@ -1740,14 +1740,12 @@ document.addEventListener('click', e => {
 
 // ─── COOKIE BANNER ──────────────────────────────────────
 function checkCookieBanner() {
-  const stored = localStorage.getItem('beat_cookie_consent');
   const b = document.getElementById('cookie-banner');
   if (!b) return;
-  if (stored) {
-    b.classList.add('hidden');
+  if (localStorage.getItem('beat_cookie_consent')) {
+    b.style.display = 'none';
   } else {
-    // Show after 1.5s so it appears cleanly above the gate overlay
-    setTimeout(() => { b.classList.remove('hidden'); }, 1500);
+    b.style.display = 'flex';
   }
 }
 function acceptCookies() {
@@ -1764,9 +1762,7 @@ function showFullCookieNote() {
 }
 
 // ─── INIT: check cookie banner ────────────────────────────
-document.addEventListener('DOMContentLoaded', () => {
-  checkCookieBanner();
-});
+window.addEventListener('load', function() { checkCookieBanner(); });
 </script>
 
 <!-- FOOTER -->
@@ -1784,7 +1780,7 @@ document.addEventListener('DOMContentLoaded', () => {
 </footer>
 
 <!-- COOKIE BANNER -->
-<div class="cookie-banner hidden" id="cookie-banner">
+<div id="cookie-banner" style="display:none">
   <div class="cookie-txt">
     This site uses cookies for session management only — no tracking or advertising.
     Your submitted email is stored securely for framework research. 

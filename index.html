@@ -5929,7 +5929,8 @@ window.showCookieFull = function() {
   var f = document.getElementById('beat-cookie-full');
   if (f) f.style.display = f.style.display === 'none' ? 'block' : 'none';
 };
-(function() {
+// Show cookie banner — runs on window load to guarantee DOM is ready
+window.addEventListener('load', function() {
   var b = document.getElementById('beat-cookie-banner');
   if (!b) return;
   if (localStorage.getItem('beat_cookie_consent')) {
@@ -5937,7 +5938,7 @@ window.showCookieFull = function() {
   } else {
     b.style.display = 'flex';
   }
-})();
+});
 </script>
 </body>
 </html>
