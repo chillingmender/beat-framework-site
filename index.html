@@ -5847,6 +5847,37 @@ document.addEventListener('click', function(e){
   <div class="msc-label">B·E·A·T Framework<br>What will you build next?</div>
   <button class="msc-btn" onclick="navTo('tool');return false">Apply B·E·A·T →</button>
 </div>
+
+</body>
+</html>
+<!-- Cookie banner -->
+<div class="beat-cookie-banner hidden" id="beat-cookie-banner">
+  <div class="beat-cookie-txt">
+    This site uses cookies for session management only — no tracking or advertising.
+    Submitted emails are stored securely for framework research only.
+    <a onclick="showCookieFull()">Learn more &amp; privacy policy</a>
+  </div>
+  <div class="beat-cookie-btns">
+    <button class="beat-cookie-accept" onclick="acceptCookies()">Accept</button>
+    <button class="beat-cookie-decline" onclick="declineCookies()">Necessary only</button>
+  </div>
+</div>
+<!-- Cookie full policy panel -->
+<div class="beat-cookie-full" id="beat-cookie-full">
+  <div style="max-width:800px;margin:0 auto">
+    <div style="font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:rgba(255,255,255,.5);font-weight:700;margin-bottom:10px;display:flex;justify-content:space-between;align-items:center">
+      Cookie &amp; Privacy Policy
+      <button onclick="document.getElementById('beat-cookie-full').style.display='none'" style="background:rgba(255,255,255,.1);border:none;color:white;padding:4px 10px;border-radius:4px;cursor:pointer;font-family:'IBM Plex Mono',monospace;font-size:10px">Close ✕</button>
+    </div>
+    <div style="font-size:13px;color:rgba(255,255,255,.75);line-height:1.72">
+      <p style="margin-bottom:10px"><strong style="color:white">Cookies:</strong> This site uses a session cookie only for maintaining your diagnostic session state. No advertising, analytics, or tracking cookies are used.</p>
+      <p style="margin-bottom:10px"><strong style="color:white">Email data:</strong> If you submit your email via the Advanced Engine form, it is stored securely and used only for: (1) framework research, (2) occasional updates if you consented. Your email is never sold or shared.</p>
+      <p style="margin-bottom:10px"><strong style="color:white">Newsletter:</strong> If you opted in, you may receive ~1 email/month about B·E·A·T Framework updates. Unsubscribe any time by replying.</p>
+      <p style="margin-bottom:10px"><strong style="color:white">Your rights:</strong> You may request access, correction, or deletion of your data at any time. Contact the framework author via beatframework.ai.</p>
+      <p style="color:rgba(255,255,255,.5);font-size:12px">Independent research by Saurav Gupta. Views do not represent any employer or organization.</p>
+    </div>
+  </div>
+</div>
 <script>
 // ── Reset tool ──────────────────────────────────────────
 function resetTool() {
@@ -5922,36 +5953,9 @@ function resetTool() {
       setTimeout(function() { b.classList.remove('hidden'); }, 1200);
     }
   }
-  document.addEventListener('DOMContentLoaded', initCookieBanner);
+  // Script runs after DOM — call directly, don't wait for DOMContentLoaded
+  initCookieBanner();
 })();
 </script>
-<!-- Cookie banner -->
-<div class="beat-cookie-banner hidden" id="beat-cookie-banner">
-  <div class="beat-cookie-txt">
-    This site uses cookies for session management only — no tracking or advertising.
-    Submitted emails are stored securely for framework research only.
-    <a onclick="showCookieFull()">Learn more &amp; privacy policy</a>
-  </div>
-  <div class="beat-cookie-btns">
-    <button class="beat-cookie-accept" onclick="acceptCookies()">Accept</button>
-    <button class="beat-cookie-decline" onclick="declineCookies()">Necessary only</button>
-  </div>
-</div>
-<!-- Cookie full policy panel -->
-<div class="beat-cookie-full" id="beat-cookie-full">
-  <div style="max-width:800px;margin:0 auto">
-    <div style="font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:rgba(255,255,255,.5);font-weight:700;margin-bottom:10px;display:flex;justify-content:space-between;align-items:center">
-      Cookie &amp; Privacy Policy
-      <button onclick="document.getElementById('beat-cookie-full').style.display='none'" style="background:rgba(255,255,255,.1);border:none;color:white;padding:4px 10px;border-radius:4px;cursor:pointer;font-family:'IBM Plex Mono',monospace;font-size:10px">Close ✕</button>
-    </div>
-    <div style="font-size:13px;color:rgba(255,255,255,.75);line-height:1.72">
-      <p style="margin-bottom:10px"><strong style="color:white">Cookies:</strong> This site uses a session cookie only for maintaining your diagnostic session state. No advertising, analytics, or tracking cookies are used.</p>
-      <p style="margin-bottom:10px"><strong style="color:white">Email data:</strong> If you submit your email via the Advanced Engine form, it is stored securely and used only for: (1) framework research, (2) occasional updates if you consented. Your email is never sold or shared.</p>
-      <p style="margin-bottom:10px"><strong style="color:white">Newsletter:</strong> If you opted in, you may receive ~1 email/month about B·E·A·T Framework updates. Unsubscribe any time by replying.</p>
-      <p style="margin-bottom:10px"><strong style="color:white">Your rights:</strong> You may request access, correction, or deletion of your data at any time. Contact the framework author via beatframework.ai.</p>
-      <p style="color:rgba(255,255,255,.5);font-size:12px">Independent research by Saurav Gupta. Views do not represent any employer or organization.</p>
-    </div>
-  </div>
-</div>
 </body>
 </html>
