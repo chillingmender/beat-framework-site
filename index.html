@@ -4546,7 +4546,7 @@ img, svg, video, canvas { max-width: 100% !important; }
           <div style="font-family:var(--mono);font-size:9.5px;letter-spacing:.16em;text-transform:uppercase;color:#7C3AED;font-weight:700;margin-bottom:12px;display:flex;align-items:center;gap:6px"><span style="display:inline-block;width:8px;height:8px;border-radius:50%;background:var(--T)"></span>AI Investment Appetite</div>
           <div id="sc-ai" class="sc-row" style="border-top:none;padding-top:0;border-bottom:none;margin-bottom:0;padding-bottom:0"><div class="sc-label-row"><span class="sc-name">AI ambition level</span><span class="sc-val-badge" id="sc-ai-val" style="background:var(--T)">2</span></div><div class="sc-desc">Where is leadership currently pushing to invest?</div><div class="sc-ends"><span>1 · Foundation (B/E)</span><span>3 · Transform</span></div><input type="range" class="sc-slider ai-slider" min="1" max="3" step="1" value="2" oninput="updateSlider('ai',this.value)"></div>
         </div>
-<button onclick="resetTool()" style="width:100%;margin-top:10px;padding:10px;background:transparent;color:#94A3B8;border:1px solid #E2E8F0;border-radius:6px;font-family:var(--mono);font-size:9px;letter-spacing:.1em;text-transform:uppercase;cursor:pointer;font-weight:600;transition:all .2s;display:flex;align-items:center;justify-content:center;gap:6px" onmouseover="this.style.color='#475569';this.style.borderColor='#94A3B8'" onmouseout="this.style.color='#94A3B8';this.style.borderColor='#E2E8F0'">↺ Reset All Sliders</button>
+<button onclick="resetTool()" style="width:100%;margin-top:10px;padding:10px;background:#334155;color:white;border:1px solid #334155;border-radius:6px;font-family:var(--mono);font-size:9px;letter-spacing:.1em;text-transform:uppercase;cursor:pointer;font-weight:700;transition:all .2s;display:flex;align-items:center;justify-content:center;gap:6px" onmouseover="this.style.background='#1E293B';this.style.borderColor='#1E293B'" onmouseout="this.style.background='#334155';this.style.borderColor='#334155'">↺ Reset All Sliders</button>
         <button onclick="calcScore(true)" style="width:100%;margin-top:22px;padding:14px;background:var(--B);color:white;border:none;border-radius:8px;font-family:var(--mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;cursor:pointer;font-weight:700;transition:all .2s;display:flex;align-items:center;justify-content:center;gap:8px" onmouseover="this.style.background='#C2410C';this.style.transform='translateY(-1px)'" onmouseout="this.style.background='var(--B)';this.style.transform='none'">
           <span>Get My B&middot;E&middot;A&middot;T Posture</span><span>&rarr;</span>
         </button>
@@ -5919,18 +5919,14 @@ function resetTool() {
     if (consent) {
       b.classList.add('hidden');
     } else {
-      b.classList.remove('hidden');
+      setTimeout(function() { b.classList.remove('hidden'); }, 1200);
     }
   }
-  if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', initCookieBanner);
-  } else {
-    initCookieBanner();
-  }
+  document.addEventListener('DOMContentLoaded', initCookieBanner);
 })();
 </script>
 <!-- Cookie banner -->
-<div class="beat-cookie-banner" id="beat-cookie-banner">
+<div class="beat-cookie-banner hidden" id="beat-cookie-banner">
   <div class="beat-cookie-txt">
     This site uses cookies for session management only — no tracking or advertising.
     Submitted emails are stored securely for framework research only.
