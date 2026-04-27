@@ -3599,8 +3599,39 @@ img, svg, video, canvas { max-width: 100% !important; }
 
 
 
-/* ── Advanced nav button: visible on mobile, compact ── */
-@media(max-width:768px){.nav-adv-btn{font-size:9px!important;padding:5px 8px!important;margin-right:4px!important}}
+/* ── Mobile nav ── */
+@media(max-width:768px){
+  .nav-desktop-only{display:none!important}
+  .nav-links{display:none!important}
+  /* Decision Tool: subtle, visible outside hamburger */
+  .nav-tool-btn{
+    font-family:var(--mono)!important;
+    font-size:9px!important;
+    letter-spacing:.06em!important;
+    padding:5px 9px!important;
+    margin-right:2px!important;
+    color:rgba(255,255,255,.55)!important;
+    background:transparent!important;
+    border:1px solid rgba(255,255,255,.18)!important;
+    border-radius:4px!important;
+    font-weight:500!important;
+    cursor:pointer!important;
+  }
+  /* Advanced: prominent purple */
+  .nav-adv-btn{
+    font-family:var(--mono)!important;
+    font-size:9px!important;
+    letter-spacing:.06em!important;
+    padding:5px 9px!important;
+    margin-right:6px!important;
+    color:white!important;
+    background:rgba(124,58,237,.4)!important;
+    border:1px solid rgba(124,58,237,.65)!important;
+    border-radius:4px!important;
+    font-weight:700!important;
+  }
+  #nav{justify-content:space-between!important}
+}
 
 /* ── Advanced CTA card: mobile responsive ── */
 @media(max-width:768px){
@@ -3647,9 +3678,9 @@ img, svg, video, canvas { max-width: 100% !important; }
     <button class="nav-btn" onclick="navTo('aiscale')">AI at Scale</button>
     
   </div>
-  <button class="nav-btn" onclick="navTo('tool')">Decision Tool</button>
+  <button class="nav-btn nav-tool-btn" onclick="navTo('tool')">Decision Tool</button>
 <a href="https://beatframework.ai/advanced" class="nav-adv-btn" style="font-family:var(--mono);font-size:9.5px;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.45);padding:5px 10px;border-radius:3px;border:1px solid rgba(255,255,255,.12);transition:all .15s;margin-right:6px;text-decoration:none" onmouseover="this.style.color='white';this.style.borderColor='rgba(255,255,255,.35)'" onmouseout="this.style.color='rgba(255,255,255,.45)';this.style.borderColor='rgba(255,255,255,.12)'">Advanced →</a>
-    <button class="nav-cta-btn" onclick="navTo('tool')">Apply B·E·A·T &#8594;</button>
+    <button class="nav-cta-btn nav-desktop-only" onclick="navTo('tool')">Apply B·E·A·T &#8594;</button>
     <!-- Hamburger for mobile -->
     <button id="nav-hamburger" aria-label="Open navigation menu" onclick="toggleMobileMenu()">
       <span></span><span></span><span></span>

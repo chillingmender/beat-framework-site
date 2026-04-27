@@ -462,7 +462,107 @@ html {
 </head>
 <body>
 
-<!-- GATED ACCESS MODAL -->
+<!-- ══ COMING SOON OVERLAY — shown when backend not connected ══ -->
+<div id="coming-soon-overlay" style="display:none;position:fixed;inset:0;z-index:500;background:#0F172A;overflow-y:auto">
+  <div style="min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:40px 24px;text-align:center">
+
+    <!-- Nav strip -->
+    <div style="position:fixed;top:0;left:0;right:0;height:52px;background:rgba(15,23,42,.95);border-bottom:1px solid rgba(255,255,255,.08);display:flex;align-items:center;padding:0 28px;gap:10px;z-index:10">
+      <a href="https://beatframework.ai" style="display:flex;align-items:center;gap:8px;text-decoration:none">
+        <span style="background:var(--B);color:white;padding:3px 9px;border-radius:3px;font-family:var(--mono);font-size:10px;font-weight:700;letter-spacing:.1em">B·E·A·T</span>
+        <span style="font-family:var(--mono);font-size:10px;color:rgba(255,255,255,.4);letter-spacing:.1em;text-transform:uppercase">Advanced Engine</span>
+      </a>
+      <div style="flex:1"></div>
+      <a href="https://beatframework.ai" style="font-family:var(--mono);font-size:10px;color:rgba(255,255,255,.45);text-decoration:none;padding:5px 10px;border:1px solid rgba(255,255,255,.12);border-radius:4px;letter-spacing:.08em;text-transform:uppercase">← Framework</a>
+    </div>
+
+    <!-- Main content -->
+    <div style="max-width:560px;width:100%;margin-top:52px">
+
+      <!-- Icon -->
+      <div style="width:80px;height:80px;border-radius:16px;background:rgba(124,58,237,.12);border:1.5px solid rgba(124,58,237,.35);display:flex;align-items:center;justify-content:center;margin:0 auto 28px">
+        <svg width="38" height="38" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect x="3" y="3" width="15" height="15" rx="3" stroke="#E8520A" stroke-width="1.8"/>
+          <rect x="22" y="3" width="15" height="15" rx="3" stroke="#0284C7" stroke-width="1.8"/>
+          <rect x="3" y="22" width="15" height="15" rx="3" stroke="#059669" stroke-width="1.8"/>
+          <rect x="22" y="22" width="15" height="15" rx="3" stroke="#7C3AED" stroke-width="1.8" stroke-dasharray="3 2"/>
+          <line x1="18" y1="10.5" x2="22" y2="10.5" stroke="rgba(255,255,255,.3)" stroke-width="1.5"/>
+          <line x1="10.5" y1="18" x2="10.5" y2="22" stroke="rgba(255,255,255,.3)" stroke-width="1.5"/>
+          <line x1="29.5" y1="18" x2="29.5" y2="22" stroke="rgba(255,255,255,.3)" stroke-width="1.5"/>
+        </svg>
+      </div>
+
+      <!-- Label -->
+      <div style="font-family:var(--mono);font-size:10px;letter-spacing:.22em;text-transform:uppercase;color:rgba(124,58,237,.8);font-weight:700;margin-bottom:14px">B·E·A·T Advanced Engine · Coming Soon</div>
+
+      <!-- Heading -->
+      <h1 style="font-family:'Playfair Display',serif;font-size:clamp(30px,6vw,48px);font-weight:700;color:white;line-height:1.1;letter-spacing:-.02em;margin-bottom:16px">
+        62-dimension diagnostic.<br><em style="color:var(--E);font-style:italic">Launching shortly.</em>
+      </h1>
+
+      <!-- Description -->
+      <p style="font-size:16px;color:rgba(255,255,255,.6);line-height:1.72;margin-bottom:32px;max-width:460px;margin-left:auto;margin-right:auto">
+        The full Advanced Engine — sequencing roadmap, risk matrix, AI transformation plan, and printable report — is being set up. Leave your details and you'll be first to know when it's live.
+      </p>
+
+      <!-- What's coming -->
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:36px;text-align:left">
+        <div style="padding:12px 14px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:8px;font-size:13px;color:rgba(255,255,255,.65);line-height:1.5">
+          <div style="color:var(--B);font-weight:700;font-family:var(--mono);font-size:10px;letter-spacing:.1em;text-transform:uppercase;margin-bottom:5px">8 Themes</div>
+          62 diagnostic inputs across all commercial tech dimensions
+        </div>
+        <div style="padding:12px 14px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:8px;font-size:13px;color:rgba(255,255,255,.65);line-height:1.5">
+          <div style="color:var(--E);font-weight:700;font-family:var(--mono);font-size:10px;letter-spacing:.1em;text-transform:uppercase;margin-bottom:5px">Sequencing Roadmap</div>
+          12-month phased plan tied to your exact score
+        </div>
+        <div style="padding:12px 14px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:8px;font-size:13px;color:rgba(255,255,255,.65);line-height:1.5">
+          <div style="color:var(--A);font-weight:700;font-family:var(--mono);font-size:10px;letter-spacing:.1em;text-transform:uppercase;margin-bottom:5px">Risk Matrix</div>
+          Critical, high, and medium risks mapped to your posture
+        </div>
+        <div style="padding:12px 14px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:8px;font-size:13px;color:rgba(255,255,255,.65);line-height:1.5">
+          <div style="color:var(--T);font-weight:700;font-family:var(--mono);font-size:10px;letter-spacing:.1em;text-transform:uppercase;margin-bottom:5px">Printable Report</div>
+          Share-ready output for your leadership team
+        </div>
+      </div>
+
+      <!-- Notify me form -->
+      <div id="cs-form-wrap" style="background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.1);border-radius:12px;padding:24px">
+        <div style="font-family:var(--mono);font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:rgba(255,255,255,.5);font-weight:600;margin-bottom:14px">Notify me when it's live</div>
+        <div style="display:flex;flex-direction:column;gap:10px">
+          <input id="cs-name" type="text" placeholder="Your name" autocomplete="name"
+            style="width:100%;padding:12px 14px;background:rgba(255,255,255,.07);border:1.5px solid rgba(255,255,255,.15);border-radius:7px;color:white;font-family:'IBM Plex Sans',sans-serif;font-size:15px;outline:none"
+            onfocus="this.style.borderColor='rgba(124,58,237,.7)'" onblur="this.style.borderColor='rgba(255,255,255,.15)'">
+          <input id="cs-email" type="email" placeholder="Email address" autocomplete="email"
+            style="width:100%;padding:12px 14px;background:rgba(255,255,255,.07);border:1.5px solid rgba(255,255,255,.15);border-radius:7px;color:white;font-family:'IBM Plex Sans',sans-serif;font-size:15px;outline:none"
+            onfocus="this.style.borderColor='rgba(124,58,237,.7)'" onblur="this.style.borderColor='rgba(255,255,255,.15)'">
+          <label style="display:flex;align-items:flex-start;gap:9px;cursor:pointer;font-size:13px;color:rgba(255,255,255,.55);line-height:1.55">
+            <input type="checkbox" id="cs-newsletter" checked style="margin-top:2px;accent-color:var(--T);flex-shrink:0">
+            Yes, notify me when the Advanced Engine is live and send occasional framework updates.
+          </label>
+          <div id="cs-err" style="display:none;color:#FCA5A5;font-size:12px;padding:8px 12px;background:rgba(239,68,68,.1);border-radius:5px"></div>
+          <button id="cs-btn" onclick="submitComingSoon()" style="width:100%;padding:14px;background:var(--T);color:white;border:none;border-radius:7px;font-family:var(--mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;cursor:pointer;font-weight:700;transition:background .2s" onmouseover="this.style.background='#6D28D9'" onmouseout="this.style.background='var(--T)'">
+            Notify Me When It's Live →
+          </button>
+        </div>
+      </div>
+
+      <!-- Success state -->
+      <div id="cs-success" style="display:none;background:rgba(5,150,105,.1);border:1.5px solid rgba(5,150,105,.35);border-radius:12px;padding:28px;text-align:center">
+        <div style="font-size:28px;margin-bottom:12px">✓</div>
+        <div style="font-family:'Playfair Display',serif;font-size:20px;font-weight:700;color:white;margin-bottom:8px">You're on the list</div>
+        <div style="font-size:14px;color:rgba(255,255,255,.6);line-height:1.65">We'll email you as soon as the Advanced Engine is live.<br>In the meantime, try the <a href="https://beatframework.ai#tool" style="color:var(--E)">free Decision Tool</a> on the main site.</div>
+      </div>
+
+      <!-- Footer note -->
+      <div style="margin-top:28px;font-size:12px;color:rgba(255,255,255,.3);line-height:1.6">
+        Independent practitioner research by Saurav Gupta · <a href="https://beatframework.ai" style="color:rgba(255,255,255,.35)">beatframework.ai</a>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- ══ END COMING SOON OVERLAY ══ -->
+
+
 <div class="gate-overlay" id="gate-overlay">
   <div class="gate-modal">
     <div class="gate-modal-logo">
@@ -1616,7 +1716,7 @@ document.addEventListener('DOMContentLoaded', () => {
       if (fs) updateFtSliderFill(fs, 2, t.tierColor);
     });
   });
-  checkGate();
+  initPage();
 });
 
 // ═══════════════════════════════════════════
@@ -1642,12 +1742,83 @@ function showPrivacyNote() {
   if (n) n.style.display = n.style.display === 'none' ? 'block' : 'none';
 }
 
-// ─── GATE LOGIC ─────────────────────────────────────────────────────────────
-// Flow:
-//   1. Check URL for ?access=TOKEN  → verify with backend → unlock
-//   2. Check localStorage for confirmed access token → verify → unlock
-//   3. Otherwise show gate modal
+// ─── COMING SOON vs GATE LOGIC ───────────────────────────────────────────────
+// If backend not connected → show coming soon landing page
+// If backend connected → show gate modal as normal
 // ─────────────────────────────────────────────────────────────────────────────
+
+function initPage() {
+  const isBackendConnected = BACKEND_URL !== 'https://your-backend.onrender.com';
+
+  if (!isBackendConnected) {
+    // Show coming soon overlay, hide gate
+    document.getElementById('coming-soon-overlay').style.display = 'block';
+    document.getElementById('gate-overlay').style.display = 'none';
+  } else {
+    // Backend connected — run normal gate check
+    document.getElementById('coming-soon-overlay').style.display = 'none';
+    checkGate();
+  }
+}
+
+async function submitComingSoon() {
+  const name  = document.getElementById('cs-name').value.trim();
+  const email = document.getElementById('cs-email').value.trim();
+  const newsletter = document.getElementById('cs-newsletter').checked;
+  const btn   = document.getElementById('cs-btn');
+  const err   = document.getElementById('cs-err');
+
+  // Validate
+  if (!name) {
+    err.style.display = 'block';
+    err.textContent = 'Please enter your name.';
+    document.getElementById('cs-name').focus();
+    return;
+  }
+  if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(email)) {
+    err.style.display = 'block';
+    err.textContent = 'Please enter a valid email address.';
+    document.getElementById('cs-email').focus();
+    return;
+  }
+  err.style.display = 'none';
+  btn.disabled = true;
+  btn.textContent = 'Saving…';
+
+  // If backend connected — send to /leads endpoint
+  // If not — store locally and show success anyway
+  const isBackendConnected = BACKEND_URL !== 'https://your-backend.onrender.com';
+
+  if (isBackendConnected) {
+    try {
+      await fetch(BACKEND_URL + '/leads', {
+        method: 'POST',
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify({
+          name, email, newsletter,
+          source: 'coming_soon',
+          skipped: false,
+          ts: Date.now()
+        }),
+        signal: AbortSignal.timeout(8000)
+      });
+    } catch(e) {
+      // Store failed — still show success (don't block the user)
+      console.warn('Lead save failed:', e);
+    }
+  } else {
+    // No backend — store in localStorage as fallback so you don't lose signups
+    const stored = JSON.parse(localStorage.getItem('beat_cs_leads') || '[]');
+    stored.push({name, email, newsletter, ts: Date.now()});
+    localStorage.setItem('beat_cs_leads', JSON.stringify(stored));
+  }
+
+  // Show success
+  document.getElementById('cs-form-wrap').style.display = 'none';
+  document.getElementById('cs-success').style.display = 'block';
+}
+
+
 
 async function checkGate() {
   // Step 1: access token in URL (arriving from confirmation email link)
