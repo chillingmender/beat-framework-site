@@ -3584,6 +3584,20 @@ img, svg, video, canvas { max-width: 100% !important; }
   .uc2-met-l { font-size: 8px !important; }
   .uc2-steps { padding: 0 8px 8px !important; }
 }
+
+<style id="cookie-css-patch">
+/* ── COOKIE BANNER ── */
+.beat-cookie-banner{position:fixed;bottom:0;left:0;right:0;z-index:2000;background:#0F172A;border-top:1px solid rgba(255,255,255,.12);padding:14px 40px;display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap;box-shadow:0 -4px 24px rgba(0,0,0,.3)}
+.beat-cookie-banner.hidden{display:none}
+.beat-cookie-txt{font-size:13px;color:rgba(255,255,255,.75);line-height:1.6;flex:1;min-width:200px}
+.beat-cookie-txt a{color:#0284C7;text-decoration:underline;cursor:pointer}
+.beat-cookie-btns{display:flex;gap:8px;flex-shrink:0}
+.beat-cookie-accept{background:#E8520A;color:white;border:none;padding:8px 18px;border-radius:5px;font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.1em;text-transform:uppercase;cursor:pointer;font-weight:700}
+.beat-cookie-decline{background:transparent;color:rgba(255,255,255,.55);border:1px solid rgba(255,255,255,.2);padding:8px 14px;border-radius:5px;font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.1em;text-transform:uppercase;cursor:pointer;font-weight:600}
+.beat-cookie-full{display:none;position:fixed;bottom:0;left:0;right:0;z-index:2100;background:#0F172A;border-top:1px solid rgba(255,255,255,.15);padding:20px 40px;max-height:50vh;overflow-y:auto}
+@media(max-width:768px){.beat-cookie-banner{padding:12px 20px}}
+</style>
+
 </style>
 </head>
 <body>
@@ -3619,6 +3633,7 @@ img, svg, video, canvas { max-width: 100% !important; }
     
   </div>
   <button class="nav-btn" onclick="navTo('tool')">Decision Tool</button>
+<a href="advanced.html" style="font-family:var(--mono);font-size:9.5px;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.45);padding:5px 10px;border-radius:3px;border:1px solid rgba(255,255,255,.12);transition:all .15s;margin-right:6px;text-decoration:none" onmouseover="this.style.color='white';this.style.borderColor='rgba(255,255,255,.35)'" onmouseout="this.style.color='rgba(255,255,255,.45)';this.style.borderColor='rgba(255,255,255,.12)'">Advanced →</a>
     <button class="nav-cta-btn" onclick="navTo('tool')">Apply B·E·A·T &#8594;</button>
     <!-- Hamburger for mobile -->
     <button id="nav-hamburger" aria-label="Open navigation menu" onclick="toggleMobileMenu()">
@@ -4531,7 +4546,7 @@ img, svg, video, canvas { max-width: 100% !important; }
           <div style="font-family:var(--mono);font-size:9.5px;letter-spacing:.16em;text-transform:uppercase;color:#7C3AED;font-weight:700;margin-bottom:12px;display:flex;align-items:center;gap:6px"><span style="display:inline-block;width:8px;height:8px;border-radius:50%;background:var(--T)"></span>AI Investment Appetite</div>
           <div id="sc-ai" class="sc-row" style="border-top:none;padding-top:0;border-bottom:none;margin-bottom:0;padding-bottom:0"><div class="sc-label-row"><span class="sc-name">AI ambition level</span><span class="sc-val-badge" id="sc-ai-val" style="background:var(--T)">2</span></div><div class="sc-desc">Where is leadership currently pushing to invest?</div><div class="sc-ends"><span>1 · Foundation (B/E)</span><span>3 · Transform</span></div><input type="range" class="sc-slider ai-slider" min="1" max="3" step="1" value="2" oninput="updateSlider('ai',this.value)"></div>
         </div>
-
+<button onclick="resetTool()" style="width:100%;margin-top:10px;padding:10px;background:transparent;color:#94A3B8;border:1px solid #E2E8F0;border-radius:6px;font-family:var(--mono);font-size:9px;letter-spacing:.1em;text-transform:uppercase;cursor:pointer;font-weight:600;transition:all .2s;display:flex;align-items:center;justify-content:center;gap:6px" onmouseover="this.style.color='#475569';this.style.borderColor='#94A3B8'" onmouseout="this.style.color='#94A3B8';this.style.borderColor='#E2E8F0'">↺ Reset All Sliders</button>
         <button onclick="calcScore(true)" style="width:100%;margin-top:22px;padding:14px;background:var(--B);color:white;border:none;border-radius:8px;font-family:var(--mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;cursor:pointer;font-weight:700;transition:all .2s;display:flex;align-items:center;justify-content:center;gap:8px" onmouseover="this.style.background='#C2410C';this.style.transform='translateY(-1px)'" onmouseout="this.style.background='var(--B)';this.style.transform='none'">
           <span>Get My B&middot;E&middot;A&middot;T Posture</span><span>&rarr;</span>
         </button>
@@ -4719,6 +4734,25 @@ img, svg, video, canvas { max-width: 100% !important; }
     <div id="tool-placeholder-txt" style="margin-top:0;padding:28px;text-align:center;background:white;border:1.5px solid #E2E8F0;border-radius:14px;color:#94A3B8;font-family:var(--serif);font-size:17px;font-style:italic">
       Adjust the sliders &rarr; your B&middot;E&middot;A&middot;T posture appears here
     </div>
+    <div id="adv-tool-cta" style="display:none;margin-top:20px;background:linear-gradient(135deg,#0F1829 0%,#1a1040 100%);border-radius:14px;padding:28px 32px;border:1px solid rgba(124,58,237,.25);overflow:hidden;position:relative">
+  <div style="position:absolute;top:-30px;right:-30px;width:160px;height:160px;border-radius:50%;background:rgba(124,58,237,.08);pointer-events:none"></div>
+  <div style="position:relative;z-index:1;display:grid;grid-template-columns:1fr auto;gap:24px;align-items:center">
+    <div>
+      <div style="font-family:var(--mono);font-size:9px;letter-spacing:.2em;text-transform:uppercase;color:rgba(124,58,237,.9);font-weight:700;margin-bottom:8px">◈ Go Deeper — Advanced Diagnostic Available</div>
+      <div style="font-family:'Playfair Display',serif;font-size:20px;font-weight:700;color:white;margin-bottom:6px;line-height:1.25">62 dimensions. Same scoring. More precision.</div>
+      <div style="font-size:14px;color:rgba(255,255,255,.65);line-height:1.65;max-width:480px">The basic tool gave you your quadrant. The Advanced Engine adds a sequencing roadmap, risk matrix, gate checklist, AI transformation plan, and a printable report.</div>
+      <div style="margin-top:10px;display:flex;gap:16px;flex-wrap:wrap">
+        <span style="font-size:11px;color:rgba(255,255,255,.35)">◈ 8 themes · 62 inputs</span>
+        <span style="font-size:11px;color:rgba(255,255,255,.35)">◈ Risk matrix</span>
+        <span style="font-size:11px;color:rgba(255,255,255,.35)">◈ Printable report</span>
+      </div>
+    </div>
+    <div style="flex-shrink:0">
+      <a href="advanced.html" style="display:inline-flex;align-items:center;gap:8px;padding:13px 22px;background:#7C3AED;color:white;border-radius:7px;font-family:var(--mono);font-size:10px;letter-spacing:.1em;text-transform:uppercase;font-weight:700;text-decoration:none;white-space:nowrap;transition:all .2s" onmouseover="this.style.background='#6D28D9'" onmouseout="this.style.background='#7C3AED'">Advanced Engine →</a>
+      <div style="text-align:center;margin-top:6px;font-family:var(--mono);font-size:8px;color:rgba(255,255,255,.2)">Free · ~10 minutes</div>
+    </div>
+  </div>
+</div>
   </div>
 </section>
 
@@ -5812,6 +5846,116 @@ document.addEventListener('click', function(e){
 <div id="mobile-sticky-cta">
   <div class="msc-label">B·E·A·T Framework<br>What will you build next?</div>
   <button class="msc-btn" onclick="navTo('tool');return false">Apply B·E·A·T →</button>
+</div>
+<script>
+// ── Reset tool ──────────────────────────────────────────
+function resetTool() {
+  ['org','speed','tech','capital','change','compliance','ai'].forEach(function(key) {
+    document.querySelectorAll('input[type=range]').forEach(function(s) {
+      var fn = s.getAttribute('oninput') || '';
+      if (fn.indexOf(key) > -1) {
+        s.value = 2;
+        if (typeof updateSlider === 'function') updateSlider(key, 2);
+      }
+    });
+  });
+  var panel = document.getElementById('tool-result-panel');
+  if (panel) panel.style.display = 'none';
+  var ph = document.getElementById('tool-placeholder-txt');
+  if (ph) ph.style.display = 'block';
+  var advCta = document.getElementById('adv-tool-cta');
+  if (advCta) advCta.style.display = 'none';
+  if (typeof updateAxisDot === 'function') updateAxisDot();
+  var totalEl = document.getElementById('total-score');
+  if (totalEl) totalEl.textContent = '12';
+}
+
+// ── Show Advanced CTA after calcScore ──────────────────
+// Find end of calcScore function and monkey-patch it
+(function() {
+  var origCalc = window.calcScore;
+  if (typeof origCalc === 'function') {
+    window.calcScore = function(scrollResult) {
+      origCalc.apply(this, arguments);
+      var advCta = document.getElementById('adv-tool-cta');
+      if (advCta) advCta.style.display = 'block';
+    };
+  }
+})();
+
+// ── Cookie banner ───────────────────────────────────────
+(function() {
+  function checkCookie() {
+    if (localStorage.getItem('beat_cookie_consent')) {
+      var b = document.getElementById('beat-cookie-banner');
+      if (b) b.classList.add('hidden');
+    }
+  }
+  function acceptCookies() {
+    localStorage.setItem('beat_cookie_consent', JSON.stringify({accepted:true,ts:Date.now()}));
+    var b = document.getElementById('beat-cookie-banner');
+    if (b) b.classList.add('hidden');
+    var f = document.getElementById('beat-cookie-full');
+    if (f) f.style.display = 'none';
+  }
+  function declineCookies() {
+    localStorage.setItem('beat_cookie_consent', JSON.stringify({accepted:false,ts:Date.now()}));
+    var b = document.getElementById('beat-cookie-banner');
+    if (b) b.classList.add('hidden');
+    var f = document.getElementById('beat-cookie-full');
+    if (f) f.style.display = 'none';
+  }
+  function showCookieFull() {
+    var f = document.getElementById('beat-cookie-full');
+    if (f) f.style.display = f.style.display === 'none' ? 'block' : 'none';
+  }
+  window.acceptCookies = acceptCookies;
+  window.declineCookies = declineCookies;
+  window.showCookieFull = showCookieFull;
+  function initCookieBanner() {
+    var consent = localStorage.getItem('beat_cookie_consent');
+    var b = document.getElementById('beat-cookie-banner');
+    if (!b) return;
+    if (consent) {
+      b.classList.add('hidden');
+    } else {
+      b.classList.remove('hidden');
+    }
+  }
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initCookieBanner);
+  } else {
+    initCookieBanner();
+  }
+})();
+</script>
+<!-- Cookie banner -->
+<div class="beat-cookie-banner" id="beat-cookie-banner">
+  <div class="beat-cookie-txt">
+    This site uses cookies for session management only — no tracking or advertising.
+    Submitted emails are stored securely for framework research only.
+    <a onclick="showCookieFull()">Learn more &amp; privacy policy</a>
+  </div>
+  <div class="beat-cookie-btns">
+    <button class="beat-cookie-accept" onclick="acceptCookies()">Accept</button>
+    <button class="beat-cookie-decline" onclick="declineCookies()">Necessary only</button>
+  </div>
+</div>
+<!-- Cookie full policy panel -->
+<div class="beat-cookie-full" id="beat-cookie-full">
+  <div style="max-width:800px;margin:0 auto">
+    <div style="font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:rgba(255,255,255,.5);font-weight:700;margin-bottom:10px;display:flex;justify-content:space-between;align-items:center">
+      Cookie &amp; Privacy Policy
+      <button onclick="document.getElementById('beat-cookie-full').style.display='none'" style="background:rgba(255,255,255,.1);border:none;color:white;padding:4px 10px;border-radius:4px;cursor:pointer;font-family:'IBM Plex Mono',monospace;font-size:10px">Close ✕</button>
+    </div>
+    <div style="font-size:13px;color:rgba(255,255,255,.75);line-height:1.72">
+      <p style="margin-bottom:10px"><strong style="color:white">Cookies:</strong> This site uses a session cookie only for maintaining your diagnostic session state. No advertising, analytics, or tracking cookies are used.</p>
+      <p style="margin-bottom:10px"><strong style="color:white">Email data:</strong> If you submit your email via the Advanced Engine form, it is stored securely and used only for: (1) framework research, (2) occasional updates if you consented. Your email is never sold or shared.</p>
+      <p style="margin-bottom:10px"><strong style="color:white">Newsletter:</strong> If you opted in, you may receive ~1 email/month about B·E·A·T Framework updates. Unsubscribe any time by replying.</p>
+      <p style="margin-bottom:10px"><strong style="color:white">Your rights:</strong> You may request access, correction, or deletion of your data at any time. Contact the framework author via beatframework.ai.</p>
+      <p style="color:rgba(255,255,255,.5);font-size:12px">Independent research by Saurav Gupta. Views do not represent any employer or organization.</p>
+    </div>
+  </div>
 </div>
 </body>
 </html>
