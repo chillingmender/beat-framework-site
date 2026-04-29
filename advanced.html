@@ -3,6 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- ── SITE CONFIG (must load FIRST — controls maintenance/coming-soon overlay) ── -->
+<script src="/site-config.js"></script>
 <title>Advanced Decision Engine — B·E·A·T Framework</title>
 <meta name="description" content="Advanced commercial technology diagnostic. 62-dimension analysis across patient access, HCP engagement, payer, digital, AI readiness. Same B·E·A·T scoring — deeper precision.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -284,6 +286,50 @@ a{color:inherit;text-decoration:none}
 @keyframes bearStick{0%{opacity:0;transform:rotate(-30deg)}25%{opacity:1}100%{opacity:1;transform:rotate(15deg)}}
 @keyframes bearDrumPulse{0%{opacity:0;transform:scale(.8)}50%{opacity:1;transform:scale(1.3)}100%{opacity:0;transform:scale(1.6)}}
 @keyframes bearPawWave{from{transform:rotate(0)}to{transform:rotate(-15deg)}}
+
+/* ── SITE-MODE OVERLAY (Coming Soon / Maintenance / Off) ── */
+#site-mode-overlay{position:fixed;inset:0;z-index:9999;background:#0F172A;overflow-y:auto;display:none;flex-direction:column}
+#site-mode-overlay.active{display:flex}
+#site-mode-overlay::before{content:'';position:fixed;inset:0;background:radial-gradient(ellipse 70% 60% at 30% 25%,rgba(124,58,237,.10) 0%,transparent 60%),radial-gradient(ellipse 60% 50% at 75% 75%,rgba(2,132,199,.08) 0%,transparent 55%);pointer-events:none}
+.smo-nav{flex-shrink:0;height:56px;background:rgba(15,23,42,.7);backdrop-filter:blur(10px);border-bottom:1px solid rgba(255,255,255,.08);display:flex;align-items:center;padding:0 28px;gap:10px;position:relative;z-index:2}
+.smo-nav-pill{background:var(--B);color:white;padding:4px 10px;border-radius:4px;font-family:var(--mono);font-size:10px;font-weight:700;letter-spacing:.12em}
+.smo-nav-sub{font-family:var(--mono);font-size:10px;color:rgba(255,255,255,.45);letter-spacing:.1em;text-transform:uppercase}
+.smo-nav-back{font-family:var(--mono);font-size:10px;color:rgba(255,255,255,.5);text-decoration:none;padding:6px 12px;border:1px solid rgba(255,255,255,.14);border-radius:5px;letter-spacing:.08em;text-transform:uppercase;transition:all .15s}
+.smo-nav-back:hover{color:white;border-color:rgba(255,255,255,.3)}
+.smo-body{flex:1;display:flex;align-items:center;justify-content:center;padding:32px 24px;position:relative;z-index:2}
+.smo-card{max-width:560px;width:100%;text-align:center}
+.smo-bear-stage{position:relative;width:240px;height:240px;margin:0 auto 12px}
+.smo-bear-svg{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:180px;height:180px;animation:bearBreathe 2.8s ease-in-out infinite}
+.smo-label{display:inline-block;font-family:var(--mono);font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:rgba(124,58,237,.85);font-weight:700;margin-bottom:14px;padding:5px 12px;background:rgba(124,58,237,.08);border:1px solid rgba(124,58,237,.25);border-radius:4px}
+.smo-title{font-family:var(--serif);font-size:clamp(28px,5vw,40px);font-weight:700;color:white;line-height:1.15;letter-spacing:-.015em;margin-bottom:12px}
+.smo-subtitle{font-family:var(--mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.5);margin-bottom:22px;line-height:1.65}
+.smo-body-text{font-size:15px;color:rgba(255,255,255,.65);line-height:1.7;margin-bottom:28px;max-width:480px;margin-left:auto;margin-right:auto}
+.smo-eta{display:inline-block;font-family:var(--mono);font-size:11px;letter-spacing:.08em;color:#FCD34D;background:rgba(252,211,77,.08);border:1px solid rgba(252,211,77,.25);padding:8px 14px;border-radius:6px;margin-bottom:24px}
+.smo-form{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.1);border-radius:12px;padding:22px;text-align:left;max-width:440px;margin:0 auto}
+.smo-form-label{font-family:var(--mono);font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:rgba(255,255,255,.5);font-weight:600;margin-bottom:12px}
+.smo-form-input{width:100%;padding:12px 14px;background:rgba(255,255,255,.06);border:1.5px solid rgba(255,255,255,.14);border-radius:7px;color:white;font-family:'IBM Plex Sans',sans-serif;font-size:14px;outline:none;margin-bottom:9px;box-sizing:border-box;transition:border-color .15s}
+.smo-form-input::placeholder{color:rgba(255,255,255,.35)}
+.smo-form-input:focus{border-color:rgba(124,58,237,.7)}
+.smo-form-checkbox{display:flex;align-items:flex-start;gap:9px;cursor:pointer;font-size:12.5px;color:rgba(255,255,255,.55);line-height:1.55;margin:8px 0 12px}
+.smo-form-checkbox input{margin-top:2px;accent-color:var(--T);flex-shrink:0}
+.smo-form-err{display:none;color:#FCA5A5;font-size:12px;padding:8px 12px;background:rgba(239,68,68,.1);border-radius:5px;margin-bottom:10px}
+.smo-form-btn{width:100%;padding:13px;background:var(--T);color:white;border:none;border-radius:7px;font-family:var(--mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;cursor:pointer;font-weight:700;transition:background .2s}
+.smo-form-btn:hover{background:#6D28D9}
+.smo-form-btn:disabled{opacity:.6;cursor:wait}
+.smo-success{display:none;background:rgba(5,150,105,.1);border:1.5px solid rgba(5,150,105,.35);border-radius:12px;padding:24px;max-width:440px;margin:0 auto}
+.smo-success-icon{font-size:24px;color:#10B981;margin-bottom:8px}
+.smo-success-title{font-family:var(--serif);font-size:18px;font-weight:700;color:white;margin-bottom:8px}
+.smo-success-msg{font-size:13.5px;color:rgba(255,255,255,.65);line-height:1.6}
+.smo-footer{flex-shrink:0;padding:18px 24px;font-family:var(--mono);font-size:10px;letter-spacing:.1em;color:rgba(255,255,255,.3);text-align:center;border-top:1px solid rgba(255,255,255,.06);position:relative;z-index:2}
+.smo-footer a{color:rgba(255,255,255,.5);text-decoration:none}
+@media(max-width:600px){
+  .smo-nav{padding:0 18px}
+  .smo-nav-sub{display:none}
+  .smo-bear-stage{width:200px;height:200px}
+  .smo-bear-svg{width:150px;height:150px}
+  .smo-title{font-size:26px}
+  .smo-form{padding:18px}
+}
 
 .load-msg-wrap{text-align:center;max-width:420px}
 .load-msg-title{font-family:var(--serif);font-size:20px;font-weight:700;color:white;margin-bottom:6px;line-height:1.3}
@@ -712,7 +758,7 @@ html {
 /* ── Print styles ── */
 @media print {
   html, body { background:white !important; }
-  .no-print, #nav, .score-band, .submit-strip, .mode-toggle-wrap, #form-section, .run-btn, .reset-btn, .gate-overlay, .adv-footer, .loading-overlay, #backend-error, #coming-soon-overlay { display:none !important; }
+  .no-print, #nav, .score-band, .submit-strip, .mode-toggle-wrap, #form-section, .run-btn, .reset-btn, .gate-overlay, .adv-footer, .loading-overlay, #backend-error, #coming-soon-overlay, #maintenance-overlay { display:none !important; }
   #results { display:block !important; padding:0 !important; }
   .beat-section { break-inside:avoid; page-break-inside:avoid; margin-bottom:24px !important; }
   .rtb-inner, #rtb { border-radius:0 !important; }
@@ -827,7 +873,7 @@ input:focus-visible {
 /* ── Print: full report ── */
 @media print {
   .gate-overlay, .loading-overlay, .adv-footer, #nav, .score-band,
-  .submit-strip, #form-section, .mode-toggle-wrap, #coming-soon-overlay,
+  .submit-strip, #form-section, .mode-toggle-wrap, #coming-soon-overlay, #maintenance-overlay,
   #adv-mobile-menu, .adv-hamburger-btn { display: none !important; }
   #results { display: block !important; }
   body { background: white !important; color: #0F172A !important; }
@@ -1095,7 +1141,7 @@ input:focus-visible {
 
       <!-- Description -->
       <p style="font-size:16px;color:rgba(255,255,255,.6);line-height:1.72;margin-bottom:32px;max-width:460px;margin-left:auto;margin-right:auto">
-        The full Advanced Engine — sequencing roadmap, risk matrix, AI transformation plan, and printable report — is being set up. Leave your details and you'll be first to know when it's live.
+        The full Advanced Engine — 62-dimension diagnostic, sequencing roadmap, risk matrix, AI transformation plan, and printable report — is being set up. Leave your details and you'll be first to know when it's live.
       </p>
 
       <!-- What's coming -->
@@ -1141,7 +1187,9 @@ input:focus-visible {
 
       <!-- Success state -->
       <div id="cs-success" style="display:none;background:rgba(5,150,105,.1);border:1.5px solid rgba(5,150,105,.35);border-radius:12px;padding:28px;text-align:center">
-        <div style="font-size:28px;margin-bottom:12px">✓</div>
+        <div style="width:48px;height:48px;border-radius:50%;background:rgba(5,150,105,.2);border:1.5px solid rgba(5,150,105,.5);display:flex;align-items:center;justify-content:center;margin:0 auto 14px">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#059669" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+        </div>
         <div style="font-family:'Playfair Display',serif;font-size:20px;font-weight:700;color:white;margin-bottom:8px">You're on the list</div>
         <div style="font-size:14px;color:rgba(255,255,255,.6);line-height:1.65">We'll email you as soon as the Advanced Engine is live.<br>In the meantime, try the <a href="https://beatframework.ai#tool" style="color:var(--E)">free Decision Tool</a> on the main site.</div>
       </div>
@@ -1154,6 +1202,110 @@ input:focus-visible {
   </div>
 </div>
 <!-- ══ END COMING SOON OVERLAY ══ -->
+
+
+<!-- ══ MAINTENANCE OVERLAY — shown when SITE_MODE === 'MAINTENANCE' ══ -->
+<div id="maintenance-overlay" style="display:none;position:fixed;inset:0;z-index:500;background:#0F172A;overflow-y:auto">
+  <div style="min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:40px 24px;text-align:center">
+
+    <!-- Nav strip -->
+    <div style="position:fixed;top:0;left:0;right:0;height:52px;background:rgba(15,23,42,.95);border-bottom:1px solid rgba(255,255,255,.08);display:flex;align-items:center;padding:0 28px;gap:10px;z-index:10">
+      <a href="https://beatframework.ai" style="display:flex;align-items:center;gap:8px;text-decoration:none">
+        <span style="background:var(--B);color:white;padding:3px 9px;border-radius:3px;font-family:var(--mono);font-size:10px;font-weight:700;letter-spacing:.1em">B·E·A·T</span>
+        <span style="font-family:var(--mono);font-size:10px;color:rgba(255,255,255,.4);letter-spacing:.1em;text-transform:uppercase">Advanced Engine</span>
+      </a>
+      <div style="flex:1"></div>
+      <a href="https://beatframework.ai" style="font-family:var(--mono);font-size:10px;color:rgba(255,255,255,.45);text-decoration:none;padding:5px 10px;border:1px solid rgba(255,255,255,.12);border-radius:4px;letter-spacing:.08em;text-transform:uppercase">← Framework</a>
+    </div>
+
+    <!-- Main content -->
+    <div style="max-width:520px;width:100%;margin-top:52px">
+
+      <!-- Bear with toolbox -->
+      <div style="width:160px;height:160px;margin:0 auto 28px;position:relative">
+        <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:100%;animation:bearBreathe 2.4s ease-in-out infinite">
+          <ellipse cx="100" cy="180" rx="80" ry="14" fill="rgba(255,255,255,.04)"/>
+          <!-- Body -->
+          <ellipse cx="100" cy="135" rx="55" ry="48" fill="#92400E"/>
+          <ellipse cx="100" cy="145" rx="34" ry="30" fill="#B45309"/>
+          <!-- Right paw lifted slightly (holding tool) -->
+          <g style="transform-origin:148px 135px;animation:bearPawWave 1.6s ease-in-out infinite alternate">
+            <ellipse cx="148" cy="135" rx="14" ry="22" fill="#92400E"/>
+            <circle cx="148" cy="118" r="9" fill="#78350F"/>
+          </g>
+          <!-- Left paw -->
+          <ellipse cx="52" cy="135" rx="14" ry="22" fill="#92400E"/>
+          <circle cx="52" cy="118" r="9" fill="#78350F"/>
+          <!-- Head -->
+          <circle cx="100" cy="80" r="42" fill="#92400E"/>
+          <!-- Ears -->
+          <circle cx="68" cy="50" r="12" fill="#92400E"/>
+          <circle cx="68" cy="50" r="6" fill="#78350F"/>
+          <circle cx="132" cy="50" r="12" fill="#92400E"/>
+          <circle cx="132" cy="50" r="6" fill="#78350F"/>
+          <!-- Snout -->
+          <ellipse cx="100" cy="92" rx="22" ry="16" fill="#D2A77A"/>
+          <!-- Open eyes (focused expression) -->
+          <ellipse cx="86" cy="76" rx="4" ry="4" fill="#0F172A"/>
+          <ellipse cx="114" cy="76" rx="4" ry="4" fill="#0F172A"/>
+          <circle cx="87" cy="74" r="1.2" fill="white"/>
+          <circle cx="115" cy="74" r="1.2" fill="white"/>
+          <!-- Nose -->
+          <ellipse cx="100" cy="86" rx="5" ry="3.5" fill="#0F172A"/>
+          <!-- Slight smile -->
+          <path d="M 92 96 Q 100 100 108 96" stroke="#0F172A" stroke-width="2" fill="none" stroke-linecap="round"/>
+          <!-- Hard hat -->
+          <path d="M 65 45 Q 100 22 135 45 L 135 52 L 65 52 Z" fill="#F59E0B"/>
+          <rect x="60" y="50" width="80" height="6" rx="2" fill="#D97706"/>
+          <rect x="96" y="32" width="8" height="14" fill="#FCD34D"/>
+          <!-- Wrench in right paw -->
+          <g style="transform-origin:148px 135px;animation:bearPawWave 1.6s ease-in-out infinite alternate">
+            <rect x="146" y="92" width="4" height="20" fill="#94A3B8" rx="1"/>
+            <circle cx="148" cy="89" r="6" fill="none" stroke="#94A3B8" stroke-width="2.5"/>
+          </g>
+        </svg>
+      </div>
+
+      <!-- Label -->
+      <div style="font-family:var(--mono);font-size:10px;letter-spacing:.22em;text-transform:uppercase;color:rgba(245,158,11,.85);font-weight:700;margin-bottom:14px">B·E·A·T Advanced Engine · Under Maintenance</div>
+
+      <!-- Heading -->
+      <h1 style="font-family:'Playfair Display',serif;font-size:clamp(28px,5.5vw,42px);font-weight:700;color:white;line-height:1.15;letter-spacing:-.02em;margin-bottom:16px">
+        The bear's tightening some bolts.
+      </h1>
+
+      <!-- Description -->
+      <p style="font-size:16px;color:rgba(255,255,255,.65);line-height:1.72;margin-bottom:24px;max-width:440px;margin-left:auto;margin-right:auto">
+        We're sharpening the diagnostic and shoring up the foundations. The Advanced Engine will be back online shortly.
+      </p>
+
+      <!-- Status pill -->
+      <div style="display:inline-flex;align-items:center;gap:10px;padding:9px 16px;background:rgba(245,158,11,.1);border:1px solid rgba(245,158,11,.3);border-radius:99px;font-family:var(--mono);font-size:11px;letter-spacing:.1em;color:rgba(245,158,11,.95);text-transform:uppercase;margin-bottom:32px">
+        <span style="display:inline-block;width:8px;height:8px;border-radius:50%;background:#F59E0B;animation:bearZFade 1.6s ease-in-out infinite"></span>
+        Maintenance in progress
+      </div>
+
+      <!-- What you can do meanwhile -->
+      <div style="background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:12px;padding:22px 24px;text-align:left;margin-bottom:24px">
+        <div style="font-family:var(--mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.5);font-weight:600;margin-bottom:12px">In the meantime</div>
+        <div style="display:flex;align-items:flex-start;gap:12px;margin-bottom:12px">
+          <span style="color:var(--E);font-weight:700;flex-shrink:0;margin-top:2px">→</span>
+          <div style="font-size:14px;color:rgba(255,255,255,.7);line-height:1.6">Try the <a href="https://beatframework.ai#tool" style="color:var(--E);text-decoration:none;border-bottom:1px solid rgba(2,132,199,.4)">free Decision Tool</a> on the main site — same scoring system, fewer dimensions.</div>
+        </div>
+        <div style="display:flex;align-items:flex-start;gap:12px">
+          <span style="color:var(--A);font-weight:700;flex-shrink:0;margin-top:2px">→</span>
+          <div style="font-size:14px;color:rgba(255,255,255,.7);line-height:1.6">Read the <a href="https://beatframework.ai" style="color:var(--A);text-decoration:none;border-bottom:1px solid rgba(5,150,105,.4)">framework overview</a> while you wait.</div>
+        </div>
+      </div>
+
+      <!-- Footer note -->
+      <div style="font-size:12px;color:rgba(255,255,255,.3);line-height:1.6">
+        <a href="https://beatframework.ai" style="color:rgba(255,255,255,.45)">beatframework.ai</a>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- ══ END MAINTENANCE OVERLAY ══ -->
 
 
 <!-- MOBILE MENU -->
@@ -2198,6 +2350,16 @@ function recompute() {
 // ═══════════════════════════════════════════════════
 const BACKEND_URL = 'https://beat-decision-engine.onrender.com';
 
+// ═══════════════════════════════════════════════════════════════════
+// SITE MODE — change this single value to switch the entire site
+// ═══════════════════════════════════════════════════════════════════
+//   'COMING_SOON'  → Bear teaser + email capture (no verification, no engine)
+//   'MAINTENANCE'  → Bear "working on it" page (no form, no engine)
+//   'LIVE'         → Full experience: email gate + verification + engine
+// ═══════════════════════════════════════════════════════════════════
+const SITE_MODE = 'COMING_SOON';
+
+
 async function runAnalysis() {
   const btn = document.getElementById('run-btn');
   btn.disabled = true;
@@ -3225,23 +3387,45 @@ function showPrivacyNote() {
   if (n) n.style.display = n.style.display === 'none' ? 'block' : 'none';
 }
 
-// ─── COMING SOON vs GATE LOGIC ───────────────────────────────────────────────
-// If backend not connected → show coming soon landing page
-// If backend connected → show gate modal as normal
+// ─── SITE MODE ROUTING ───────────────────────────────────────────────────────
+// SITE_MODE controls what users see when they land on /advanced.
+//   COMING_SOON  → Bear-themed teaser + email capture (no engine access)
+//   MAINTENANCE  → Bear-themed "we're working on it" page
+//   LIVE         → Email gate + verification + full engine
 // ─────────────────────────────────────────────────────────────────────────────
 
 function initPage() {
-  const isBackendConnected = BACKEND_URL !== 'https://your-backend.onrender.com';
+  const csOverlay  = document.getElementById('coming-soon-overlay');
+  const mtOverlay  = document.getElementById('maintenance-overlay');
+  const gateOverlay = document.getElementById('gate-overlay');
 
-  if (!isBackendConnected) {
-    // Show coming soon overlay, hide gate
-    document.getElementById('coming-soon-overlay').style.display = 'block';
-    document.getElementById('gate-overlay').style.display = 'none';
-  } else {
-    // Backend connected — run normal gate check
-    document.getElementById('coming-soon-overlay').style.display = 'none';
-    checkGate();
+  if (SITE_MODE === 'COMING_SOON') {
+    if (csOverlay)   csOverlay.style.display = 'block';
+    if (mtOverlay)   mtOverlay.style.display = 'none';
+    if (gateOverlay) gateOverlay.style.display = 'none';
+    return;
   }
+
+  if (SITE_MODE === 'MAINTENANCE') {
+    if (csOverlay)   csOverlay.style.display = 'none';
+    if (mtOverlay)   mtOverlay.style.display = 'block';
+    if (gateOverlay) gateOverlay.style.display = 'none';
+    return;
+  }
+
+  // LIVE mode (default) — run normal email gate check
+  if (csOverlay)   csOverlay.style.display = 'none';
+  if (mtOverlay)   mtOverlay.style.display = 'none';
+
+  // If backend URL is still placeholder, fall back to coming-soon (defensive)
+  if (BACKEND_URL === 'https://your-backend.onrender.com') {
+    if (csOverlay) csOverlay.style.display = 'block';
+    if (gateOverlay) gateOverlay.style.display = 'none';
+    return;
+  }
+
+  // Real LIVE flow — email gate
+  checkGate();
 }
 
 async function submitComingSoon() {
@@ -3268,11 +3452,12 @@ async function submitComingSoon() {
   btn.disabled = true;
   btn.textContent = 'Saving…';
 
-  // If backend connected — send to /leads endpoint
-  // If not — store locally and show success anyway
-  const isBackendConnected = BACKEND_URL !== 'https://your-backend.onrender.com';
+  // ALWAYS try to save to backend if URL looks real, even in COMING_SOON mode.
+  // Backend reads its own SITE_MODE env var — if not LIVE, it stores the lead
+  // but skips the verification email.
+  const isBackendReal = BACKEND_URL !== 'https://your-backend.onrender.com';
 
-  if (isBackendConnected) {
+  if (isBackendReal) {
     try {
       await fetch(BACKEND_URL + '/leads', {
         method: 'POST',
@@ -3286,17 +3471,24 @@ async function submitComingSoon() {
         signal: AbortSignal.timeout(8000)
       });
     } catch(e) {
-      // Store failed — still show success (don't block the user)
-      console.warn('Lead save failed:', e);
+      // Backend reachable issue — fall through to localStorage as backup
+      console.warn('Lead save to backend failed, storing locally:', e);
+      try {
+        const stored = JSON.parse(localStorage.getItem('beat_cs_leads') || '[]');
+        stored.push({name, email, newsletter, ts: Date.now()});
+        localStorage.setItem('beat_cs_leads', JSON.stringify(stored));
+      } catch(_){}
     }
   } else {
-    // No backend — store in localStorage as fallback so you don't lose signups
-    const stored = JSON.parse(localStorage.getItem('beat_cs_leads') || '[]');
-    stored.push({name, email, newsletter, ts: Date.now()});
-    localStorage.setItem('beat_cs_leads', JSON.stringify(stored));
+    // No backend wired — store locally so we don't lose signups
+    try {
+      const stored = JSON.parse(localStorage.getItem('beat_cs_leads') || '[]');
+      stored.push({name, email, newsletter, ts: Date.now()});
+      localStorage.setItem('beat_cs_leads', JSON.stringify(stored));
+    } catch(_){}
   }
 
-  // Show success
+  // Show success regardless — never block the user
   document.getElementById('cs-form-wrap').style.display = 'none';
   document.getElementById('cs-success').style.display = 'block';
 }
