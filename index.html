@@ -4632,46 +4632,46 @@ img, svg, video, canvas { max-width: 100% !important; }
         <div style="display:grid;grid-template-columns:28px 1fr 1fr;grid-template-rows:1fr 1fr 28px;gap:6px;min-height:320px">
           
           <!-- Y-axis label: High Maturity (top) -->
-          <div style="grid-column:2/4;grid-row:0;font-family:var(--mono);font-size:8.5px;letter-spacing:.1em;text-transform:uppercase;color:#94A3B8;display:flex;justify-content:center;align-items:center;margin-bottom:2px">&#8593; High Maturity</div>
+          <div style="grid-column:2/4;grid-row:0;font-family:var(--mono);font-size:8.5px;letter-spacing:.1em;text-transform:uppercase;color:#94A3B8;display:flex;justify-content:center;align-items:center;margin-bottom:2px">&#8593; HIGHER MATURITY &middot; HIGHER SCORE</div>
           
           <!-- Y-axis rotated label -->
           <div style="grid-column:1;grid-row:1/3;writing-mode:vertical-lr;transform:rotate(180deg);font-family:var(--mono);font-size:8px;letter-spacing:.1em;text-transform:uppercase;color:#334155;font-weight:600;display:flex;align-items:center;justify-content:center;text-align:center;line-height:1.3">Technology<br>Maturity</div>
           
-          <!-- Q1: High Maturity, Low Urgency -->
+          <!-- Q1: High Maturity / Score 15-18 -->
           <div id="mq1" onclick="selectQ(1)" style="grid-column:2;grid-row:1;background:rgba(124,58,237,.07);border:2px solid rgba(124,58,237,.2);border-radius:10px;padding:14px;cursor:pointer;transition:all .2s;position:relative;overflow:hidden">
             <div style="font-family:var(--mono);font-size:9px;font-weight:800;color:var(--T);letter-spacing:.1em;margin-bottom:5px">Q1 &middot; BUILD DEEP</div>
-            <div style="font-size:13px;font-weight:700;color:#0F172A;line-height:1.25;margin-bottom:4px">All tiers &middot; Transform focus</div>
-            <div style="font-family:var(--mono);font-size:9px;color:#334155;font-weight:600">Low Urgency · High Maturity</div>
+            <div style="font-size:13px;font-weight:700;color:#0F172A;line-height:1.25;margin-bottom:4px">All tiers concurrent</div>
+            <div style="font-family:var(--mono);font-size:9px;color:var(--T);font-weight:700">Score 15&ndash;18</div>
             <div style="display:flex;gap:3px;margin-top:8px"><span style="width:14px;height:14px;border-radius:3px;background:var(--B);display:inline-block"></span><span style="width:14px;height:14px;border-radius:3px;background:var(--E);display:inline-block"></span><span style="width:14px;height:14px;border-radius:3px;background:var(--A);display:inline-block"></span><span style="width:14px;height:14px;border-radius:3px;background:var(--T);display:inline-block"></span></div>
           </div>
           
-          <!-- Q2: High Maturity, High Urgency -->
+          <!-- Q2: Score 12-15 -->
           <div id="mq2" onclick="selectQ(2)" style="grid-column:3;grid-row:1;background:rgba(5,150,105,.07);border:2px solid rgba(5,150,105,.2);border-radius:10px;padding:14px;cursor:pointer;transition:all .2s;position:relative;overflow:hidden">
             <div style="font-family:var(--mono);font-size:9px;font-weight:800;color:var(--A);letter-spacing:.1em;margin-bottom:5px">Q2 &middot; ACCELERATE NOW</div>
-            <div style="font-size:13px;font-weight:700;color:#0F172A;line-height:1.25;margin-bottom:4px">Parallel B+E &middot; Fast A</div>
-            <div style="font-family:var(--mono);font-size:9px;color:#334155;font-weight:600">High Urgency · High Maturity</div>
+            <div style="font-size:13px;font-weight:700;color:#0F172A;line-height:1.25;margin-bottom:4px">Aggressive parallel: B+E+A</div>
+            <div style="font-family:var(--mono);font-size:9px;color:var(--A);font-weight:700">Score 12&ndash;15</div>
             <div style="display:flex;gap:3px;margin-top:8px"><span style="width:14px;height:14px;border-radius:3px;background:var(--B);display:inline-block"></span><span style="width:14px;height:14px;border-radius:3px;background:var(--E);display:inline-block"></span><span style="width:14px;height:14px;border-radius:3px;background:var(--A);display:inline-block"></span><span style="width:14px;height:14px;border-radius:3px;background:rgba(124,58,237,.3);display:inline-block"></span></div>
           </div>
           
-          <!-- Q3: Low Maturity, Low Urgency -->
+          <!-- Q3: Score 9-12 -->
           <div id="mq3" onclick="selectQ(3)" style="grid-column:2;grid-row:2;background:rgba(2,132,199,.07);border:2px solid rgba(2,132,199,.2);border-radius:10px;padding:14px;cursor:pointer;transition:all .2s;position:relative;overflow:hidden">
             <div style="font-family:var(--mono);font-size:9px;font-weight:800;color:var(--E);letter-spacing:.1em;margin-bottom:5px">Q3 &middot; BUILD FIRST</div>
-            <div style="font-size:13px;font-weight:700;color:#0F172A;line-height:1.25;margin-bottom:4px">Sequential only &middot; No skip</div>
-            <div style="font-family:var(--mono);font-size:9px;color:#334155;font-weight:600">Low Urgency · Low Maturity</div>
-            <div style="display:flex;gap:3px;margin-top:8px"><span style="width:14px;height:14px;border-radius:3px;background:var(--B);display:inline-block"></span><span style="width:14px;height:14px;border-radius:3px;background:rgba(2,132,199,.4);display:inline-block"></span><span style="width:14px;height:14px;border-radius:3px;background:rgba(5,150,105,.2);display:inline-block"></span><span style="width:14px;height:14px;border-radius:3px;background:rgba(124,58,237,.1);display:inline-block"></span></div>
+            <div style="font-size:13px;font-weight:700;color:#0F172A;line-height:1.25;margin-bottom:4px">Selective parallel: B+E</div>
+            <div style="font-family:var(--mono);font-size:9px;color:var(--E);font-weight:700">Score 9&ndash;12</div>
+            <div style="display:flex;gap:3px;margin-top:8px"><span style="width:14px;height:14px;border-radius:3px;background:var(--B);display:inline-block"></span><span style="width:14px;height:14px;border-radius:3px;background:var(--E);display:inline-block"></span><span style="width:14px;height:14px;border-radius:3px;background:rgba(5,150,105,.3);display:inline-block"></span><span style="width:14px;height:14px;border-radius:3px;background:rgba(124,58,237,.15);display:inline-block"></span></div>
           </div>
           
-          <!-- Q4: Low Maturity, High Urgency -->
+          <!-- Q4: Score 6-9 -->
           <div id="mq4" onclick="selectQ(4)" style="grid-column:3;grid-row:2;background:rgba(232,82,10,.07);border:2px solid rgba(232,82,10,.2);border-radius:10px;padding:14px;cursor:pointer;transition:all .2s;position:relative;overflow:hidden">
             <div style="font-family:var(--mono);font-size:9px;font-weight:800;color:var(--B);letter-spacing:.1em;margin-bottom:5px">Q4 &middot; TRIAGE &amp; COMPRESS</div>
-            <div style="font-size:13px;font-weight:700;color:#0F172A;line-height:1.25;margin-bottom:4px">MVP B &middot; Accept risk</div>
-            <div style="font-family:var(--mono);font-size:9px;color:#334155;font-weight:600">High Urgency · Low Maturity</div>
-            <div style="display:flex;gap:3px;margin-top:8px"><span style="width:14px;height:14px;border-radius:3px;background:var(--B);display:inline-block"></span><span style="width:14px;height:14px;border-radius:3px;background:rgba(2,132,199,.3);display:inline-block"></span><span style="width:14px;height:14px;border-radius:3px;background:rgba(5,150,105,.1);display:inline-block"></span><span style="width:14px;height:14px;border-radius:3px;background:rgba(124,58,237,.07);display:inline-block"></span></div>
+            <div style="font-size:13px;font-weight:700;color:#0F172A;line-height:1.25;margin-bottom:4px">Sequential only: B then E</div>
+            <div style="font-family:var(--mono);font-size:9px;color:var(--B);font-weight:700">Score 6&ndash;9</div>
+            <div style="display:flex;gap:3px;margin-top:8px"><span style="width:14px;height:14px;border-radius:3px;background:var(--B);display:inline-block"></span><span style="width:14px;height:14px;border-radius:3px;background:rgba(2,132,199,.5);display:inline-block"></span><span style="width:14px;height:14px;border-radius:3px;background:rgba(5,150,105,.15);display:inline-block"></span><span style="width:14px;height:14px;border-radius:3px;background:rgba(124,58,237,.07);display:inline-block"></span></div>
           </div>
           
-          <!-- Bottom axis: Low Urgency | High Urgency -->
-          <div style="grid-column:2;grid-row:3;font-family:var(--mono);font-size:8.5px;letter-spacing:.08em;text-transform:uppercase;color:#334155;font-weight:600;text-align:center;display:flex;align-items:center;justify-content:center">Low Urgency</div>
-          <div style="grid-column:3;grid-row:3;font-family:var(--mono);font-size:8.5px;letter-spacing:.08em;text-transform:uppercase;color:#334155;font-weight:600;text-align:center;display:flex;align-items:center;justify-content:center">High Urgency &rarr;</div>
+          <!-- Bottom axis: Low Urgency | High Urgency (matrix spatial layout per published paper) -->
+          <div style="grid-column:2;grid-row:3;font-family:var(--mono);font-size:8.5px;letter-spacing:.08em;text-transform:uppercase;color:#334155;font-weight:600;text-align:center;display:flex;align-items:center;justify-content:center">&larr; Lower Urgency</div>
+          <div style="grid-column:3;grid-row:3;font-family:var(--mono);font-size:8.5px;letter-spacing:.08em;text-transform:uppercase;color:#334155;font-weight:600;text-align:center;display:flex;align-items:center;justify-content:center">Higher Urgency &rarr;</div>
           <!-- Low maturity label bottom-left -->
           <div style="grid-column:1;grid-row:3;writing-mode:vertical-lr;transform:rotate(180deg);font-family:var(--mono);font-size:7px;color:#475569;font-weight:600;text-transform:uppercase;letter-spacing:.08em;display:flex;align-items:center;justify-content:center">Low</div>
         </div>
@@ -5705,31 +5705,31 @@ function updateMobilePostureCard(q, totalScore, urgency, maturity) {
   var colors = {1:'var(--T)',2:'var(--A)',3:'var(--E)',4:'var(--B)'};
   var qData = {
     1: {
-      letter:'Q1', name:'Build Deep — All Tiers',
-      sub:'Low Urgency · High Maturity',
+      letter:'Q1', name:'Build Deep — All Tiers Concurrent',
+      sub:'Score 15–18 · All tiers concurrent',
       seq:[{label:'B',bg:'var(--B)'},{label:'E',bg:'var(--E)'},{label:'A',bg:'var(--A)'},{label:'T',bg:'var(--T)'}],
-      actions:['Fund all four tiers with dedicated stream leads','MDM build in parallel — not waiting for B to complete','NBA and AI activate when Enable gate passes (≥85% MDM match)'],
+      actions:['Fund all four tiers with dedicated stream leads','Transform pilots viable now — agentic workflows in production','NBA and AI run on validated identity (≥85% MDM match)'],
       risk:'Scoping Transform before Accelerate proves measurable lift.'
     },
     2: {
-      letter:'Q2', name:'Parallel B+E, Fast A',
-      sub:'High Urgency · High Maturity',
+      letter:'Q2', name:'Accelerate Now — Aggressive Parallel B+E+A',
+      sub:'Score 12–15 · Aggressive parallel B+E+A',
       seq:[{label:'B',bg:'var(--B)'},{label:'E',bg:'var(--E)'},{label:'A',bg:'var(--A)'}],
-      actions:['Run Build and Enable in parallel — maturity earns it','Gate Accelerate on MDM match rate ≥82%, not the launch date','Remove calendar-based triggers from project plans'],
+      actions:['Run B, E, and A together — your foundation supports it','Gate Accelerate on MDM match rate ≥82%, not the launch date','Transform scoped within 12 months — architecture work begins now'],
       risk:'Using launch date as the Accelerate gate. The AI routes wrong.'
     },
     3: {
-      letter:'Q3', name:'Build First — Sequential',
-      sub:'Low Urgency · Low Maturity',
-      seq:[{label:'B',bg:'var(--B)'}],
-      actions:['CRM data quality audit before any Enable investment','NPI hierarchy accuracy ≥85% before MDM starts','No NBA vendor contracts until Build gate is passed'],
-      risk:'Approving Enable budget before Build gate is passed.'
+      letter:'Q3', name:'Build First — Selective Parallel B+E',
+      sub:'Score 9–12 · Selective parallel B+E',
+      seq:[{label:'B',bg:'var(--B)'},{label:'E',bg:'var(--E)'}],
+      actions:['Run B and E together with dedicated stream leads each','Gate Accelerate on Build ≥90% AND Enable match rate ≥82%','No NBA vendor contracts until both gates are passed'],
+      risk:'Approving Accelerate budget before both Build AND Enable gates pass.'
     },
     4: {
-      letter:'Q4', name:'Triage & Compress',
-      sub:'High Urgency · Low Maturity',
+      letter:'Q4', name:'Triage & Compress — Sequential Only',
+      sub:'Score 6–9 · Sequential only',
       seq:[{label:'B',bg:'var(--B)'}],
-      actions:['Emergency CRM refresh only — all budget here','MVP MDM begins only when Build is 80% complete','Pause all NBA and AI copilot conversations'],
+      actions:['Emergency CRM refresh — all budget here until Build gate passes','Enable begins only after Build passes (CRM ≥90%, claims <24h)','Pause all NBA and AI copilot conversations'],
       risk:'Skipping Build under launch pressure. Field trust collapses within 8 weeks of go-live.'
     }
   };
