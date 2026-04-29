@@ -257,43 +257,11 @@ a{color:inherit;text-decoration:none}
 .result-disclaimer{text-align:center;font-size:12px;color:var(--ink4);padding:16px}
 
 /* LOADING */
-.loading-overlay{position:fixed;inset:0;background:rgba(8,13,26,.94);z-index:500;display:none;align-items:center;justify-content:center;flex-direction:column;gap:20px;padding:20px}
+.loading-overlay{position:fixed;inset:0;background:rgba(8,13,26,.9);z-index:500;display:none;align-items:center;justify-content:center;flex-direction:column;gap:20px}
 .loading-overlay.show{display:flex}
-
-/* ── Bear stage (replaces spinner for engine wake-up) ── */
-.bear-stage{position:relative;width:280px;height:280px;flex-shrink:0}
-.bear-svg{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:200px;height:200px;animation:bearBreathe 2.4s ease-in-out infinite}
-.bear-zzz{position:absolute;top:18px;left:50%;transform:translateX(-50%);font-family:'Playfair Display',Georgia,serif;font-size:26px;color:rgba(124,58,237,.7);font-weight:700;letter-spacing:.06em;animation:bearZFade 2.5s ease forwards;line-height:1}
-.bear-zzz span:nth-child(1){font-size:20px}
-.bear-zzz span:nth-child(2){font-size:15px}
-.bear-pills{position:absolute;top:18px;left:50%;transform:translateX(-50%);display:flex;gap:5px;opacity:0;animation:bearPillsAppear .8s ease 2.6s forwards}
-.bear-pills span{display:inline-block;width:24px;height:24px;border-radius:5px;color:white;font-family:var(--mono);font-size:11px;font-weight:800;line-height:24px;text-align:center;letter-spacing:.04em}
-.bear-honey{position:absolute;bottom:14px;right:24px;width:46px;height:54px;opacity:0;animation:bearHoneyAppear .9s ease 1.4s forwards}
-.bear-drum{position:absolute;bottom:14px;left:24px;width:54px;height:54px;opacity:0;animation:bearDrumAppear .9s ease 1.9s forwards}
-.bear-drumstick{position:absolute;bottom:54px;left:60px;width:3px;height:22px;background:#92400E;border-radius:2px;transform-origin:bottom center;opacity:0;animation:bearStick .56s ease-in-out 2.9s infinite alternate}
-.bear-drum-glow{position:absolute;bottom:14px;left:24px;width:54px;height:54px;border-radius:50%;background:radial-gradient(circle,rgba(232,82,10,.55) 0%,transparent 65%);opacity:0;animation:bearDrumPulse .56s ease-out 3.4s infinite}
-.bear-eye-cl,.bear-eye-cr{transform-origin:center;animation:bearEyeOpen .9s ease 1.1s forwards;transform:scaleY(.05)}
-.bear-paw-r{transform-origin:148px 135px;animation:bearPawWave 1.2s ease-in-out 3.4s infinite alternate}
-
-@keyframes bearBreathe{0%,100%{transform:translate(-50%,-50%) scale(1)}50%{transform:translate(-50%,-50%) scale(1.025)}}
-@keyframes bearZFade{0%{opacity:1;transform:translate(-50%,0)}60%{opacity:.5;transform:translate(-50%,-12px)}100%{opacity:0;transform:translate(-50%,-22px)}}
-@keyframes bearEyeOpen{from{transform:scaleY(.05)}to{transform:scaleY(1)}}
-@keyframes bearHoneyAppear{from{opacity:0;transform:translateY(8px) scale(.7)}to{opacity:1;transform:translateY(0) scale(1)}}
-@keyframes bearDrumAppear{from{opacity:0;transform:translateY(8px) scale(.7)}to{opacity:1;transform:translateY(0) scale(1)}}
-@keyframes bearPillsAppear{from{opacity:0;transform:translate(-50%,-8px)}to{opacity:1;transform:translate(-50%,0)}}
-@keyframes bearStick{0%{opacity:0;transform:rotate(-30deg)}25%{opacity:1}100%{opacity:1;transform:rotate(15deg)}}
-@keyframes bearDrumPulse{0%{opacity:0;transform:scale(.8)}50%{opacity:1;transform:scale(1.3)}100%{opacity:0;transform:scale(1.6)}}
-@keyframes bearPawWave{from{transform:rotate(0)}to{transform:rotate(-15deg)}}
-
-.load-msg-wrap{text-align:center;max-width:420px}
-.load-msg-title{font-family:var(--serif);font-size:20px;font-weight:700;color:white;margin-bottom:6px;line-height:1.3}
-.load-msg-sub{font-family:var(--mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.55);line-height:1.7}
-
-/* Legacy spin (kept for non-engine loading) */
 .spin{width:44px;height:44px;border:3px solid rgba(255,255,255,.08);border-top-color:var(--B);border-radius:50%;animation:spin .75s linear infinite}
 .load-txt{font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.5)}
 @keyframes spin{to{transform:rotate(360deg)}}
-@keyframes gatePulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.4;transform:scale(.85)}}
 
 /* QUADRANT MATRIX IN RESULTS */
 .qmatrix-wrap{display:grid;grid-template-columns:28px 1fr 1fr;grid-template-rows:auto 1fr 1fr 28px;gap:8px;background:var(--rule);border:1px solid var(--rule);border-radius:12px;overflow:hidden;margin-bottom:0;min-height:520px}
@@ -1035,16 +1003,11 @@ input:focus-visible {
         We've sent a confirmation link to<br>
         <strong id="gate-inbox-email" style="color:var(--ink)"></strong>
       </p>
-      <!-- Live polling indicator -->
-      <div id="gate-polling-indicator" style="display:flex;align-items:center;justify-content:center;gap:8px;font-family:var(--mono);font-size:11px;color:#059669;letter-spacing:.06em;margin-bottom:16px">
-        <span style="display:inline-block;width:8px;height:8px;border-radius:50%;background:#059669;animation:gatePulse 1.4s ease-in-out infinite"></span>
-        <span>WAITING FOR CONFIRMATION · YOU CAN CONFIRM ON ANY DEVICE</span>
-      </div>
       <div style="padding:14px 16px;background:var(--light);border-radius:8px;border:1px solid var(--rule);font-size:13px;color:var(--ink3);line-height:1.65;text-align:left;margin-bottom:20px">
         <strong style="color:var(--ink);display:block;margin-bottom:4px">Didn't receive it?</strong>
-        Check your spam folder. The email comes from <span style="font-family:var(--mono);font-size:11px">hello@beatframework.ai</span>. Links expire after 24 hours. This page will unlock automatically once you confirm — even if you confirm on your phone.
+        Check your spam folder. The email comes from <span style="font-family:var(--mono);font-size:11px">hello@beatframework.ai</span>. Links expire after 24 hours.
       </div>
-      <div class="gate-skip">Wrong email? <a onclick="if(typeof stopConfirmationPolling==='function')stopConfirmationPolling();document.getElementById('gate-inbox-section').style.display='none';document.getElementById('gate-form-section').style.display='block';var b=document.getElementById('gate-submit-btn');if(b){b.disabled=false;b.textContent='Access the Engine →'}">Go back</a></div>
+      <div class="gate-skip">Wrong email? <a onclick="document.getElementById('gate-inbox-section').style.display='none';document.getElementById('gate-form-section').style.display='block';var b=document.getElementById('gate-submit-btn');if(b){b.disabled=false;b.textContent='Access the Engine →'}">Go back</a></div>
     </div>
 
     <!-- COMING SOON SECTION (shown when backend not yet live) -->
@@ -1306,12 +1269,12 @@ input:focus-visible {
 <!-- RESULTS -->
 <!-- BACKEND ERROR -->
 <div id="backend-error" style="display:none;max-width:var(--max);margin:40px auto;padding:0 40px">
-  <div style="background:#FEF3C7;border:1.5px solid #F59E0B;border-radius:12px;padding:24px 28px;display:flex;align-items:flex-start;gap:16px">
-    <span style="font-size:28px;flex-shrink:0;line-height:1">🐻</span>
-    <div style="flex:1">
-      <div style="font-family:var(--mono);font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:#92400E;font-weight:700;margin-bottom:6px">Bear took a detour</div>
-      <div id="backend-error-msg" style="font-size:14px;color:#78350F;line-height:1.65;margin-bottom:14px"></div>
-      <button onclick="document.getElementById('backend-error').style.display='none';runAnalysis();" style="background:#92400E;color:white;border:none;padding:9px 20px;border-radius:6px;font-family:var(--mono);font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;cursor:pointer;transition:background .15s" onmouseover="this.style.background='#78350F'" onmouseout="this.style.background='#92400E'">↻ Wake the bear again</button>
+  <div style="background:#FEF2F2;border:1.5px solid #EF4444;border-radius:12px;padding:24px 28px;display:flex;align-items:flex-start;gap:16px">
+    <span style="font-size:24px;flex-shrink:0">⚠</span>
+    <div>
+      <div style="font-family:var(--mono);font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:#DC2626;font-weight:700;margin-bottom:6px">Analysis Engine Unavailable</div>
+      <div id="backend-error-msg" style="font-size:14px;color:#7F1D1D;line-height:1.65;margin-bottom:12px"></div>
+      <div style="font-size:13px;color:#991B1B;line-height:1.6">To deploy the backend: push <code style="background:#FEE2E2;padding:2px 6px;border-radius:3px;font-family:var(--mono);font-size:11px">engine.py</code>, <code style="background:#FEE2E2;padding:2px 6px;border-radius:3px;font-family:var(--mono);font-size:11px">main.py</code>, <code style="background:#FEE2E2;padding:2px 6px;border-radius:3px;font-family:var(--mono);font-size:11px">requirements.txt</code>, and <code style="background:#FEE2E2;padding:2px 6px;border-radius:3px;font-family:var(--mono);font-size:11px">render.yaml</code> to GitHub and connect to Render. Then update <code style="background:#FEE2E2;padding:2px 6px;border-radius:3px;font-family:var(--mono);font-size:11px">BACKEND_URL</code> in this file.</div>
     </div>
   </div>
 </div>
@@ -1466,87 +1429,10 @@ input:focus-visible {
   </div>
 </section>
 
-<!-- LOADING — bear waking up from hibernation -->
+<!-- LOADING -->
 <div class="loading-overlay" id="loading">
-  <div class="bear-stage" id="bear-stage">
-
-    <!-- Sleepy Z's (fade out as bear wakes) -->
-    <div class="bear-zzz" id="bear-zzz">Z<span>z</span><span>z</span></div>
-
-    <!-- B·E·A·T pills appear once bear is awake -->
-    <div class="bear-pills" id="bear-pills">
-      <span style="background:#E8520A">B</span>
-      <span style="background:#0284C7">E</span>
-      <span style="background:#059669">A</span>
-      <span style="background:#7C3AED">T</span>
-    </div>
-
-    <!-- Bear -->
-    <svg class="bear-svg" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
-      <ellipse cx="100" cy="180" rx="80" ry="14" fill="#1E293B" opacity=".5"/>
-      <!-- Body -->
-      <ellipse cx="100" cy="135" rx="55" ry="48" fill="#92400E"/>
-      <ellipse cx="100" cy="145" rx="34" ry="30" fill="#B45309"/>
-      <!-- Right paw (waves when awake) -->
-      <g class="bear-paw-r">
-        <ellipse cx="148" cy="135" rx="14" ry="22" fill="#92400E"/>
-        <circle cx="148" cy="118" r="9" fill="#78350F"/>
-      </g>
-      <!-- Left paw -->
-      <ellipse cx="52" cy="135" rx="14" ry="22" fill="#92400E"/>
-      <circle cx="52" cy="118" r="9" fill="#78350F"/>
-      <!-- Head -->
-      <circle cx="100" cy="80" r="42" fill="#92400E"/>
-      <!-- Ears -->
-      <circle cx="68" cy="50" r="12" fill="#92400E"/>
-      <circle cx="68" cy="50" r="6" fill="#78350F"/>
-      <circle cx="132" cy="50" r="12" fill="#92400E"/>
-      <circle cx="132" cy="50" r="6" fill="#78350F"/>
-      <!-- Snout -->
-      <ellipse cx="100" cy="92" rx="22" ry="16" fill="#D2A77A"/>
-      <!-- Eyes (closed → open) -->
-      <ellipse class="bear-eye-cl" cx="86" cy="76" rx="4" ry="4" fill="#0F172A"/>
-      <ellipse class="bear-eye-cr" cx="114" cy="76" rx="4" ry="4" fill="#0F172A"/>
-      <circle class="bear-eye-cl" cx="87" cy="74" r="1.2" fill="white"/>
-      <circle class="bear-eye-cr" cx="115" cy="74" r="1.2" fill="white"/>
-      <!-- Nose -->
-      <ellipse cx="100" cy="86" rx="5" ry="3.5" fill="#0F172A"/>
-      <!-- Smile -->
-      <path d="M 92 96 Q 100 102 108 96" stroke="#0F172A" stroke-width="2" fill="none" stroke-linecap="round"/>
-    </svg>
-
-    <!-- Honey jar (right side, appears as bear wakes) -->
-    <div class="bear-honey">
-      <svg viewBox="0 0 50 60" xmlns="http://www.w3.org/2000/svg" width="46" height="54">
-        <path d="M 12 18 L 12 52 Q 12 56 16 56 L 34 56 Q 38 56 38 52 L 38 18 Z" fill="#F59E0B"/>
-        <path d="M 14 22 L 14 50 Q 14 54 17 54 L 33 54 Q 36 54 36 50 L 36 22 Z" fill="#D97706"/>
-        <rect x="10" y="12" width="30" height="8" rx="2" fill="#78350F"/>
-        <rect x="17" y="32" width="16" height="10" fill="#FCD34D" rx="1"/>
-        <text x="25" y="40" font-family="Georgia, serif" font-size="8" font-weight="700" fill="#78350F" text-anchor="middle">HNY</text>
-      </svg>
-    </div>
-
-    <!-- B·E·A·T drum (left side, ready to beat) -->
-    <div class="bear-drum">
-      <svg viewBox="0 0 54 54" xmlns="http://www.w3.org/2000/svg" width="54" height="54">
-        <ellipse cx="27" cy="42" rx="22" ry="6" fill="#7C3AED"/>
-        <rect x="5" y="18" width="44" height="24" fill="#9333EA"/>
-        <ellipse cx="27" cy="18" rx="22" ry="6" fill="#A855F7"/>
-        <rect x="5" y="26" width="11" height="3" fill="#E8520A"/>
-        <rect x="16" y="26" width="11" height="3" fill="#0284C7"/>
-        <rect x="27" y="26" width="11" height="3" fill="#059669"/>
-        <rect x="38" y="26" width="11" height="3" fill="#7C3AED"/>
-      </svg>
-    </div>
-    <div class="bear-drumstick"></div>
-    <div class="bear-drum-glow"></div>
-  </div>
-
-  <!-- Status copy (changes through wake-up phases) -->
-  <div class="load-msg-wrap">
-    <div class="load-msg-title" id="load-title">Waking the bear from hibernation…</div>
-    <div class="load-msg-sub" id="load-sub">Stretching · Yawning · Reaching for the honey</div>
-  </div>
+  <div class="spin"></div>
+  <div class="load-txt" id="load-txt">Computing your B·E·A·T posture…</div>
 </div>
 
 <script>
@@ -2221,21 +2107,17 @@ async function runAnalysis() {
   const btn = document.getElementById('run-btn');
   btn.disabled = true;
   document.getElementById('loading').classList.add('show');
-
-  // Phase 1 (immediate) — set when overlay appears
-  setBearMessage('Waking the bear from hibernation…', 'Stretching · Yawning · Reaching for the honey');
-
-  // Subsequent phases — bear-themed, no "free tier" or technical wording.
-  // Each phase swaps the title + subtitle on the overlay.
+  document.getElementById('load-txt').textContent = 'Connecting to analysis engine…';
   const messages = [
-    [6000,  'The bear is rubbing its eyes',           'Almost up · Honey jar in sight'],
-    [14000, 'Tasting the honey · syncing memory',      'Loading the B·E·A·T diagnostic'],
-    [22000, 'Picking up the drumsticks',               'Almost ready to beat the drum'],
-    [32000, 'Tuning the rhythm',                        'B · E · A · T · Final checks before showtime'],
-    [45000, 'Bear thinks this is taking a while too',  'Hang tight · running your analysis'],
+    [4000,  'Backend is waking up — first load takes ~30s on free tier…'],
+    [15000, 'Still waking up — almost there…'],
+    [30000, 'Taking longer than usual — hang tight…'],
   ];
-  window._wakeTimers = messages.map(([delay, title, sub]) =>
-    setTimeout(() => setBearMessage(title, sub), delay)
+  window._wakeTimers = messages.map(([delay, msg]) =>
+    setTimeout(() => {
+      const txt = document.getElementById('load-txt');
+      if (txt) txt.textContent = msg;
+    }, delay)
   );
 
   const payload = buildPayload();
@@ -2264,13 +2146,6 @@ async function runAnalysis() {
     btn.disabled = false;
     showBackendError(err.message);
   }
-}
-
-function setBearMessage(title, sub) {
-  const t = document.getElementById('load-title');
-  const s = document.getElementById('load-sub');
-  if (t) t.textContent = title;
-  if (s) s.textContent = sub;
 }
 
 function buildPayload() {
@@ -2340,7 +2215,7 @@ function showBackendError(msg) {
   if (!err) return;
   err.style.display = 'block';
   document.getElementById('backend-error-msg').textContent =
-    'The bear seems to have wandered off. Try again in a moment — sometimes it just needs a longer nap.';
+    'The analysis engine could not be reached. Please ensure the backend is deployed and BACKEND_URL is set correctly. (' + msg + ')';
   err.scrollIntoView({behavior:'smooth', block:'start'});
 }
 
@@ -3379,9 +3254,6 @@ async function verifyAccessToken(token) {
 }
 
 function unlockTool(name) {
-  // Stop any cross-device polling that may be running
-  if (typeof stopConfirmationPolling === 'function') stopConfirmationPolling();
-
   document.getElementById('gate-overlay').style.display = 'none';
   // Personalise if name available
   if (name) {
@@ -3442,71 +3314,14 @@ async function submitGate() {
     });
     const data = resp.ok ? await resp.json() : {};
 
-    // Already-confirmed user: backend returned an access token directly — unlock instantly
-    if (data.status === 'confirmed' && data.access_token) {
-      localStorage.setItem('beat_adv_access', JSON.stringify({
-        token: data.access_token, confirmed: true, name: data.name || name, ts: Date.now()
-      }));
-      unlockTool(data.name || name);
-      return;
-    }
-
-    // New/pending user: show "check inbox" AND start cross-device polling
+    // Always require email confirmation — never unlock without verified token
     showCheckInbox(email);
-    startConfirmationPolling(email);
 
   } catch(e) {
     if (submitBtn) { submitBtn.disabled = false; submitBtn.textContent = 'Access the Engine →'; }
     const errDiv = document.getElementById('gate-submit-err');
     if (errDiv) { errDiv.style.display = 'block'; errDiv.textContent = 'Could not reach server — please try again in a moment.'; }
   }
-}
-
-// ── Cross-device polling: detect when user confirms on phone, unlock desktop ──
-let _confirmPollTimer = null;
-let _confirmPollAttempts = 0;
-const _confirmPollMaxAttempts = 75; // 75 × 4s = 5 minutes
-
-function startConfirmationPolling(email) {
-  // Clear any existing timer
-  if (_confirmPollTimer) clearInterval(_confirmPollTimer);
-  _confirmPollAttempts = 0;
-
-  _confirmPollTimer = setInterval(async () => {
-    _confirmPollAttempts++;
-    if (_confirmPollAttempts > _confirmPollMaxAttempts) {
-      stopConfirmationPolling();
-      return;
-    }
-    try {
-      const resp = await fetch(BACKEND_URL + '/check-confirmed', {
-        method: 'POST',
-        headers: {'Content-Type': 'application/json'},
-        body: JSON.stringify({email}),
-        signal: AbortSignal.timeout(4000)
-      });
-      if (!resp.ok) return;
-      const data = await resp.json();
-      if (data.confirmed && data.access_token) {
-        // User confirmed on another device — unlock this tab too
-        stopConfirmationPolling();
-        localStorage.setItem('beat_adv_access', JSON.stringify({
-          token: data.access_token, confirmed: true, name: data.name || '', ts: Date.now()
-        }));
-        unlockTool(data.name || '');
-      }
-    } catch(e) {
-      // Network blip — keep polling
-    }
-  }, 4000);
-}
-
-function stopConfirmationPolling() {
-  if (_confirmPollTimer) {
-    clearInterval(_confirmPollTimer);
-    _confirmPollTimer = null;
-  }
-  _confirmPollAttempts = 0;
 }
 
 function showComingSoon() {
